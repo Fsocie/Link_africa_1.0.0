@@ -18,9 +18,16 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nom',
+        'prenoms',
         'email',
-        'password',
+        'mdp',
+        'telephone',
+        'adresse',
+        'cv',
+        'titre',
+        'description',
+        'photo',
     ];
 
     /**
@@ -29,7 +36,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'mdp',
         'remember_token',
     ];
 
@@ -41,4 +48,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function DemandeEmplois()
+    {
+        return $this->belongsTo(DemandeEmplois::class);
+    }
 }
