@@ -203,32 +203,142 @@
 
   <section class="popular_wrap wow fadeInUp">
     <div class="container">
+      <style>
+        .p-3{
+          background: yellow;
+          width: 150px;
+          height: 150px;
+          border-radius: 30px
+        }
+        .ratings i {
+          color: green;
+        }
+
+        .install span {
+          font-size: 12px;
+        }
+
+        .col-md-4 {
+          margin-top: 25px;
+        }
+      </style>
       <div class="row">
         <div class="col-md-6" >
-          <h5 style="color:#003366">Annuaire des entreprises du Togo</h5>          
-          <div id="menu-cust">
-            <div class="col-12"><a href="{{ route('subCat') }}" style="background-color:#ffb900; font-weight:bold" class="blood">Agroalimentaire</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
-            
+          <div class="row">
+            <h5 style="color:#003366">Annuaire des entreprises du Togo</h5>
           </div>
+                    
+          <div class="container">
+            <div class="row">
+              <a href="{{ route('subCat') }}">
+                  <div class="col-md-4">
+                    <div class="card p-3">
+                        <div class="d-flex flex-row mb-3">
+                          <i class="fa-solid fa-tower-cell"></i>
+                          <p>Communication, publicité</p>
+                        </div>
+                    </div>
+                </div>
+              </a>                
+                <a href="{{ route('subCat') }}">
+                  <div class="col-md-4">
+                    <div class="card p-3">
+                        <div class="d-flex flex-row mb-3">
+                          <i class="fa-solid fa-tower-cell">Bâtiment et construction</i>
+                        </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="{{ route('subCat') }}">
+                  <div class="col-md-4">
+                    <div class="card p-3">
+                        <div class="d-flex flex-row mb-3">
+                          <i class="fa-solid fa-tower-cell">Administrations</i>
+                        </div>
+                    </div>
+                  </div>
+                </a>
+                
+                <a href="{{ route('subCat') }}">
+                  <div class="col-md-4">
+                    <div class="card p-3">
+                        <div class="d-flex flex-row mb-3">
+                          <i class="fa-solid fa-tower-cell">Commerces</i>
+                        </div>
+                    </div>
+                  </div>
+                </a>
+                
+                <a href="{{ route('subCat') }}">
+                  <div class="col-md-4">
+                    <div class="card p-3">
+                        <div class="d-flex flex-row mb-3">
+                          <i class="fa-solid fa-tower-cell">Automobile / Moto</i>
+                        </div>
+                    </div>
+                  </div>
+                </a>
+                
+                <a href="{{ route('subCat') }}">
+                  <div class="col-md-4">
+                    <div class="card p-3">
+                        <div class="d-flex flex-row mb-3">
+                          <i class="fa-solid fa-tower-cell">Télécom. Téléphonie</i>
+                        </div>
+                    </div>
+                  </div>
+                </a>
+                
+                <a href="{{ route('subCat') }}">
+                  <div class="col-md-4">
+                    <div class="card p-3">
+                        <div class="d-flex flex-row mb-3">
+                          <i class="fa-solid fa-tower-cell">Immobilier</i>
+                        </div>
+                    </div>
+                  </div>
+                </a>
+                
+                <a href="{{ route('subCat') }}">
+                  <div class="col-md-4">
+                    <div class="card p-3">
+                        <div class="d-flex flex-row mb-3">
+                          <i class="fa-solid fa-tower-cell">Comptabilité, juridique & conseil</i>
+                        </div>
+                    </div>
+                  </div>
+                </a>
+                
+                <a href="{{ route('subCat') }}">
+                  <div class="col-md-4">
+                    <div class="card p-3">
+                        <div class="d-flex flex-row mb-3">
+                          <i class="fa-solid fa-tower-cell">Tourisme et loisirs</i>
+                        </div>
+                    </div>
+                  </div>
+                </a>
+                
+            </div>
+        </div>
           <br />
           <p><a href="{{ route('allCat') }}">Tous les catégories de l'annuaire</a></p>
         </div>
         <div class="col-md-6">
+          <div class="row">
+            <h5 style="color:#003366">Pub</h5>
+          </div>
+          <br />
+          <div class="container">
+            <div class="row">
+              <div class="popular_img position-relative">
+                <video autoplay muted="" class="popular_img position-relative" poster="#" id="bgvid" loop>
+                  <source src="{{ asset('assets/videos/spotmoov.mp4') }}" type="video/mp4">
+                </video>
+                <div class="popular_img_text"><a href="#">Tout découvrir</a></div>
+              </div>
+            </div>
+          </div>
           
         </div>
         </div>

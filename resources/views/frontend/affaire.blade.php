@@ -6,13 +6,12 @@
         <div class="col-md-8 mx-auto">
             <div class="about-text go-to">
                 <div class="row">
-                    <div class="col-md-6">
-                        <h3 class="dark-color">Epmloi</h3>
+                    <div class="col-md-9">
+                        <h3 class="dark-color">Affaire</h3>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="button-group-area mt-40">
                             <a href="#" class="genric-btn success circle arrow">Offres<span class="lnr lnr-arrow-right"></span></a>
-                            <a href="#" class="genric-btn success-border circle arrow">Demandes<span class="lnr lnr-arrow-right"></span></a>
                         </div>
                     </div>
                 </div>

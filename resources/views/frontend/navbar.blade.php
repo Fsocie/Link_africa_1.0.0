@@ -48,7 +48,7 @@
               class="navbar-toggler-icon"></span> </button>
         </div>
         <div class="col-lg-9">
-          <nav class="navbar navbar-expand-lg navbar-light"> <a class="navbar-brand" href="#">Menu</a>
+          <nav class="navbar navbar-expand-lg navbar-light"> 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <button class="close-toggler" type="button" data-toggle="offcanvas"> <span><i class="fas fa-times-circle"
                     aria-hidden="true"></i></span> </button>
@@ -77,8 +77,8 @@
                 <li class="nav-item"><a class="nav-link" href="#."> Opportunités <span class="caret"><i
                         class="fas fa-caret-down"></i></span></a> <i class="fas fa-caret-down"></i>
                   <ul class="submenu">
-                    <li><a href="#">Affaire</a></li>
-                    <li><a href="{{ route('profil') }}">Emploi au Togo</a></li>
+                    <li><a href="{{ route('affaire') }}">Affaire</a></li>
+                    <li><a href="{{ route('emploi') }}">Emploi au Togo</a></li>
 
                   </ul>
                 </li>
