@@ -201,38 +201,40 @@
     </div>
   </div>
 
-  <div class="property-wrap property_rent wow fadeInUp">
+  <section class="popular_wrap wow fadeInUp">
     <div class="container">
-      <div class="title">
-        <h1 style="color:#003366">SECTEURS D'ACTIVITES</h1>
-      </div>
-      <br />
-      <div id="menu-cust" style="width:90%;overflow-y: scroll; height:200px;">
-        <a href="#" style="background-color:#ffb900; font-weight:bold" class="blood">Agroalimentaire</a>
-        <a href="#" class="tensimeter">Banque / Assurance</a>
-        <a href="#" class="scale">Papier / Carton / Imprimerie</a>
-        <a href="#" class="thermometer">BTP / Matériaux de construction</a>
-        <a href="#" class="mdevice">Chimie / Parachimie</a>
-        <a href="#" class="ear"> Édition / Communication / Multimédia</a>
-        <a href="#" class="bmassage">Études et conseils</a>
-        <a href="#" class="weelchair"> Machines et équipements / Automobile</a>
-        <a href="#" class="asupport">Textile / Habillement / Chaussure</a>
-        <a href="#" class="woman">Commerce / Négoce / Distribution</a>
-        <a href="#" class="baby">Électronique / Électricité</a>
-        <a href="#" class="tooth"> Industrie pharmaceutique</a>
-        <a href="#" class="humidifier">Informatique / Télécoms</a>
-        <a href="#" class="emergencykit"> Métallurgie / Travail du métal</a>
-        <a href="#" class="bmassage">Services aux entreprises</a>
-        <a href="#" class="bmassage"> Transports / Logistique</a>
-        <a href="#" class="baby">Optique & Ophtamologie</a>
-        <a href="#" class="tooth"> Cliniques et Médecine</a>
-        <a href="#" class="humidifier">Informatique / Télécoms</a>
-        <a href="#" class="emergencykit"> Métallurgie / Travail du métal</a>
-
+      <div class="row">
+        <div class="col-md-6" >
+          <h5 style="color:#003366">Annuaire des entreprises du Togo</h5>          
+          <div id="menu-cust">
+            <div class="col-12"><a href="{{ route('subCat') }}" style="background-color:#ffb900; font-weight:bold" class="blood">Agroalimentaire</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            <div class="col-12"><a href="{{ route('subCat') }}" class="tensimeter">Banque / Assurance</a></div>
+            
+          </div>
+          <br />
+          <p><a href="{{ route('allCat') }}">Tous les catégories de l'annuaire</a></p>
+        </div>
+        <div class="col-md-6">
+          
+        </div>
+        </div>
       </div>
     </div>
-  </div>
-
+  </section>
   <div class=" property_rent wow fadeInUp">
     <div class="container">
       <div class="title">

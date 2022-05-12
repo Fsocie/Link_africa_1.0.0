@@ -77,8 +77,8 @@
                 <li class="nav-item"><a class="nav-link" href="#."> Opportunités <span class="caret"><i
                         class="fas fa-caret-down"></i></span></a> <i class="fas fa-caret-down"></i>
                   <ul class="submenu">
-                    <li><a href="#">Offres</a></li>
-                    <li><a href="#">Evenements</a></li>
+                    <li><a href="#">Affaire</a></li>
+                    <li><a href="{{ route('profil') }}">Emploi au Togo</a></li>
 
                   </ul>
                 </li>

@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Entreprises extends Model
+class entreprises extends Model
 {
     use HasFactory;
 
-    public function CategorieEntreprises()
+    public function SousCategorie()
     {
-        return $this->belongsTo(CategorieEntreprises::class);
+        return $this->hasMany(SousCategorieEntreprises::class);
     }
 
     public function offreEmplois()

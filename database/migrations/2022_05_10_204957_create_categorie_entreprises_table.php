@@ -15,10 +15,8 @@ class CreateCategorieEntreprisesTable extends Migration
     { 
         Schema::create('categorie_entreprises', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('entreprise_id')->unsigned();
             $table->string('libelle')->nullable();
             $table->timestamps();
-            $table->foreign('entreprise_id')->references('id')->on('entreprises')->onDelete('cascade');
         });
     }
 

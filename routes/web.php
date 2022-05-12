@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AllCategorieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('frontend.home');
 });
+
+Route::get('/all-categorie',[App\Http\Controllers\AllCategorieController::class, 'allCategorie'])->name('allCat');
+Route::get('/sub-categorie',[App\Http\Controllers\SubCategoryController::class, 'subCategorie'])->name('subCat');
+Route::get('/sub-categorie-entreprise',[App\Http\Controllers\EntrepriseController::class, 'entreprise'])->name('entreprise');
+Route::get('/profile',[App\Http\Controllers\ProfilController::class, 'profil'])->name('profil');

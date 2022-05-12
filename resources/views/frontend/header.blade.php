@@ -24,6 +24,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.0/css/swiper.min.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+
+  <link rel="stylesheet" href="{{ asset('assets2/css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets2/vendors/linericon/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets2/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets2/vendors/owl-carousel/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets2/vendors/lightbox/simpleLightbox.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets2/vendors/nice-select/css/nice-select.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets2/vendors/animate-css/animate.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets2/vendors/flaticon/flaticon.css') }}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{{ asset('assets2/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets2/css/responsive.css') }}">
   @yield('linkCss')
 
 </head>
