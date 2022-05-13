@@ -219,7 +219,7 @@
         }
 
         .col-md-4 {
-          margin-top: 25px;
+          margin-top: 20px;
         }
       </style>
       <div class="row">
@@ -228,97 +228,20 @@
             <h5 style="color:#003366">Annuaire des entreprises du Togo</h5>
           </div>
                     
-          <div class="container">
+          <div class="container"> 
             <div class="row">
-              <a href="{{ route('subCat') }}">
-                  <div class="col-md-4">
-                    <div class="card p-3">
-                        <div class="d-flex flex-row mb-3">
-                          <i class="fa-solid fa-tower-cell"></i>
-                          <p>Communication, publicité</p>
-                        </div>
-                    </div>
-                </div>
-              </a>                
-                <a href="{{ route('subCat') }}">
-                  <div class="col-md-4">
-                    <div class="card p-3">
-                        <div class="d-flex flex-row mb-3">
-                          <i class="fa-solid fa-tower-cell">Bâtiment et construction</i>
-                        </div>
-                    </div>
+              @foreach ($categories as $categorie)
+              <a href="{{ route('subCat',['categorie_id'=>$categorie->id]) }}">
+                <div class="col-md-4">
+                  <div class="card p-3">
+                      <div class="d-flex flex-row mb-3">
+                        <i class="fa-solid fa-tower-cell"></i>
+                        <p>{{ $categorie->libelle }}</p>
+                      </div>
                   </div>
-                </a>
-                <a href="{{ route('subCat') }}">
-                  <div class="col-md-4">
-                    <div class="card p-3">
-                        <div class="d-flex flex-row mb-3">
-                          <i class="fa-solid fa-tower-cell">Administrations</i>
-                        </div>
-                    </div>
-                  </div>
-                </a>
-                
-                <a href="{{ route('subCat') }}">
-                  <div class="col-md-4">
-                    <div class="card p-3">
-                        <div class="d-flex flex-row mb-3">
-                          <i class="fa-solid fa-tower-cell">Commerces</i>
-                        </div>
-                    </div>
-                  </div>
-                </a>
-                
-                <a href="{{ route('subCat') }}">
-                  <div class="col-md-4">
-                    <div class="card p-3">
-                        <div class="d-flex flex-row mb-3">
-                          <i class="fa-solid fa-tower-cell">Automobile / Moto</i>
-                        </div>
-                    </div>
-                  </div>
-                </a>
-                
-                <a href="{{ route('subCat') }}">
-                  <div class="col-md-4">
-                    <div class="card p-3">
-                        <div class="d-flex flex-row mb-3">
-                          <i class="fa-solid fa-tower-cell">Télécom. Téléphonie</i>
-                        </div>
-                    </div>
-                  </div>
-                </a>
-                
-                <a href="{{ route('subCat') }}">
-                  <div class="col-md-4">
-                    <div class="card p-3">
-                        <div class="d-flex flex-row mb-3">
-                          <i class="fa-solid fa-tower-cell">Immobilier</i>
-                        </div>
-                    </div>
-                  </div>
-                </a>
-                
-                <a href="{{ route('subCat') }}">
-                  <div class="col-md-4">
-                    <div class="card p-3">
-                        <div class="d-flex flex-row mb-3">
-                          <i class="fa-solid fa-tower-cell">Comptabilité, juridique & conseil</i>
-                        </div>
-                    </div>
-                  </div>
-                </a>
-                
-                <a href="{{ route('subCat') }}">
-                  <div class="col-md-4">
-                    <div class="card p-3">
-                        <div class="d-flex flex-row mb-3">
-                          <i class="fa-solid fa-tower-cell">Tourisme et loisirs</i>
-                        </div>
-                    </div>
-                  </div>
-                </a>
-                
+              </div>
+            </a> 
+              @endforeach
             </div>
         </div>
           <br />
@@ -345,6 +268,7 @@
       </div>
     </div>
   </section>
+  
   <div class=" property_rent wow fadeInUp">
     <div class="container">
       <div class="title">
