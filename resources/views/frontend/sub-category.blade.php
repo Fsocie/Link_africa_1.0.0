@@ -12,7 +12,7 @@
       <br/>
   <div id="menu-cust"  >
     @foreach ($sousCategories as $sousCategorie)
-      <a href="{{ route('entreprise') }}" class="asupport">{{ $sousCategorie->libelle }}</a>
+      <a href="{{ route('entreprise',['sousCategorie_id'=>$sousCategorie->id]) }}" class="asupport">{{ $sousCategorie->libelle }}</a>
     @endforeach
   </div></div></div>
   @include('frontend.footer')

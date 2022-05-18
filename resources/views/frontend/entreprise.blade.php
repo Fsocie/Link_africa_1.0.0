@@ -137,31 +137,45 @@ form{
     <div class="container">
         <div class="row">
             <div class="col-sm-5 col-md-7 col-12 pb-4">
-                <h2>Les entreprises ..........................</h2>
-                <a href="{{ route('profil-entreprise') }}">
-                    <div class="comment mt-4 text-justify float-left">
-                        <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="80" height="80">
-                        <h4> Entreprise</h4>
-                        <span>-Sous-categorie</span>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-6"><span><i class="fas fa-map-marker-alt"></i></span> <p>adresse.................................</p></div>
-                            <div class="col-md-6"><span><i class="fas fa-phone"></i></span> <p>telephone.....................</p></div>
+                @foreach ($sousCategories as $sousCategorie)
+                    <h2>{{ $sousCategorie->libelle }}</h2>
+                @endforeach
+                
+                @foreach ($entreprises as $entreprise)
+                    <a href="{{ route('profil-entreprise',['entreprise_id'=>$entreprise->id]) }}">
+                        <div class="comment mt-4 text-justify float-left">
+                            <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="80" height="80">
+                            <h4> {{ $entreprise->nom }}</h4>
+                            <span>-{{ $entreprise->libelle }}</span>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $entreprise->adresse }}</p></div>
+                                <div class="col-md-6"><span><i class="fas fa-phone"></i></span> <p>{{ $entreprise->telephone }}</p></div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-4"><span><i class="fas fa-map-marked-alt"></i></span> <a href="{{ $entreprise->itineraire }}">Itineraire</a></div>
+                                <div class="col-md-4"><span><i class="fas fa-file"></i></span> <a href="{{ route('profil-entreprise',['entreprise_id'=>$entreprise->id]) }}">Profile</a></div>
+                                <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $entreprise->siteweb }}">Site Web</a></div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <p>
+                                    {{ $entreprise->description }}
+                                </p>
+                            </div>                    
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-4"><span><i class="fas fa-map-marked-alt"></i></span> <p>Itinéraire..............</p></div>
-                            <div class="col-md-4"><span><i class="fas fa-file"></i></span> <p>Profile.......................</p></div>
-                            <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <p>SiteWeb..........................</p></div>
-                        </div>                    
-                    </div>
-                </a>
+                    </a>
+                @endforeach
             </div>
+
             <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
                 <style>
                     table {
                         border-collapse: collapse;
-                        width: 150%;
+                        width: auto;
+                        margin: auto;
+                        padding: 5px;
                     }
 
                     th, td {
@@ -170,23 +184,25 @@ form{
                         border-bottom: 1px solid #ddd;
                     }
                 </style>
-                <div class="container1">
+                <div class="row">
                     <h3>Sociétés les plus consultées <small></small></h3>
-                    <table>
+                    <div class="col-md-6">
+                        <table>
+                            <tr>
+                                <td>Peter..............................................................................................................................................</td>
+                            </tr>
+                            <tr>
+                                <td>Lois...............................................................</td>
+                            </tr>
+                            <tr>
+                                <td>Joe......................................................................</td>
+                            </tr>
+                            <tr>
+                                <td>Cleveland.....................................................................</td>
+                            </tr>
+                        </table>
+                    </div>
                     
-                        <tr>
-                            <td>Peter.........................................................</td>
-                        </tr>
-                        <tr>
-                            <td>Lois...............................................................</td>
-                        </tr>
-                        <tr>
-                            <td>Joe......................................................................</td>
-                        </tr>
-                        <tr>
-                            <td>Cleveland.....................................................................</td>
-                        </tr>
-                    </table>
                 </div>
                 <br>
             </div>

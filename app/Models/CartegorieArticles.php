@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CategorieEntreprises extends Model
+class CartegorieArticles extends Model
 {
     use HasFactory;
 
-    public function entreprise()
+    public function CategoryEntreprise()
     {
-        return $this->belongsTo(SousCategorieEntreprises::class);
+        return $this->hasMany(Admins::class);
     }
 }

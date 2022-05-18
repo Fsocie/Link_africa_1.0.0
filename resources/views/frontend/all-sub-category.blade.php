@@ -9,7 +9,7 @@
             <br/>
             <div id="menu-cust"  >
                 @foreach ($allsubCategories as $allsubCategorie)
-                <a href="{{ route('entreprise') }}" class="asupport">{{ $allsubCategorie->libelle }}</a>
+                <a href="{{ route('entreprise',['sousCategorie_id'=>$allsubCategorie->id]) }}" class="asupport">{{ $allsubCategorie->libelle }}</a>
                 @endforeach
             </div>
         </div>

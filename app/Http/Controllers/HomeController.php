@@ -13,7 +13,7 @@ class HomeController extends Controller
         $categories = CategorieEntreprises::all()->take(9);
         $sousCategorieNavs = DB::table('categorie_entreprises')
             ->join('sous_categorie_entreprises', 'categorie_entreprises.id', '=', 'sous_categorie_entreprises.categorie_entreprises_id')
-            ->select('sous_categorie_entreprises.libelle')
+            ->select('*')
             ->take(4)
             ->get();
         return view('frontend.home', compact('categories', 'sousCategorieNavs'));

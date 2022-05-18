@@ -89,7 +89,7 @@ body{
     padding-right: 30px;
     padding-top: 10px;
     width: 752px ;
-    height: 200px;
+    height: auto;
 }
 
 .comment1{
@@ -151,33 +151,47 @@ form{
 <!-- Main Body -->
 <section class="popular_wrap wow fadeInUp">
     <div class="container property_rent wow fadeInUp">
-        <div class="row">
-            <div class="comment1">
-                <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="80" height="80">
-                <h4> Entreprise</h4>
-                <span>-Sous-categorie</span>
+        @foreach ($Profil_entreprises as $Profil_entreprise)
+            <div class="row">
+                <div class="comment1">
+                    <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="80" height="80">
+                    <h4> {{ $Profil_entreprise->nom }}</h4>
+                    <span>-{{ $Profil_entreprise->libelle }}</span>
+                </div>
             </div>
-        </div>
+        @endforeach
     </div>
+
     <div class="container ">
         <div class="row">
             <div class="col-sm-5 col-md-7 col-12 pb-4 property_rent wow fadeInUp">
-                <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
-                    <br>
-                    <div class="row">
-                        <div class="col-md-6"></div>
-                        <div class="col-md-6"></div>
+                @foreach ($Profil_entreprises as $Profil_entreprise)
+                    <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
+                        <h4> Coordonnées </h4>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $Profil_entreprise->adresse }}</p></div>
+                            <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone }}</p></div>
+                            <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone2 }}</p></div>
+                            <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">{{ $Profil_entreprise->siteweb }}</a></div>
+                            <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone3 }}</p></div>
+                            <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone4 }}</p></div>
+                            
+                        </div>
+                        <div class="row">
+                            <p>{{ $Profil_entreprise->description }}</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4"><span><i class="fas fa-map-marked-alt"></i></span> <a href="{{ $Profil_entreprise->itineraire }}">Itineraire</a></div>
+                            <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">Site Web</a></div>
+                            <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">Site Web</a></div>
+                        </div>
+                        <br>                    
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4"></div>
-                    </div>                    
-                </div>
+                @endforeach
                 
                 <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
-                   
+                    <h4> Service </h4>
                     <br>
                     <div class="row">
                         <div class="col-md-6"></div>
@@ -192,7 +206,7 @@ form{
                 </div>
 
                 <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
-                   
+                    <h4> Horaire </h4>
                     <br>
                     <div class="row">
                         <div class="col-md-6"></div>
@@ -207,25 +221,26 @@ form{
                 </div>
             </div>
             <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4 property_rent wow fadeInUp">
-                <form id="algin-form">
-                    <div class="form-group">
-                        <h4>Leave a comment</h4>
-                        <label for="message">Message</label>
-                        <textarea name="msg" id=""msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="fullname" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" class="form-control">
-                    </div>
-                    
-                    <div class="form-group">
-                        <button type="button" id="post" class="btn">Post Comment</button>
-                    </div>
-                </form>
+                @foreach ($Profil_entreprises as $Profil_entreprise)
+                    <form id="algin-form">
+                        <div class="form-group">
+                            <h4>Laisser un message à {{ $Profil_entreprise->nom }}</h4>
+                            <label for="name">Nom</label>
+                            <input type="text" name="name" id="fullname" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea name="msg" id=""msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
+                        </div>                        
+                        <div class="form-group">
+                            <button type="button" id="post" class="btn">Postez</button>
+                        </div>
+                    </form>
+                @endforeach
                 <br>
             </div>
         </div>

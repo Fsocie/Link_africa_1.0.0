@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class SubCategoryController extends Controller
 {
-    public function subCategorie($categorie_id)
+    public function subCategorie($categorie_id) 
     {
         $sousCategories = DB::table('categorie_entreprises')->where('categorie_entreprises.id', $categorie_id)
             ->join('sous_categorie_entreprises', 'categorie_entreprises.id', '=', 'sous_categorie_entreprises.categorie_entreprises_id')
@@ -22,7 +22,7 @@ class SubCategoryController extends Controller
             ->get();
         $sousCategorieNavs = DB::table('categorie_entreprises')
             ->join('sous_categorie_entreprises', 'categorie_entreprises.id', '=', 'sous_categorie_entreprises.categorie_entreprises_id')
-            ->select('sous_categorie_entreprises.libelle')
+            ->select('*')
             ->take(4)
             ->get();
         //dump($Categories);

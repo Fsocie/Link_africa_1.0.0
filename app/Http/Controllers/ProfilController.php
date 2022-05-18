@@ -11,7 +11,7 @@ class ProfilController extends Controller
     {
         $sousCategorieNavs = DB::table('categorie_entreprises')
             ->join('sous_categorie_entreprises', 'categorie_entreprises.id', '=', 'sous_categorie_entreprises.categorie_entreprises_id')
-            ->select('sous_categorie_entreprises.libelle')
+            ->select('*')
             ->take(4)
             ->get();
         return view('frontend.profile', compact('sousCategorieNavs'));

@@ -57,7 +57,7 @@
                         class="fas fa-caret-down"></i></span></a> <i class="fas fa-caret-down"></i>
                   <ul class="submenu">
                     @foreach ($sousCategorieNavs as $sousCategorieNav)
-                      <li><a href="{{ route('entreprise') }}">{{ $sousCategorieNav->libelle }}</a></li>
+                      <li><a href="{{ route('entreprise',['sousCategorie_id'=>$sousCategorieNav->id]) }}">{{ $sousCategorieNav->libelle }}</a></li>
                     @endforeach
                     <li><a href="{{ route('allSubCat') }}">Tous les sous-catégories</a></li>
                   </ul>
