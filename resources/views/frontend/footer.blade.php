@@ -3,20 +3,20 @@
       <div class="footer-upper">
         <div class="row">
           <div class="col-lg-3 col-md-12">
-            <div class="footer-widget about-widget"> <a href="#"> <img alt="" src="{{ asset('assets/images/logo.png') }}"> </a>
+            <div class="footer-widget about-widget"> <a href="{{ route('home') }}"> <img alt="" src="{{ asset('assets/images/logo.png') }}"> </a>
               <p></p>
-              <div class="readmore"><a href="#">Contacter </a></div>
+              <div class="readmore"><a href="{{ route('contact') }}">Contacter </a></div>
             </div>
           </div>
           <div class="col-lg-2 col-md-3">
             <div class="footer-widget quick-links">
               <h3 class="title">Liens rapides</h3>
               <ul>
-                <li><a href="#."> Accueil</a> </li>
+                <li><a href="{{ route('home') }}"> Accueil</a> </li>
                 <li><a href="#."> Professionnels</a> </li>
                 <li><a href="#."> Entreprises</a> </li>
                 <li><a href="#."> Services</a> </li>
-                <li><a href="#."> Contact </a> </li>
+                <li><a href="{{ route('contact') }}"> Contact </a> </li>
               </ul>
             </div>
           </div>

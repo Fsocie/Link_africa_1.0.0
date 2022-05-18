@@ -133,7 +133,7 @@ form{
  }
 </style>
 <!-- Main Body -->
-<section>
+<section class="popular_wrap wow fadeInUp">
     <div class="container">
         <div class="row">
             <div class="col-sm-5 col-md-7 col-12 pb-4">
@@ -159,96 +159,34 @@ form{
             </div>
             <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
                 <style>
-                    body {
-                        font-family: 'lato', sans-serif;
-                        }
-                        .container1 {
-                        max-width: 1000px;
-                        margin-left: auto;
-                        margin-right: auto;
-                        padding-left: 10px;
-                        padding-right: 10px;
-                        }
+                    table {
+                        border-collapse: collapse;
+                        width: 150%;
+                    }
 
-                        h2 {
-                        font-size: 26px;
-                        margin: 20px 0;
-                        text-align: center;
-                        small {
-                            font-size: 0.5em;
-                        }
-                        }
-
-                        .responsive-table {
-                        li {
-                            border-radius: 3px;
-                            padding: 25px 30px;
-                            display: flex;
-                            justify-content: space-between;
-                            margin-bottom: 25px;
-                        }
-                        .table-header {
-                            background-color: #95A5A6;
-                            font-size: 14px;
-                            text-transform: uppercase;
-                            letter-spacing: 0.03em;
-                        }
-                        .table-row {
-                            background-color: #ffffff;
-                            box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
-                        }
-                        .col-1 {
-                            flex-basis: 10%;
-                        }
-                        .col-2 {
-                            flex-basis: 40%;
-                        }
-                        .col-3 {
-                            flex-basis: 25%;
-                        }
-                        .col-4 {
-                            flex-basis: 25%;
-                        }
-                        
-                        @media all and (max-width: 100px) {
-                            .table-header {
-                            display: none;
-                            }
-                            .table-row{
-                            
-                            }
-                            li {
-                            display: block;
-                            }
-                            .col0 {
-                            
-                            flex-basis: auto;
-                            
-                            }
-                            .col0 {
-                            display: flex;
-                            padding: 10px 0;
-                            &:before {
-                                color: #6C7A89;
-                                padding-right: 10px;
-                                content: attr(data-label);
-                                flex-basis: 50%;
-                                text-align: right;
-                            }
-                            }
-                        }
-                        }
+                    th, td {
+                        padding: 8px;
+                        text-align: left;
+                        border-bottom: 1px solid #ddd;
+                    }
                 </style>
                 <div class="container1">
-                    <h2>Sociétés les plus consultées <small></small></h2>
-                    <ul class="responsive-table">
-                        <li class="table-row">
-                            <div class="col0 col-1" data-label="Job Id">42311</div>
-                            <div class="col0 col-2" data-label="Customer Name">John Carpenter</div>
-                            <div class="col0 col-3" data-label="Amount">$115</div>
-                            <div class="col0 col-4" data-label="Payment Status">Pending</div>
-                        </li>
-                    </ul>
+                    <h3>Sociétés les plus consultées <small></small></h3>
+                    <table>
+                    
+                        <tr>
+                            <td>Peter.........................................................</td>
+                        </tr>
+                        <tr>
+                            <td>Lois...............................................................</td>
+                        </tr>
+                        <tr>
+                            <td>Joe......................................................................</td>
+                        </tr>
+                        <tr>
+                            <td>Cleveland.....................................................................</td>
+                        </tr>
+                    </table>
                 </div>
                 <br>
             </div>

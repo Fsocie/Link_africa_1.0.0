@@ -235,7 +235,6 @@
                 <div class="col-md-4">
                   <div class="card p-3">
                       <div class="d-flex flex-row mb-3">
-                        <i class="fa-solid fa-tower-cell"></i>
                         <p>{{ $categorie->libelle }}</p>
                       </div>
                   </div>
@@ -252,13 +251,13 @@
             <h5 style="color:#003366">Pub</h5>
           </div>
           <br />
-          <div class="container">
-            <div class="row">
-              <div class="popular_img position-relative">
-                <video autoplay muted="" class="popular_img position-relative" poster="#" id="bgvid" loop>
-                  <source src="{{ asset('assets/videos/spotmoov.mp4') }}" type="video/mp4">
-                </video>
-                <div class="popular_img_text"><a href="#">Tout découvrir</a></div>
+          <div class="row">
+            <div class="col-md-9 mt_md">
+              <div class="popular_img position-relative"> <img alt="" src="{{ asset('assets/images/commerce.jpg') }}">
+                <div class="popular_img_text"><a href="#">Commerce</a></div>
+              </div>
+              <div class="popular_img position-relative mt"> <img alt="" src="{{ asset('assets/images/education.jpg') }}">
+                <div class="popular_img_text"><a href="#">Education</a></div>
               </div>
             </div>
           </div>
@@ -353,7 +352,7 @@
   <script src="./script.js"></script>
 
   <div class="title">
-    <h1 style="color:#003366">SPOT & NEWS</h1>
+    <h1 style="color:#003366">MINI-SPOT</h1>
   </div>
 
   <section class="popular_wrap wow fadeInUp">
@@ -370,7 +369,7 @@
         </div>
         <div class="col-md-6 mt_md">
           <div class="popular_img position-relative">
-            <video autoplay muted="" "	poster=" #" id="bgvid" loop>
+            <video autoplay muted=""	poster=" #" id="bgvid" loop>
               <source src="{{ asset('assets/videos/spotmoov.mp4') }}" type="video/mp4">
             </video>
 
@@ -520,13 +519,12 @@
       </div>
       <p style="color:white">Tous les appels d'offres , les sorties, forum et opportunités d'affaires bénéfiques aux
         opérateurs économiques en 5 minutes!</p>
-      <div class="start_btn"> <span><a href="#">Télécharger</a></span> <span><a href="#">Visionner</a></span> </div>
     </div>
   </div>
 
   <section class="popular_wrap wow fadeInUp">
     <div class="container">
-      <h1>Les évènements à ne pas rater</h1>
+      <h1>publireportage</h1>
       <span></span>
       <div class="row">
         <div class="col-md-8">

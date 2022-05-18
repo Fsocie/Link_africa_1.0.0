@@ -3,9 +3,12 @@
   @include('frontend.navbar')
   <div class="property-wrap property_rent wow fadeInUp">
     <div class="container">
-      <div class="title">
-        <h1 style="color:#003366">Sous Categories</h1>
-      </div>
+      @foreach ($Categories as $Categorie)
+        <div class="title">
+          <h1 style="color:#003366">{{ $Categorie->libelle }}</h1>
+        </div>
+      @endforeach
+      
       <br/>
   <div id="menu-cust"  >
     @foreach ($sousCategories as $sousCategorie)

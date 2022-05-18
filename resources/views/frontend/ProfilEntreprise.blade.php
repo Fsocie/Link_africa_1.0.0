@@ -149,8 +149,8 @@ form{
  }
 </style>
 <!-- Main Body -->
-<section>
-    <div class="container">
+<section class="popular_wrap wow fadeInUp">
+    <div class="container property_rent wow fadeInUp">
         <div class="row">
             <div class="comment1">
                 <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="80" height="80">
@@ -159,11 +159,10 @@ form{
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container ">
         <div class="row">
-            <div class="col-sm-5 col-md-7 col-12 pb-4">
-                <div class="comment mt-4 text-justify float-left">
-                   
+            <div class="col-sm-5 col-md-7 col-12 pb-4 property_rent wow fadeInUp">
+                <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
                     <br>
                     <div class="row">
                         <div class="col-md-6"></div>
@@ -177,7 +176,7 @@ form{
                     </div>                    
                 </div>
                 
-                <div class="comment mt-4 text-justify float-left">
+                <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
                    
                     <br>
                     <div class="row">
@@ -192,7 +191,7 @@ form{
                     </div>                    
                 </div>
 
-                <div class="comment mt-4 text-justify float-left">
+                <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
                    
                     <br>
                     <div class="row">
@@ -207,7 +206,7 @@ form{
                     </div>                    
                 </div>
             </div>
-            <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+            <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4 property_rent wow fadeInUp">
                 <form id="algin-form">
                     <div class="form-group">
                         <h4>Leave a comment</h4>

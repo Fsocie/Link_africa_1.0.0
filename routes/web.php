@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/',[App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/contact',[App\Http\Controllers\ContactUsController::class, 'contactUs'])->name('contact');
 Route::get('/all-categorie',[App\Http\Controllers\AllCategorieController::class, 'allCategorie'])->name('allCat');
+Route::get('/all-sub-categorie',[App\Http\Controllers\AllSubCategoryController::class, 'allSubCategorie'])->name('allSubCat');
 Route::get('/sub-categorie/{categorie_id}',[App\Http\Controllers\SubCategoryController::class, 'subCategorie'])->name('subCat');
 Route::get('/sub-categorie-entreprise',[App\Http\Controllers\EntrepriseController::class, 'entreprise'])->name('entreprise');
 Route::get('/emploi-togo',[App\Http\Controllers\ProfilController::class, 'profil'])->name('emploi');

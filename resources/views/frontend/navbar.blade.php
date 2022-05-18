@@ -53,7 +53,15 @@
               <button class="close-toggler" type="button" data-toggle="offcanvas"> <span><i class="fas fa-times-circle"
                     aria-hidden="true"></i></span> </button>
               <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="{{ route('allCat') }}"> Entreprise</a></li>
+                <li class="nav-item"><a class="nav-link" href="#."> Entreprise <span class="caret"><i
+                        class="fas fa-caret-down"></i></span></a> <i class="fas fa-caret-down"></i>
+                  <ul class="submenu">
+                    @foreach ($sousCategorieNavs as $sousCategorieNav)
+                      <li><a href="{{ route('entreprise') }}">{{ $sousCategorieNav->libelle }}</a></li>
+                    @endforeach
+                    <li><a href="{{ route('allSubCat') }}">Tous les sous-catégories</a></li>
+                  </ul>
+                </li>
 
                 <li class="nav-item"><a class="nav-link" href="#"> Professionnels</a></li>
                 
@@ -74,7 +82,7 @@
                     <li><a href="#">Call center</a></li>
                   </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#"> Contacts</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}"> Contacts</a></li>
               </ul>
             </div>
           </nav>
