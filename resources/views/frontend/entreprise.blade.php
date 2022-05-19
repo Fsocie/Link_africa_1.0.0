@@ -154,9 +154,16 @@ form{
                             </div>
                             <br>
                             <div class="row">
-                                <div class="col-md-4"><span><i class="fas fa-map-marked-alt"></i></span> <a href="{{ $entreprise->itineraire }}">Itineraire</a></div>
+                                @if ($entreprise->itineraire)
+                                    <div class="col-md-4"><span><i class="fas fa-map-marked-alt"></i></span> <a href="{{ $entreprise->itineraire }}">Itineraire</a></div>
+                                @endif
+                                
                                 <div class="col-md-4"><span><i class="fas fa-file"></i></span> <a href="{{ route('profil-entreprise',['entreprise_id'=>$entreprise->id]) }}">Profile</a></div>
-                                <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $entreprise->siteweb }}">Site Web</a></div>
+
+                                @if ($entreprise->siteweb)
+                                    <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $entreprise->siteweb }}">Site Web</a></div>
+                                @endif
+                                
                             </div>
                             <br>
                             <div class="row">

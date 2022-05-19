@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Horaires extends Model
+class Villes extends Model
 {
     use HasFactory;
 
-    public function CategoryEntreprise()
+    public function pays()
     {
-        return $this->hasMany(entreprises::class);
+        return $this->hasMany(Pays::class);
     }
 }

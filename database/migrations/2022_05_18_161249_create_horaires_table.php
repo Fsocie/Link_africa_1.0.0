@@ -15,13 +15,13 @@ class CreateHorairesTable extends Migration
     {
         Schema::create('horaires', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('admin_id')->unsigned();
+            $table->bigInteger('entreprise_id')->unsigned();
             $table->string('jour')->nullable();
             $table->string('h_ouverture')->nullable();
             $table->string('h_fermerture')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();
-            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
+            $table->foreign('entreprise_id')->references('id')->on('entreprises')->onDelete('cascade');
         });
     }
 

@@ -5,12 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Horaires extends Model
+class RelationEntrePaysEntreprise extends Model
 {
     use HasFactory;
-
-    public function CategoryEntreprise()
-    {
-        return $this->hasMany(entreprises::class);
-    }
 }

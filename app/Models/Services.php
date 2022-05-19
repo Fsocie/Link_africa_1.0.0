@@ -11,6 +11,6 @@ class Services extends Model
 
     public function CategoryEntreprise()
     {
-        return $this->hasMany(Admins::class);
+        return $this->hasMany(entreprises::class);
     }
 }

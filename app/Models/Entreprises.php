@@ -18,4 +18,9 @@ class entreprises extends Model
     {
         return $this->belongsTo(OffreEmplois::class);
     }
+
+    public function pays()
+    {
+        return $this->belongsTo(Pays::class);
+    }
 }

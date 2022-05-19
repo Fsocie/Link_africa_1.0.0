@@ -19,6 +19,11 @@ class ProfilEntrepriseController extends Controller
             ->join('sous_categorie_entreprises', 'sous_categorie_entreprises.id', '=', 'sous_categorie_id')
             ->select('*')
             ->get();
-        return view('frontend.ProfilEntreprise', compact('sousCategorieNavs', 'Profil_entreprises'));
+
+        $horaires = DB::table('entreprises')->where('entreprises.id', $entreprise_id)
+            ->join('horaires', 'entreprises.id', '=', 'entreprise_id')
+            ->select('*')
+            ->get();
+        return view('frontend.ProfilEntreprise', compact('sousCategorieNavs', 'Profil_entreprises', 'horaires'));
     }
 }

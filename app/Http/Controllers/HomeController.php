@@ -16,6 +16,11 @@ class HomeController extends Controller
             ->select('*')
             ->take(4)
             ->get();
+
+        $pays = DB::table('pays')
+            ->join('villes', 'pays.id', '=', 'villes.pays_id')
+            ->select('*')
+            ->get();
         return view('frontend.home', compact('categories', 'sousCategorieNavs'));
     }
 }

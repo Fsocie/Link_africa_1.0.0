@@ -170,12 +170,27 @@ form{
                         <h4> Coordonnées </h4>
                         <br>
                         <div class="row">
-                            <div class="col-md-4"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $Profil_entreprise->adresse }}</p></div>
-                            <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone }}</p></div>
-                            <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone2 }}</p></div>
+                            @if ($Profil_entreprise->telephone2)
+                                <div class="col-md-4"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $Profil_entreprise->adresse }}</p></div>
+                                <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone }}</p></div>
+                            @endif
+                            
+                            @if ($Profil_entreprise->telephone2)
+                                <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone2 }}</p></div>
+                            @else
+                                <div class="col-md-6"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $Profil_entreprise->adresse }}</p></div>
+                                <div class="col-md-6"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone }}</p></div>
+                            @endif 
+                            
                             <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">{{ $Profil_entreprise->siteweb }}</a></div>
-                            <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone3 }}</p></div>
-                            <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone4 }}</p></div>
+
+                            @if ($Profil_entreprise->telephone3)
+                                <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone3 }}</p></div>
+                            @endif
+
+                            @if ($Profil_entreprise->telephone4)
+                                <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone4 }}</p></div>
+                            @endif
                             
                         </div>
                         <div class="row">
@@ -204,20 +219,18 @@ form{
                         <div class="col-md-4"></div>
                     </div>                    
                 </div>
-
+                
                 <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
                     <h4> Horaire </h4>
                     <br>
-                    <div class="row">
-                        <div class="col-md-6"></div>
-                        <div class="col-md-6"></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4"></div>
-                    </div>                    
+                    @foreach ($horaires as $horaire)
+                        <div class="row">
+                            <div class="col-md-4"><p> {{ $horaire->jour }} </p></div>
+                            <div class="col-md-4"><p> {{ $horaire->h_ouverture }} </p></div>
+                            <div class="col-md-4"><p> {{ $horaire->h_fermerture }} </p></div>
+                        </div>   
+                    @endforeach
+                    <br>                 
                 </div>
             </div>
             <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4 property_rent wow fadeInUp">
