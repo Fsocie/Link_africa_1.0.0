@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/',[App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/recherche',[App\Http\Controllers\HomeController::class, 'recherche'])->name('recherche');
 Route::get('/contact',[App\Http\Controllers\ContactUsController::class, 'contactUs'])->name('contact');
 Route::get('/all-categorie',[App\Http\Controllers\AllCategorieController::class, 'allCategorie'])->name('allCat');
 Route::get('/all-sub-categorie',[App\Http\Controllers\AllSubCategoryController::class, 'allSubCategorie'])->name('allSubCat');

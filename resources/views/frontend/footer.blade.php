@@ -88,7 +88,7 @@
   <script src="{{ asset('assets/js/script.js') }}"></script>
   <script src="{{ asset('assets/script.js') }}"></script>
 
-  <script src="{{ asset('assets2/js/jquery-3.2.1.min.js') }}"></script>
+  {{-- <script src="{{ asset('assets2/js/jquery-3.2.1.min.js') }}"></script> --}}
         <script src="{{ asset('assets2/js/popper.js') }}"></script>
         <script src="{{ asset('assets2/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets2/js/stellar.js') }}"></script>

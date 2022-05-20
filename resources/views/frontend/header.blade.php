@@ -19,6 +19,7 @@
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
   <title>Les Pages Jaunes </title>
   <link href="{{ asset('assets/style.css') }}" rel="stylesheet">
+
   <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.1.99/css/materialdesignicons.min.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.0/css/swiper.min.css">

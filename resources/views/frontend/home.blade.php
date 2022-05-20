@@ -1,7 +1,6 @@
 @include('frontend.header')
 @include('frontend.navbar')
 
-<div class="container">
   <div class="video">
     <div class="slider-wrap videoWrp" id="home">
       <div class="hero-image" style="background-image: url({{ asset('assets/images/banner2.jpg') }})">
@@ -23,23 +22,85 @@
               <div class="tab-content clearfix">
                 <div class="tab-pane active" id="1a">
                   <div class="form-wrap">
-                    <form>
+                    <form action="{{ route('recherche') }}">
                       <div class="row">
                         <div class="col-lg-6 economy">
                           <div class="input-group origin">
                             <input type="text" name=" Origin"
-                              placeholder="Rechercher une entreprise, un professionnel ..." class="form-control">
+                              placeholder="Recherchez une entreprise, un professionnel ..." class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-lg-6 economy">
+                          <div class="input-group">
+                            <div class="nice-select form-control wide select_option" tabindex="0" ><span class="current" id="test">Pays</span>
+                              <ul class="list" style="width:100%;overflow-y: scroll; height:200px;">
+                                @foreach ($pays as $pay)
+                                  <li data-value="Property Type" class="option">{{ $pay->libelle }}</li>
+                                @endforeach
+                              </ul>
+                            </div>
+                          </div>
+                          <script>var contenu = document.getElementById("test").innerHTML;</script>
+                        </div>
+                        <div class="col-lg-5 economy">
+                          <div class="input-group">
+                            <div class="nice-select form-control wide select_option" tabindex="0" ><span
+                                class="current" id="test2">Ville</span>
+                              <ul class="list" style="width:100%;overflow-y: scroll; height:200px;">
+                                @foreach ($villes as $ville)
+                                  <li data-value="Bedrooms" class="option">{{ $ville->libelle }}</li>
+                                @endforeach
+                              </ul>
+                            </div>
+                          </div>
+                          <script>var contenu2 = document.getElementById("test2").innerHTML;</script>
+                        </div>
+                        <div class="col-lg-5 economy">
+                          <div class="input-group">
+                            <div class="nice-select form-control wide select_option" tabindex="0" ><span
+                                class="current" id="test3">secteur d'activité</span>
+                              <ul class="list" style="width:100%;overflow-y: scroll; height:200px;">
+                                @foreach ($categorie2s as $categorie2)
+                                  <li data-value="Property Type"  class="option">{{ $categorie2->libelle }}</li>
+                                @endforeach
+                              </ul>
+                            </div>
+                          </div>
+                          <script>var contenu3 = document.getElementById("test3").innerHTML;</script>
+                        </div>
+                        <div class="col-lg-2 economy">
+                          <div class="input-btn">
+                            <button class="sbutn" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Trouver </button>
+                          </div>
+                          <script>
+                            console.log("les contenus :",contenu);
+                            var formData = new FormData();
+                            formData.append('pays', contenu);
+                            formData.append('ville', contenu2);
+                            formData.append('secteur', contenu3);
+                          </script>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="tab-pane" id="2a">
+                  <div class="form-wrap">
+                    <form action="{{ route('recherche') }}">
+                      <div class="row">
+                        <div class="col-lg-6 economy">
+                          <div class="input-group origin">
+                            <input type="text" name=" Origin"
+                              placeholder="Entrez le numéro cherché ..." class="form-control">
                           </div>
                         </div>
                         <div class="col-lg-6 economy">
                           <div class="input-group">
                             <div class="nice-select form-control wide select_option" tabindex="0"><span class="current">Pays</span>
-                              <ul class="list">
-                                <li data-value="Property Type" data-display="Property Type" class="option selected focus">Property Type</li>
-                                <li data-value="Residential" class="option">Residential</li>
-                                <li data-value="Commercial" class="option">Commercial</li>
-                                <li data-value="Land" class="option">Land</li>
-                                <li data-value="Luxury" class="option">Luxury</li>
+                              <ul class="list" style="width:100%;overflow-y: scroll; height:200px;">
+                                @foreach ($pays as $pay)
+                                  <li data-value="Property Type" class="option">{{ $pay->libelle }}</li>
+                                @endforeach
                               </ul>
                             </div>
                           </div>
@@ -48,14 +109,10 @@
                           <div class="input-group">
                             <div class="nice-select form-control wide select_option" tabindex="0"><span
                                 class="current">Ville</span>
-                              <ul class="list">
-                                <li data-value="Bedrooms" data-display="Bedrooms" class="option selected focus">Bedrooms
-                                </li>
-                                <li data-value="1" class="option">1</li>
-                                <li data-value="2" class="option">2</li>
-                                <li data-value="3" class="option">3</li>
-                                <li data-value="4" class="option">4</li>
-                                <li data-value="5" class="option">5</li>
+                              <ul class="list" style="width:100%;overflow-y: scroll; height:200px;">
+                                @foreach ($villes as $ville)
+                                  <li data-value="Bedrooms" class="option">{{ $ville->libelle }}</li>
+                                @endforeach
                               </ul>
                             </div>
                           </div>
@@ -63,82 +120,18 @@
                         <div class="col-lg-5 economy">
                           <div class="input-group">
                             <div class="nice-select form-control wide select_option" tabindex="0"><span
-                                class="current">Services , Produits</span>
-                              <ul class="list">
-                                <li data-value="Property Type" data-display="Property Type"
-                                  class="option selected focus">Property Price</li>
-                                <li data-value="Residential" class="option">$999 - $1999</li>
-                                <li data-value="Commercial" class="option">$1999 - $2999</li>
-                                <li data-value="Land" class="option">$2999 - $3999</li>
-                                <li data-value="Luxury" class="option">$3999 - $4999</li>
+                                class="current">secteur d'activité</span>
+                              <ul class="list" style="width:100%;overflow-y: scroll; height:200px;">
+                                @foreach ($categorie2s as $categorie2)
+                                  <li data-value="Property Type"  class="option">{{ $categorie2->libelle }}</li>
+                                @endforeach
                               </ul>
                             </div>
                           </div>
                         </div>
                         <div class="col-lg-2 economy">
                           <div class="input-btn">
-                            <button class="sbutn"><i class="fa fa-search" aria-hidden="true"></i> Trouver </button>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <div class="tab-pane" id="2a">
-                  <div class="form-wrap">
-                    <form>
-                      <div class="row">
-                        <div class="col-lg-6 economy">
-                          <div class="input-group origin">
-                            <input type="text" name=" Origin"
-                              placeholder="Entrez le numéro recherché ..." class="form-control">
-                          </div>
-                        </div>
-                        <div class="col-lg-6 economy">
-                          <div class="input-group">
-                            <div class="nice-select form-control wide select_option" tabindex="0"><span class="current">Quartier</span>
-                              <ul class="list">
-                                <li data-value="Bathrooms" data-display="Bathrooms" class="option selected">Bathrooms</li>
-                                <li data-value="1" class="option">1</li>
-                                <li data-value="2" class="option">2</li>
-                                <li data-value="3" class="option">3</li>
-                                <li data-value="4" class="option">4</li>
-                                <li data-value="5" class="option">5</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-5 economy">
-                          <div class="input-group">
-                            <div class="nice-select form-control wide select_option" tabindex="0"><span class="current">Quartier</span>
-                              <ul class="list">
-                                <li data-value="Bathrooms" data-display="Bathrooms" class="option selected">Bathrooms</li>
-                                <li data-value="1" class="option">1</li>
-                                <li data-value="2" class="option">2</li>
-                                <li data-value="3" class="option">3</li>
-                                <li data-value="4" class="option">4</li>
-                                <li data-value="5" class="option">5</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-5 economy">
-                          <div class="input-group">
-                            <div class="nice-select form-control wide select_option" tabindex="0"><span class="current">Quartier</span>
-                              <ul class="list">
-                                <li data-value="Bathrooms" data-display="Bathrooms" class="option selected">Bathrooms</li>
-                                <li data-value="1" class="option">1</li>
-                                <li data-value="2" class="option">2</li>
-                                <li data-value="3" class="option">3</li>
-                                <li data-value="4" class="option">4</li>
-                                <li data-value="5" class="option">5</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-2 economy">
-                          <div class="input-btn">
-                            <button class="sbutn"><i class="fa fa-search" aria-hidden="true"></i> Trouver </button>
+                            <button class="sbutn" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Trouver </button>
                           </div>
                         </div>
                       </div>
@@ -159,8 +152,8 @@
       <style>
         .p-3{
           background: yellow;
-          width: 150px;
-          height: 150px;
+          width:  150px;
+          height: 150px ;
           border-radius: 30px
         }
         .ratings i {
@@ -230,84 +223,87 @@
     </div>
   </div>
   
-  <div class=" property_rent wow fadeInUp">
-    <div class="container">
-      <div class="title">
-        <h1 style="color:#003366">ILS NOUS ONT REJOINT</h1>
-      </div>
-      <br />
-
-      <!--Carousel Gallery-->
-      <div class="carousel-gallery">
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <a href="#" data-fancybox="gallery">
-                <div class="image"
-                  style="background-image: url({{ asset('assets/images/sanlam.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
-                  <div class="overlay">
-                    <em class="mdi mdi-magnify-plus"></em>
-                  </div>
+  <div class="container">
+    <div class=" property_rent wow fadeInUp">
+      <div class="container">
+        <div class="title">
+          <h1 style="color:#003366">ILS NOUS ONT REJOINT</h1>
+        </div>
+        
+        <div class="container">
+          <div class="carousel-gallery">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="#" data-fancybox="gallery">
+                    <div class="image"
+                      style="background-image: url({{ asset('assets/images/sanlam.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
+                      <div class="overlay">
+                        <em class="mdi mdi-magnify-plus"></em>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="#" data-fancybox="gallery">
-                <div class="image"
-                  style="background-image: url({{ asset('assets/images/sunu.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
-                  <div class="overlay">
-                    <em class="mdi mdi-magnify-plus"></em>
-                  </div>
+                <div class="swiper-slide">
+                  <a href="#" data-fancybox="gallery">
+                    <div class="image"
+                      style="background-image: url({{ asset('assets/images/sunu.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
+                      <div class="overlay">
+                        <em class="mdi mdi-magnify-plus"></em>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="#" data-fancybox="gallery">
-                <div class="image"
-                  style="background-image: url({{ asset('assets/images/kop.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
-                  <div class="overlay">
-                    <em class="mdi mdi-magnify-plus"></em>
-                  </div>
+                <div class="swiper-slide">
+                  <a href="#" data-fancybox="gallery">
+                    <div class="image"
+                      style="background-image: url({{ asset('assets/images/kop.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
+                      <div class="overlay">
+                        <em class="mdi mdi-magnify-plus"></em>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="#" data-fancybox="gallery">
-                <div class="image"
-                  style="background-image: url({{ asset('assets/images/boad.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
-                  <div class="overlay">
-                    <em class="mdi mdi-magnify-plus"></em>
-                  </div>
+                <div class="swiper-slide">
+                  <a href="#" data-fancybox="gallery">
+                    <div class="image"
+                      style="background-image: url({{ asset('assets/images/boad.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
+                      <div class="overlay">
+                        <em class="mdi mdi-magnify-plus"></em>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="#" data-fancybox="gallery">
-                <div class="image"
-                  style="background-image: url({{ asset('assets/images/lonato.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
-                  <div class="overlay">
-                    <em class="mdi mdi-magnify-plus"></em>
-                  </div>
+                <div class="swiper-slide">
+                  <a href="#" data-fancybox="gallery">
+                    <div class="image"
+                      style="background-image: url({{ asset('assets/images/lonato.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
+                      <div class="overlay">
+                        <em class="mdi mdi-magnify-plus"></em>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-              </a>
-            </div>
-            <div class="swiper-slide">
-              <a href="#" data-fancybox="gallery">
-                <div class="image"
-                  style="background-image: url({{ asset('assets/images/safer.jpg') }}) ; border: solid 2px; border-color:blue; border-radius:3px">
-                  <div class="overlay">
-                    <em class="mdi mdi-magnify-plus"></em>
-                  </div>
+                <div class="swiper-slide">
+                  <a href="#" data-fancybox="gallery">
+                    <div class="image"
+                      style="background-image: url({{ asset('assets/images/safer.jpg') }}) ; border: solid 2px; border-color:blue; border-radius:3px">
+                      <div class="overlay">
+                        <em class="mdi mdi-magnify-plus"></em>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-              </a>
+              </div>
+              <div class="swiper-pagination"></div>
             </div>
           </div>
-          <div class="swiper-pagination"></div>
         </div>
       </div>
     </div>
+  
   </div>
-
+ 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.0/js/swiper.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js'></script>
@@ -475,56 +471,59 @@
   </div>
   <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-  <div class="property-wrap property_rent wow fadeInUp">
-    <div class="container">
-      <div class="title">
-        <h1>ELUES <span>Meilleurs services clients</span></h1>
+  <div class="container">
+    <div class="property-wrap property_rent wow fadeInUp">
+      <div class="container">
+        <div class="title">
+          <h1>ELUES <span>Meilleurs services clients</span></h1>
+        </div>
+        <ul class="row">
+          <li class="col-lg-4">
+            <div class="property_box wow fadeInUp">
+              <div class="propertyImg"><img alt="" src="{{ asset('assets/images/sanlam.jpg') }}"></div>
+              <h3><a href="#">Bienvenue cher client</a></h3>            
+              <div class="propert_info">
+                
+              </div>
+              <div class="rent_info">
+                <div class="apart">Découvrir</div>
+                <div class="sale" style="background-color:#003366">Contacter</div>
+              </div>
+            </div>
+          </li>
+          
+          <li class="col-lg-4">
+            <div class="property_box wow fadeInUp">
+              <div class="propertyImg"><img alt="" src="{{ asset('assets/images/boad.jpg') }}"></div>
+              <h3><a href="#">Bienvenue cher client</a></h3>
+              <div class="propert_info">
+  
+              </div>
+              <div class="rent_info">
+                <div class="apart">Découvrir</div>
+                <div class="sale" style="background-color:#003366">Contacter</div>
+              </div>
+            </div>
+          </li>
+          
+          <li class="col-lg-4">
+            <div class="property_box wow fadeInUp">
+              <div class="propertyImg"><img alt="" src="{{ asset('assets/images/sunu.jpg') }}"></div>
+              <h3><a href="#">Bienvenue cher client</a></h3>
+              <div class="propert_info">
+  
+              </div>
+              <div class="rent_info">
+                <div class="apart">Découvrir</div>
+                <div class="sale" style="background-color:#003366">Contacter</div>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
-      <ul class="row">
-        <li class="col-lg-4">
-          <div class="property_box wow fadeInUp">
-            <div class="propertyImg"><img alt="" src="{{ asset('assets/images/sanlam.jpg') }}"></div>
-            <h3><a href="#">Bienvenue cher client</a></h3>            
-            <div class="propert_info">
-              
-            </div>
-            <div class="rent_info">
-              <div class="apart">Découvrir</div>
-              <div class="sale" style="background-color:#003366">Contacter</div>
-            </div>
-          </div>
-        </li>
-        
-        <li class="col-lg-4">
-          <div class="property_box wow fadeInUp">
-            <div class="propertyImg"><img alt="" src="{{ asset('assets/images/boad.jpg') }}"></div>
-            <h3><a href="#">Bienvenue cher client</a></h3>
-            <div class="propert_info">
-
-            </div>
-            <div class="rent_info">
-              <div class="apart">Découvrir</div>
-              <div class="sale" style="background-color:#003366">Contacter</div>
-            </div>
-          </div>
-        </li>
-        
-        <li class="col-lg-4">
-          <div class="property_box wow fadeInUp">
-            <div class="propertyImg"><img alt="" src="{{ asset('assets/images/sunu.jpg') }}"></div>
-            <h3><a href="#">Bienvenue cher client</a></h3>
-            <div class="propert_info">
-
-            </div>
-            <div class="rent_info">
-              <div class="apart">Découvrir</div>
-              <div class="sale" style="background-color:#003366">Contacter</div>
-            </div>
-          </div>
-        </li>
-      </ul>
     </div>
   </div>
+ 
 
   <div class="container">
     <section class="perfect_home_wrap wow fadeInUp">
@@ -542,8 +541,6 @@
         </div>
       </div>
     </section>
-  </div>
-  
 
   <section class="our_team_wrap wow fadeInUp">
     <div class="container">
