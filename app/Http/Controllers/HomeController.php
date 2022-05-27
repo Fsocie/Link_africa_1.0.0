@@ -30,7 +30,7 @@ class HomeController extends Controller
             ->select('*')
             ->take(4)
             ->get();
-
+            dump($_REQUEST);
         return view('frontend.recherche-entreprise', compact('recherches', 'sousCategorieNavs'));
     }
 

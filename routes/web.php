@@ -19,12 +19,23 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/',[App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/recherche',[App\Http\Controllers\HomeController::class, 'recherche'])->name('recherche');
+
 Route::get('/contact',[App\Http\Controllers\ContactUsController::class, 'contactUs'])->name('contact');
+
+Route::post('/contact',[App\Http\Controllers\ContactUsController::class, 'storeContactForm'])->name('contact.store');
+
 Route::get('/all-categorie',[App\Http\Controllers\AllCategorieController::class, 'allCategorie'])->name('allCat');
+
 Route::get('/all-sub-categorie',[App\Http\Controllers\AllSubCategoryController::class, 'allSubCategorie'])->name('allSubCat');
+
 Route::get('/sub-categorie/{categorie_id}',[App\Http\Controllers\SubCategoryController::class, 'subCategorie'])->name('subCat');
+
 Route::get('/sub-categorie-entreprise/{sousCategorie_id}',[App\Http\Controllers\EntrepriseController::class, 'entreprise'])->name('entreprise');
+
 Route::get('/emploi-togo',[App\Http\Controllers\ProfilController::class, 'profil'])->name('emploi');
+
 Route::get('/affaire',[App\Http\Controllers\AffaireController::class, 'affaire'])->name('affaire');
+
 Route::get('/proil-entreprise/{entreprise_id}',[App\Http\Controllers\ProfilEntrepriseController::class, 'profilEntreprise'])->name('profil-entreprise');

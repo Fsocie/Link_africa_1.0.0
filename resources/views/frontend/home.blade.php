@@ -8,7 +8,7 @@
           <source src="{{ asset('assets/videos/construction-background.mp4') }}" type="video/mp4">
         </video>
       </div>
-      <div class="videohover hero-wrapper">
+      <div class="videohover hero-wrapper" >
         <div class="container">
           <div class="sliderTxt video_hoverText">
             <h1 style="font-family:Myriad pro; font-size:22pt">Le premier Annuaire couvrant les 17 pays de l'OHADA </h1>
@@ -22,7 +22,7 @@
               <div class="tab-content clearfix">
                 <div class="tab-pane active" id="1a">
                   <div class="form-wrap">
-                    <form action="{{ route('recherche') }}">
+                    <form action="{{ route('recherche') }}" method="GET">
                       <div class="row">
                         <div class="col-lg-6 economy">
                           <div class="input-group origin">
@@ -70,14 +70,17 @@
                         </div>
                         <div class="col-lg-2 economy">
                           <div class="input-btn">
-                            <button class="sbutn" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Trouver </button>
+                            <button class="sbutn" type="submit"><i class="fa fa-search" aria-hidden="true" id="id_btn"></i> Trouver </button>
                           </div>
                           <script>
-                            console.log("les contenus :",contenu);
-                            var formData = new FormData();
-                            formData.append('pays', contenu);
-                            formData.append('ville', contenu2);
-                            formData.append('secteur', contenu3);
+                            $('#id_btn').on("click",function(e){
+                              console.log("les contenus :",contenu);
+                              var formData = new FormData();
+                              formData.append('pays', contenu);
+                              formData.append('ville', contenu2);
+                              formData.append('secteur', contenu3);
+                              window.location.href = "{{ route('recherche') }}?contenu=" + contenu + "&contenu2=" + contenu2 + "&contenu3=" +contenu3;
+                            });
                           </script>
                         </div>
                       </div>
@@ -151,11 +154,25 @@
     <div class="container">
       <style>
         .p-3{
-          background: yellow;
+          
+          background: #ffb900;
           width:  150px;
-          height: 150px ;
+          height: 150px;
           border-radius: 30px
         }
+
+        .ob{
+          position: relative;
+          left:0; width:100%; 
+        }
+
+        .mb-3 p{
+          text-align: center;
+          display: block;
+          padding: 15px 0 14px 0;
+          width: 100%;
+        }
+
         .ratings i {
           color: green;
         }
@@ -178,7 +195,7 @@
             <div class="row">
               @foreach ($categories as $categorie)
               <a href="{{ route('subCat',['categorie_id'=>$categorie->id]) }}">
-                <div class="col-md-4">
+                <div class="col-md-4 ob">
                   <div class="card p-3">
                       <div class="d-flex flex-row mb-3">
                         <p>{{ $categorie->libelle }}</p>
@@ -215,8 +232,8 @@
   </section>
 
   <div class="container">
-    <div class="buy-wrap wow fadeInUp">
-      <div class="container">
+    <div class="buy-wrap wow fadeInUp" style="height: 20px">
+      <div class="container" >
         <div class="title">
         </div>
       </div>
@@ -407,7 +424,7 @@
   </div>
 
   <div class="container">
-    <div class="buy-wrap wow fadeInUp">
+    <div class="buy-wrap wow fadeInUp" style="height: 20px">
       <div class="container">
         <div class="title">
         </div>

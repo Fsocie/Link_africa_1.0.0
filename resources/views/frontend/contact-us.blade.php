@@ -20,32 +20,40 @@
                     </div>
                     <div class="info_item">
                         <i class="lnr lnr-phone-handset"></i>
-                        <h6><a href="#">00 (228) 00 00 00 00</a></h6>
+                        <h6><a href="tel:7704282433">00 (228) 00 00 00 00</a></h6>
                         <p>Mon to Fri 9am to 6 pm</p>
                     </div>
                     <div class="info_item">
                         <i class="lnr lnr-envelope"></i>
-                        <h6><a href="#">exemple@exemple.com</a></h6>
+                        <h6><a href="mailto:exemple@exemple.com">exemple@exemple.com</a></h6>
                         <p>Send us your query anytime!</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-9">
-                <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                @if(Session::has('success'))
+                    <div class="alert alert-success" role="alert">{{Session::get('success') }}</div>
+                @endif
+                <form class="row contact_form" action="{{ route('contact.store') }}" method="POST" id="contactForm" novalidate="novalidate">
+                    @csrf
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom">
+                            <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom">
+                            @error('nom')<span class="text-danger">{{$message}}</span>@enderror
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre email">
+                            @error('email')<span class="text-danger">{{$message}}</span>@enderror
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Entrez l'objet">
+                            <input type="text" class="form-control" id="objet" name="objet" placeholder="Entrez l'objet">
+                            @error('objet')<span class="text-danger">{{$message}}</span>@enderror
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <textarea class="form-control" name="message" id="message" rows="1" placeholder="Entrez votre message"></textarea>
+                            @error('message')<span class="text-danger">{{$message}}</span>@enderror
                         </div>
                     </div>
                     <div class="col-md-12 text-right">

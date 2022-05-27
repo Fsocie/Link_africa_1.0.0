@@ -11,7 +11,7 @@
         </div>
         <div class="col-lg-6 col-md-8">
           <div class="top_right">
-            <div class="topbar_phone"><a href="#"><i class="fas fa-phone-alt" aria-hidden="true"></i> (+228) 000 0000 00
+            <div class="topbar_phone"><a href="tel:7704282433"><i class="fas fa-phone-alt" aria-hidden="true"></i> (+228) 00 00 00 00
               </a></div>
             <div class="topbar_login" style="background-color:orange">
 
@@ -69,7 +69,7 @@
                         class="fas fa-caret-down"></i></span></a> <i class="fas fa-caret-down"></i>
                   <ul class="submenu">
                     <li><a href="{{ route('affaire') }}">Affaire</a></li>
-                    <li><a href="{{ route('emploi') }}">Emploi au Togo</a></li>
+                    {{-- <li><a href="{{ route('emploi') }}">Emploi </a></li> --}}
 
                   </ul>
                 </li>

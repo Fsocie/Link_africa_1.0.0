@@ -53,7 +53,7 @@
               <ul class="footer-adress">
                 <li class="footer_address"> <i class="fas fa-map-signs"></i> <span>Afrique , Ghana , Accra</span> </li>
                 <li class="footer_email"> <i class="fas fa-envelope" aria-hidden="true"></i> <span><a
-                      href="mailto:info@realestate.com"> info@pagesjaunesafrique.com </a></span> </li>
+                      href="mailto:exemple@exemple.com"> info@pagesjaunesafrique.com </a></span> </li>
                 <li class="footer_phone"> <i class="fas fa-phone-alt"></i> <span><a href="tel:7704282433"> +233
                       0000000000</a></span> </li>
               </ul>

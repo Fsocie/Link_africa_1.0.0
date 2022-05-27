@@ -14,6 +14,15 @@ class AffaireController extends Controller
             ->select('*')
             ->take(4)
             ->get();
-        return view('frontend.affaire', compact('sousCategorieNavs'));
+
+        $affaires = DB::table('offre_emplois')
+            ->join('entreprises', 'offre_emplois.entreprise_id', '=', 'entreprises.id')
+            ->join('sous_categorie_entreprises', 'entreprises.sous_categorie_id', '=', 'sous_categorie_entreprises.id')
+            ->join('emplois', 'offre_emplois.emploi_id', '=', 'emplois.id')
+            ->select('*','sous_categorie_entreprises.libelle as sousCatlib','emplois.libelle as emploiLib')
+            ->orderBy('emplois.id', 'DESC')
+            //->get()
+            ->paginate(2);
+        return view('frontend.affaire', compact('sousCategorieNavs', 'affaires'));
     }
 }
