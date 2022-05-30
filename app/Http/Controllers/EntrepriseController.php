@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\entreprises;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -25,6 +26,8 @@ class EntrepriseController extends Controller
             ->select('sous_categorie_entreprises.libelle')
             ->limit(1)
             ->get();
-        return view('frontend.entreprise', compact('sousCategorieNavs', 'entreprises', 'sousCategories'));
+
+        $entreprisePopulaire = entreprises::inRandomOrder()->limit(4)->get();
+        return view('frontend.entreprise', compact('sousCategorieNavs', 'entreprises', 'sousCategories', 'entreprisePopulaire'));
     }
 }

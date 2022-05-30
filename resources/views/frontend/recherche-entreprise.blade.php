@@ -176,30 +176,24 @@ form{
                 @endforeach
             </div>
 
-            <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4 property_rent wow fadeInUp">
-                <style>
-                    .ok{
-                        
-                        margin: auto;
-                    }
-                </style>
-                    <h3>Sociétés les plus consultées <small></small></h3>
-                    <section class="u-clearfix u-image u-section-1" id="carousel_4782" data-image-width="1980" data-image-height="1200">
-                        <div class="u-clearfix u-sheet u-sheet-1">
-                            <div class="u-list u-list-1">
-                                <div class="u-repeater u-repeater-1">
-                                    <div class="u-container-style u-grey-10 u-list-item u-repeater-item u-video-cover u-list-item-1">
-                                        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-                                            <h2 class="u-custom-font u-text u-text-default u-text-1">Excepteur sint occaecat </h2>
-                                            <p class="u-text u-text-default u-text-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
-                                            <div class="u-border-1 u-border-grey-dark-1 u-expanded-width u-line u-line-horizontal u-line-1"></div>
-                                        </div>
-                                    </div>
-                                <hr />
+            <div class="col-lg-4 col-md-6 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+                <h3>Sociétés les plus consultées <small></small></h3>
+                @foreach ($entreprisePopulaire as $entreprisePopulaires)
+                    <div class="relative flex items-center py-8 px-8 border-0 border-b border-gray-400 border-solid first:border-t hover:bg-gray-100" style="width: auto">
+                        <div class="flex-1 mr-8 flex flex-col">
+                            <a class="stretched-link text-black text-16 hover:text-link mb-3 font-bold" href="#">{{ $entreprisePopulaires->nom }}</a>
+                            <div class="flex text-12 font-light text-gray-600 items-center">
+                                <div class="mr-8  flex items-center">
+                                    <i class="text-16 mr-2 text-gray-400 fa fa-map-marker"></i><span>{{ $entreprisePopulaires->adresse }}</span>
+                                </div>
+                                <div class=" flex items-center">
+                                    <i class="text-16 mr-2 text-gray-400 fa fa-globe"></i><a href="{{ $entreprisePopulaires->siteweb }}"><span>Site Web</span></a>
                                 </div>
                             </div>
                         </div>
-                    </section>
+                        <i class="hidden t:block text-20 tnp tnp-arrow"></i>
+                    </div>
+                @endforeach
                 <br>
             </div>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategorieEntreprises;
+use App\Models\entreprises;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -30,8 +31,11 @@ class HomeController extends Controller
             ->select('*')
             ->take(4)
             ->get();
-            dump($_REQUEST);
-        return view('frontend.recherche-entreprise', compact('recherches', 'sousCategorieNavs'));
+            //dump($_REQUEST);
+        
+        $entreprisePopulaire = entreprises::inRandomOrder()->limit(4)->get();
+        
+        return view('frontend.recherche-entreprise', compact('recherches', 'sousCategorieNavs', 'entreprisePopulaire'));
     }
 
     public function index()
@@ -53,6 +57,7 @@ class HomeController extends Controller
         
         $categorie2s = CategorieEntreprises::all();
         //dump($_REQUEST);
+        dd($pays);
         return view('frontend.home', compact('categories', 'sousCategorieNavs', 'pays', 'villes', 'categorie2s'));
     }
 }

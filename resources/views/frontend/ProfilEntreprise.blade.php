@@ -2,97 +2,93 @@
 @include('frontend.header')
 @include('frontend.navbar')
 <style>
-    .navbar-nav{
-    width: 100%;
-}
-
-@media(min-width:568px){
-    .end{
-        margin-left: auto;
-    }
-}
-
-@media(max-width:768px){
-    #post{
+        .navbar-nav{
         width: 100%;
     }
-}
-#clicked{
-    padding-top: 1px;
-    padding-bottom: 1px;
-    text-align: center;
-    width: 100%;
-    background-color: #ecb21f;
-    border-color: #a88734 #9c7e31 #846a29;
-    color: black;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 13px; 
-}
 
-#profile{
-    background-color: unset;
-    
-} 
+    @media(min-width:568px){
+        .end{
+            margin-left: auto;
+        }
+    }
 
-#post{
-    margin: 10px;
-    padding: 6px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    text-align: center;
-    background-color: orange;
-    border-color: #a88734 #9c7e31 #846a29;
-    color: black;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 13px;
-    width: 50%;
-}
+    @media(max-width:768px){
+        #post{
+            width: 100%;
+        }
+    }
+    #clicked{
+        padding-top: 1px;
+        padding-bottom: 1px;
+        text-align: center;
+        width: 100%;
+        background-color: #ecb21f;
+        border-color: #a88734 #9c7e31 #846a29;
+        color: black;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 13px; 
+    }
 
-body{
-    background:#f5f5f5;
-}
+    #profile{
+        background-color: unset;
+        
+    } 
 
-#nav-items li a,#profile{
-    text-decoration: none;
-    color: rgb(224, 219, 219);
-    background-color: black;
-}
+    #post{
+        margin: 10px;
+        padding: 6px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        text-align: center;
+        background-color: orange;
+        border-color: #a88734 #9c7e31 #846a29;
+        color: black;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 13px;
+        width: 50%;
+    }
+
+    body{
+        background:#f5f5f5;
+    }
+
+    #nav-items li a,#profile{
+        text-decoration: none;
+        color: rgb(224, 219, 219);
+        background-color: black;
+    }
 
 
-.comments{
-    margin-top: 5%;
-    margin-left: 20px;
-}
+    .comments{
+        margin-top: 5%;
+        margin-left: 20px;
+    }
 
-.comment1{
-    margin-left: 20px;
-}
+    .darker{
+        border: 1px solid #ecb21f;
+        background-color: black;
+        float: right;
+        border-radius: 5px;
+        padding-left: 40px;
+        padding-right: 30px;
+        padding-top: 10px;
+    }
 
-.darker{
-    border: 1px solid #ecb21f;
-    background-color: black;
-    float: right;
-    border-radius: 5px;
-    padding-left: 40px;
-    padding-right: 30px;
-    padding-top: 10px;
-}
+    .comment{
+        border: 1px solid rgba(16, 46, 46, 1);
+        background-color: rgba(16, 46, 46, 0.973);
+        float: left;
+        border-radius: 5px;
+        padding-left: 40px;
+        padding-right: 30px;
+        padding-top: 10px;
+        width: 700px ;
+        height: 200px auto;
+    }
 
-.comment{
-    border: 1px solid rgba(16, 46, 46, 1);
-    background-color: rgba(16, 46, 46, 0.973);
-    float: left;
-    border-radius: 5px;
-    padding-left: 40px;
-    padding-right: 30px;
-    padding-top: 10px;
-    width: 752px ;
-    height: auto;
-}
-
-.comment1{
+    .comment1{
     border: 1px solid rgba(16, 46, 46, 1);
     background-color: rgba(16, 46, 46, 0.973);
     border-radius: 5px;
@@ -102,51 +98,50 @@ body{
     width: 1200px;
     height: 250px;
 }
+    .comment h4,.comment span,.darker h4,.darker span, .comment p{
+        display: inline;
+    }
 
-.comment h4,.comment span,.darker h4,.darker span, .comment p{
-    display: inline;
-}
+    .comment p,.comment span,.darker p,.darker span{
+        color: rgb(184, 183, 183);
+    }
 
-.comment p,.comment span,.darker p,.darker span{
-    color: rgb(184, 183, 183);
-}
+    h1,h4{
+        color: white;
+        font-weight: bold;
+    }
+    label{
+        color: rgb(212, 208, 208);
+    }
 
-h1,h4{
-    color: white;
-    font-weight: bold;
-}
-label{
-    color: rgb(212, 208, 208);
-}
+    #align-form{
+        margin-top: 20px;
+    }
+    .form-group p a{
+        color: white;
+    }
 
-#align-form{
-    margin-top: 20px;
-}
-.form-group p a{
-    color: white;
-}
+    #checkbx{
+        background-color: black;
+    }
 
-#checkbx{
-    background-color: black;
-}
+    #darker img{
+        margin-right: 15px;
+        position: static;
+    }
 
-#darker img{
-    margin-right: 15px;
-    position: static;
-}
+    .form-group input,.form-group textarea{
+        background-color: black;
+        border: 1px solid rgba(16, 46, 46, 1);
+        border-radius: 12px;
+    }
 
-.form-group input,.form-group textarea{
-    background-color: black;
-    border: 1px solid rgba(16, 46, 46, 1);
-    border-radius: 12px;
-}
-
-form{
-    border: 1px solid rgba(16, 46, 46, 1);
-    background-color: rgba(16, 46, 46, 0.973);
-    border-radius: 5px;
-    padding: 20px;
- }
+    form{
+        border: 1px solid rgba(16, 46, 46, 1);
+        background-color: rgba(16, 46, 46, 0.973);
+        border-radius: 5px;
+        padding: 20px;
+    }
 </style>
 <!-- Main Body -->
 <section class="popular_wrap wow fadeInUp">
@@ -164,7 +159,7 @@ form{
 
     <div class="container ">
         <div class="row">
-            <div class="col-sm-5 col-md-7 col-12 pb-4 property_rent wow fadeInUp">
+            <div class="col-sm-6 col-md-7 col-12 pb-4 property_rent wow fadeInUp">
                 @foreach ($Profil_entreprises as $Profil_entreprise)
                     <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
                         <h4> Coordonnées </h4>
@@ -194,7 +189,10 @@ form{
                             
                         </div>
                         <div class="row">
-                            <p>{{ $Profil_entreprise->description }}</p>
+                            <div class="col-md-11">
+                                <p>{{ $Profil_entreprise->description }}</p>
+                            </div>
+                            
                         </div>
                         <div class="row">
                             <div class="col-md-4"><span><i class="fas fa-map-marked-alt"></i></span> <a href="{{ $Profil_entreprise->itineraire }}">Itineraire</a></div>
@@ -233,7 +231,7 @@ form{
                     <br>                 
                 </div>
             </div>
-            <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4 property_rent wow fadeInUp">
+            <div class="col-lg-4 col-md-5 col-sm-6 offset-md-1 offset-sm-1 col-12 mt-4 property_rent wow fadeInUp">
                 @foreach ($Profil_entreprises as $Profil_entreprise)
                     <form id="algin-form">
                         <div class="form-group">

@@ -37,6 +37,9 @@
         <!-- main css -->
         <link rel="stylesheet" href="{{ asset('assets2/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('assets2/css/responsive.css') }}">
+
+        {{-- <link rel="stylesheet" href="{{ asset('assets3/css/main.css') }}" /> --}}
+        <link rel="stylesheet" href="{{ asset('assets3/css/tailwind.css') }}" />
   @yield('linkCss')
 
 </head>

@@ -152,39 +152,6 @@
     
   <section class="popular_wrap wow fadeInUp">
     <div class="container">
-      <style>
-        .p-3{
-          
-          background: #ffb900;
-          width:  150px;
-          height: 150px;
-          border-radius: 30px
-        }
-
-        .ob{
-          position: relative;
-          left:0; width:100%; 
-        }
-
-        .mb-3 p{
-          text-align: center;
-          display: block;
-          padding: 15px 0 14px 0;
-          width: 100%;
-        }
-
-        .ratings i {
-          color: green;
-        }
-
-        .install span {
-          font-size: 12px;
-        }
-
-        .col-md-4 {
-          margin-top: 20px;
-        }
-      </style>
       <div class="row">
         <div class="col-md-6" >
           <div class="row">
@@ -194,15 +161,15 @@
           <div class="container"> 
             <div class="row">
               @foreach ($categories as $categorie)
-              <a href="{{ route('subCat',['categorie_id'=>$categorie->id]) }}">
-                <div class="col-md-4 ob">
-                  <div class="card p-3">
-                      <div class="d-flex flex-row mb-3">
-                        <p>{{ $categorie->libelle }}</p>
-                      </div>
+                <div class="grid-cell-category flex w-1/2 mm:w-1/3 t:w-1/4 ls:w-1/3 p-1 ls:p-4 relative">
+                  <div
+                    class="bg-brand-yellow hover:bg-brand-yellowDark flex flex-col items-center justify-center w-full rounded-lg p-6 ls:p-8">
+                      <i class="text-46 ls:text-55 text-black mb-3 ls:mb-4 tnp tnp-communication"></i>
+                      <a href="{{ route('subCat',['categorie_id'=>$categorie->id]) }}" class="stretched-link text-center text-11 ls:text-14 text-black hover:text-black no-underline hover:no-underline">
+                        <p>{{$categorie->libelle}}</p>
+                      </a>
                   </div>
-              </div>
-            </a> 
+                </div>
               @endforeach
             </div>
         </div>
@@ -231,8 +198,8 @@
     </div>
   </section>
 
-  <div class="container">
-    <div class="buy-wrap wow fadeInUp" style="height: 20px">
+  <div class="container" style="height: 200px">
+    <div class="buy-wrap wow fadeInUp" style="height: 200px">
       <div class="container" >
         <div class="title">
         </div>
