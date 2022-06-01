@@ -13,6 +13,7 @@ class EntrepriseController extends Controller
         $entreprises = DB::table('sous_categorie_entreprises')->where('sous_categorie_entreprises.id', $sousCategorie_id)
             ->join('entreprises', 'sous_categorie_entreprises.id', '=', 'sous_categorie_id')
             ->select('*')
+            ->orderBy('entreprises.id', 'desc')
             ->get();
 
         $sousCategorieNavs = DB::table('categorie_entreprises')

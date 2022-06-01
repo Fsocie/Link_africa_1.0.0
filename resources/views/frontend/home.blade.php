@@ -1,5 +1,10 @@
+@section('title')
+    {{ "Accueil" }}
+@endsection
 @include('frontend.header')
 @include('frontend.navbar')
+
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
   <div class="video">
     <div class="slider-wrap videoWrp" id="home">
@@ -32,56 +37,67 @@
                         </div>
                         <div class="col-lg-6 economy">
                           <div class="input-group">
-                            <div class="nice-select form-control wide select_option" tabindex="0" ><span class="current" id="test">Pays</span>
+                            {{-- <div class="nice-select form-control wide select_option" tabindex="0" ><button id="test" class="current" > Pays </button>
                               <ul class="list" style="width:100%;overflow-y: scroll; height:200px;">
                                 @foreach ($pays as $pay)
-                                  <li data-value="Property Type" class="option">{{ $pay->libelle }}</li>
+                                  <li value="{{ $pay->libelle }}">{{ $pay->libelle }}</li>
                                 @endforeach
                               </ul>
-                            </div>
+                            </div> --}}
+                            <select class="form-control" data-live-search="true"  name="pays" id="pays">
+                              <option selected>Choisir pays ...</option>
+                              @foreach ($pays as $pay)
+                                <option value="{{ $pay->libelle }}">{{ $pay->libelle }}</option>
+                              @endforeach
+                            </select>
+                            <script>
+                              var select_box = document.querySelector('#pays');
+                              dselect(select_box, {
+                                search: true
+                              });
+                            </script>
                           </div>
-                          <script>var contenu = document.getElementById("test").innerHTML;</script>
                         </div>
                         <div class="col-lg-5 economy">
                           <div class="input-group">
-                            <div class="nice-select form-control wide select_option" tabindex="0" ><span
-                                class="current" id="test2">Ville</span>
+                            {{-- <div class="nice-select form-control wide select_option" tabindex="0" ><div
+                                class="current" id="test2">Ville</div>
                               <ul class="list" style="width:100%;overflow-y: scroll; height:200px;">
                                 @foreach ($villes as $ville)
                                   <li data-value="Bedrooms" class="option">{{ $ville->libelle }}</li>
                                 @endforeach
                               </ul>
-                            </div>
+                            </div> --}}
+                            <select class="form-control" data-live-search="true"  name="ville">
+                              <option selected>Choisir ville ...</option>
+                              @foreach ($villes as $ville)
+                                <option value="{{ $ville->libelle }}">{{ $ville->libelle }}</option>
+                              @endforeach
+                            </select>
                           </div>
-                          <script>var contenu2 = document.getElementById("test2").innerHTML;</script>
                         </div>
                         <div class="col-lg-5 economy">
                           <div class="input-group">
-                            <div class="nice-select form-control wide select_option" tabindex="0" ><span
-                                class="current" id="test3">secteur d'activité</span>
+                            {{-- <div class="nice-select form-control wide select_option" tabindex="0" ><div
+                                class="current" id="test3">secteur d'activité</div>
                               <ul class="list" style="width:100%;overflow-y: scroll; height:200px;">
                                 @foreach ($categorie2s as $categorie2)
                                   <li data-value="Property Type"  class="option">{{ $categorie2->libelle }}</li>
                                 @endforeach
                               </ul>
-                            </div>
+                            </div> --}}
+                            <select class="form-control" data-live-search="true"  name="secteur">
+                              <option selected>Choisir secteur d'activité ...</option>
+                              @foreach ($categorie2s as $categorie2)
+                                <option value="{{ $categorie2->libelle }}">{{ $categorie2->libelle }}</option>
+                              @endforeach
+                            </select>
                           </div>
-                          <script>var contenu3 = document.getElementById("test3").innerHTML;</script>
                         </div>
                         <div class="col-lg-2 economy">
                           <div class="input-btn">
-                            <button class="sbutn" type="submit"><i class="fa fa-search" aria-hidden="true" id="id_btn"></i> Trouver </button>
+                            <button class="sbutn" type="submit" id="id_btn"> <i class="fa fa-search" aria-hidden="true"></i> Trouver </button>
                           </div>
-                          <script>
-                            $('#id_btn').on("click",function(e){
-                              console.log("les contenus :",contenu);
-                              var formData = new FormData();
-                              formData.append('pays', contenu);
-                              formData.append('ville', contenu2);
-                              formData.append('secteur', contenu3);
-                              window.location.href = "{{ route('recherche') }}?contenu=" + contenu + "&contenu2=" + contenu2 + "&contenu3=" +contenu3;
-                            });
-                          </script>
                         </div>
                       </div>
                     </form>
@@ -89,7 +105,7 @@
                 </div>
                 <div class="tab-pane" id="2a">
                   <div class="form-wrap">
-                    <form action="{{ route('recherche') }}">
+                    <form action="{{ route('recherche') }}" method="GET">
                       <div class="row">
                         <div class="col-lg-6 economy">
                           <div class="input-group origin">
@@ -99,42 +115,60 @@
                         </div>
                         <div class="col-lg-6 economy">
                           <div class="input-group">
-                            <div class="nice-select form-control wide select_option" tabindex="0"><span class="current">Pays</span>
+                            {{-- <div class="nice-select form-control wide select_option" tabindex="0" ><div id="test" class="current" > Pays </div>
                               <ul class="list" style="width:100%;overflow-y: scroll; height:200px;">
                                 @foreach ($pays as $pay)
-                                  <li data-value="Property Type" class="option">{{ $pay->libelle }}</li>
+                                  <li value="{{ ketchup mustard }}">{{ $pay->libelle }}</li>
                                 @endforeach
                               </ul>
-                            </div>
+                            </div> --}}
+                            <select class="form-control" data-live-search="true"  name="pays">
+                              <option selected>Choisir pays ...</option>
+                              @foreach ($pays as $pay)
+                                <option value="{{ $pay->libelle }}">{{ $pay->libelle }}</option>
+                              @endforeach
+                            </select>
                           </div>
                         </div>
                         <div class="col-lg-5 economy">
                           <div class="input-group">
-                            <div class="nice-select form-control wide select_option" tabindex="0"><span
-                                class="current">Ville</span>
+                            {{-- <div class="nice-select form-control wide select_option" tabindex="0" ><div
+                                class="current" id="test2">Ville</div>
                               <ul class="list" style="width:100%;overflow-y: scroll; height:200px;">
                                 @foreach ($villes as $ville)
                                   <li data-value="Bedrooms" class="option">{{ $ville->libelle }}</li>
                                 @endforeach
                               </ul>
-                            </div>
+                            </div> --}}
+                            <select class="form-control" data-live-search="true"  name="ville">
+                              <option selected>Choisir ville ...</option>
+                              @foreach ($villes as $ville)
+                                <option value="{{  $ville->libelle }}">{{ $ville->libelle }}</option>
+                              @endforeach
+                            </select>
                           </div>
                         </div>
                         <div class="col-lg-5 economy">
-                          <div class="input-group">
-                            <div class="nice-select form-control wide select_option" tabindex="0"><span
-                                class="current">secteur d'activité</span>
+                          <div class="input-group origin">
+                            {{-- <div class="nice-select form-control wide select_option" tabindex="0" ><div
+                                class="current" id="test3">secteur d'activité</div>
                               <ul class="list" style="width:100%;overflow-y: scroll; height:200px;">
                                 @foreach ($categorie2s as $categorie2)
                                   <li data-value="Property Type"  class="option">{{ $categorie2->libelle }}</li>
                                 @endforeach
                               </ul>
-                            </div>
+                            </div> --}}
+                            <select class="form-control" data-live-search="true"  name="secteur">
+                              <option selected>Choisir secteur d'activité ...</option>
+                              @foreach ($categorie2s as $categorie2)
+                                <option value="{{ $categorie2->libelle }}">{{ $categorie2->libelle }}</option>
+                              @endforeach
+                            </select>
                           </div>
                         </div>
                         <div class="col-lg-2 economy">
                           <div class="input-btn">
-                            <button class="sbutn" type="submit"><i class="fa fa-search" aria-hidden="true"></i> Trouver </button>
+                            <button class="sbutn" type="submit" id="id_btn"> <i class="fa fa-search" aria-hidden="true"></i> Trouver </button>
                           </div>
                         </div>
                       </div>
@@ -174,7 +208,7 @@
             </div>
         </div>
           <br />
-          <p><a href="{{ route('allCat') }}">Tous les catégories de l'annuaire</a></p>
+          <p><a href="{{ route('allCat') }}">Tous les secteurs d'activités  </a></p>
         </div>
         <div class="col-md-6">
           <div class="row">
@@ -218,6 +252,7 @@
           <div class="carousel-gallery">
             <div class="swiper-container">
               <div class="swiper-wrapper">
+                @foreach ($rejoins as $rejoin)
                 <div class="swiper-slide">
                   <a href="#" data-fancybox="gallery">
                     <div class="image"
@@ -228,56 +263,7 @@
                     </div>
                   </a>
                 </div>
-                <div class="swiper-slide">
-                  <a href="#" data-fancybox="gallery">
-                    <div class="image"
-                      style="background-image: url({{ asset('assets/images/sunu.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
-                      <div class="overlay">
-                        <em class="mdi mdi-magnify-plus"></em>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#" data-fancybox="gallery">
-                    <div class="image"
-                      style="background-image: url({{ asset('assets/images/kop.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
-                      <div class="overlay">
-                        <em class="mdi mdi-magnify-plus"></em>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#" data-fancybox="gallery">
-                    <div class="image"
-                      style="background-image: url({{ asset('assets/images/boad.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
-                      <div class="overlay">
-                        <em class="mdi mdi-magnify-plus"></em>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#" data-fancybox="gallery">
-                    <div class="image"
-                      style="background-image: url({{ asset('assets/images/lonato.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
-                      <div class="overlay">
-                        <em class="mdi mdi-magnify-plus"></em>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="swiper-slide">
-                  <a href="#" data-fancybox="gallery">
-                    <div class="image"
-                      style="background-image: url({{ asset('assets/images/safer.jpg') }}) ; border: solid 2px; border-color:blue; border-radius:3px">
-                      <div class="overlay">
-                        <em class="mdi mdi-magnify-plus"></em>
-                      </div>
-                    </div>
-                  </a>
-                </div>
+                @endforeach
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -287,11 +273,6 @@
     </div>
   
   </div>
- 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.0/js/swiper.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js'></script>
-  <script src="./script.js"></script>
 
   <div class="title">
     <h1 style="color:#003366">MINI-SPOT</h1>
@@ -338,60 +319,38 @@
     </div>
   </div>
     
-  <div class="property-wrap wow fadeInUp">
-    <div class="container">
-      <div class="title">
-        <br />
-        <h3 style="color:#003366">LES ENTREPRISES A L'HONNEUR CE MOIS </h3>
+  @if ($entrepriseHonneur->count() > 0)
+    <div class="property-wrap wow fadeInUp">
+      <div class="container">
+        <div class="title">
+          <br />
+          <h3 style="color:#003366">LES ENTREPRISES A L'HONNEUR CE MOIS </h3>
+        </div>
+        <ul class="row">
+          @foreach ($entrepriseHome as $entrepriseHomes)
+            @if ($entrepriseHomes->honneur == 1)
+              <li class="col-lg-4">
+                <div class="property_box wow fadeInUp">
+                  <div class="propertyImg"><img alt="" src="{{ asset('assets/images/sanlam.jpg') }}"></div>
+                  <h3><a href="#">{{ $entrepriseHomes->nom }}</a></h3>            
+                  <div class="propert_info">
+                    {{ $entrepriseHomes->description }}
+                  </div>
+                  <div class="rent_info">
+                    <div class="apart"><a href="{{ route('profil-entreprise',['entreprise_id'=>$entrepriseHomes->id]) }}">Découvrir</a> </div>
+                    <div class="sale" style="background-color:#003366"><a href="tel:{{ $entrepriseHomes->telephone }}">Contacter</a> </div>
+                  </div>
+                </div>
+              </li>
+            @endif
+          @endforeach
+        </ul>
       </div>
-      <ul class="row">
-        <li class="col-lg-4">
-          <div class="property_box wow fadeInUp">
-            <div class="propertyImg"><img alt="" src="{{ asset('assets/images/sanlam.jpg') }}"></div>
-            <h3><a href="#">Bienvenue cher client</a></h3>            
-            <div class="propert_info">
-              
-            </div>
-            <div class="rent_info">
-              <div class="apart">Découvrir</div>
-              <div class="sale" style="background-color:#003366">Contacter</div>
-            </div>
-          </div>
-        </li>
-        
-        <li class="col-lg-4">
-          <div class="property_box wow fadeInUp">
-            <div class="propertyImg"><img alt="" src="{{ asset('assets/images/boad.jpg') }}"></div>
-            <h3><a href="#">Bienvenue cher client</a></h3>
-            <div class="propert_info">
-
-            </div>
-            <div class="rent_info">
-              <div class="apart">Découvrir</div>
-              <div class="sale" style="background-color:#003366">Contacter</div>
-            </div>
-          </div>
-        </li>
-        
-        <li class="col-lg-4">
-          <div class="property_box wow fadeInUp">
-            <div class="propertyImg"><img alt="" src="{{ asset('assets/images/sunu.jpg') }}"></div>
-            <h3><a href="#">Bienvenue cher client</a></h3>
-            <div class="propert_info">
-
-            </div>
-            <div class="rent_info">
-              <div class="apart">Découvrir</div>
-              <div class="sale" style="background-color:#003366">Contacter</div>
-            </div>
-          </div>
-        </li>
-      </ul>
     </div>
-  </div>
+  @endif
 
-  <div class="container">
-    <div class="buy-wrap wow fadeInUp" style="height: 20px">
+  <div class="container" style="height: 200px">
+    <div class="buy-wrap wow fadeInUp" style="height: 200px">
       <div class="container">
         <div class="title">
         </div>
@@ -455,59 +414,38 @@
   </div>
   <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-  <div class="container">
-    <div class="property-wrap property_rent wow fadeInUp">
-      <div class="container">
-        <div class="title">
-          <h1>ELUES <span>Meilleurs services clients</span></h1>
+  @if ($entrepriseElus->count() > 0)
+    <div class="container">
+      <div class="property-wrap property_rent wow fadeInUp">
+        <div class="container">
+          <div class="title">
+            <h1>ELUES <span>Meilleurs services clients</span></h1>
+          </div>
+          <ul class="row">
+            @foreach ($entrepriseHome as $entrepriseHomes)
+              @if ($entrepriseHomes->elus == 1)
+                <li class="col-lg-4">
+                  <div class="property_box wow fadeInUp">
+                    <div class="propertyImg"><img alt="" src="{{ asset('assets/images/sanlam.jpg') }}"></div>
+                    <h3><a href="#">{{ $entrepriseHomes->nom }}</a></h3>            
+                    <div class="propert_info">
+                      {{ $entrepriseHomes->description }}
+                    </div>
+                    <div class="rent_info">
+                      <div class="apart"><a href="{{ route('profil-entreprise',['entreprise_id'=>$entrepriseHomes->id]) }}">Découvrir</a> </div>
+                      <div class="sale" style="background-color:#003366"><a href="tel:{{ $entrepriseHomes->telephone }}">Contacter</a> </div>
+                    </div>
+                  </div>
+                </li>
+              @endif
+            @endforeach
+          </ul>
         </div>
-        <ul class="row">
-          <li class="col-lg-4">
-            <div class="property_box wow fadeInUp">
-              <div class="propertyImg"><img alt="" src="{{ asset('assets/images/sanlam.jpg') }}"></div>
-              <h3><a href="#">Bienvenue cher client</a></h3>            
-              <div class="propert_info">
-                
-              </div>
-              <div class="rent_info">
-                <div class="apart">Découvrir</div>
-                <div class="sale" style="background-color:#003366">Contacter</div>
-              </div>
-            </div>
-          </li>
-          
-          <li class="col-lg-4">
-            <div class="property_box wow fadeInUp">
-              <div class="propertyImg"><img alt="" src="{{ asset('assets/images/boad.jpg') }}"></div>
-              <h3><a href="#">Bienvenue cher client</a></h3>
-              <div class="propert_info">
-  
-              </div>
-              <div class="rent_info">
-                <div class="apart">Découvrir</div>
-                <div class="sale" style="background-color:#003366">Contacter</div>
-              </div>
-            </div>
-          </li>
-          
-          <li class="col-lg-4">
-            <div class="property_box wow fadeInUp">
-              <div class="propertyImg"><img alt="" src="{{ asset('assets/images/sunu.jpg') }}"></div>
-              <h3><a href="#">Bienvenue cher client</a></h3>
-              <div class="propert_info">
-  
-              </div>
-              <div class="rent_info">
-                <div class="apart">Découvrir</div>
-                <div class="sale" style="background-color:#003366">Contacter</div>
-              </div>
-            </div>
-          </li>
-        </ul>
       </div>
     </div>
-  </div>
- 
+  @endif
+
+  <br />
 
   <div class="container">
     <section class="perfect_home_wrap wow fadeInUp">
@@ -586,4 +524,5 @@
     </div>
   </section>
 
+  <script src="{{ asset('js/app.js') }}"></script>
 @include('frontend.footer')

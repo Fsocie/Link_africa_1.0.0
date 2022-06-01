@@ -34,8 +34,10 @@ Route::get('/sub-categorie/{categorie_id}',[App\Http\Controllers\SubCategoryCont
 
 Route::get('/sub-categorie-entreprise/{sousCategorie_id}',[App\Http\Controllers\EntrepriseController::class, 'entreprise'])->name('entreprise');
 
-Route::get('/emploi-togo',[App\Http\Controllers\ProfilController::class, 'profil'])->name('emploi');
+Route::get('/professionnel',[App\Http\Controllers\ProfilController::class, 'profil'])->name('professionnel');
 
 Route::get('/affaire',[App\Http\Controllers\AffaireController::class, 'affaire'])->name('affaire');
 
 Route::get('/proil-entreprise/{entreprise_id}',[App\Http\Controllers\ProfilEntrepriseController::class, 'profilEntreprise'])->name('profil-entreprise');
+
+Route::post('/proil-entreprise/{entreprise_id}',[App\Http\Controllers\ProfilEntrepriseController::class, 'mail'])->name('profil-entreprise-mail');

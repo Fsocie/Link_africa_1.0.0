@@ -146,7 +146,7 @@ form{
                         <div class="comment mt-4 text-justify float-left">
                             <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="80" height="80">
                             <h4> {{ $recherche->nom }}</h4>
-                            <span>-{{ $recherche->libelle }}</span>
+                            <span>-{{ $recherche->sousCategorie }}</span>
                             <br>
                             <div class="row">
                                 <div class="col-md-6"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $recherche->adresse }}</p></div>
@@ -167,9 +167,12 @@ form{
                             </div>
                             <br>
                             <div class="row">
-                                <p>
-                                    {{ $recherche->description }}
-                                </p>
+                                @if ( $recherche->description )
+                                    <p>
+                                        {{ $recherche->description }}
+                                    </p>
+                                @endif
+                                
                             </div>                    
                         </div>
                     </a>
@@ -181,7 +184,7 @@ form{
                 @foreach ($entreprisePopulaire as $entreprisePopulaires)
                     <div class="relative flex items-center py-8 px-8 border-0 border-b border-gray-400 border-solid first:border-t hover:bg-gray-100" style="width: auto">
                         <div class="flex-1 mr-8 flex flex-col">
-                            <a class="stretched-link text-black text-16 hover:text-link mb-3 font-bold" href="#">{{ $entreprisePopulaires->nom }}</a>
+                            <a class="stretched-link text-black text-16 hover:text-link mb-3 font-bold" href="{{ route('profil-entreprise',['entreprise_id'=>$entreprisePopulaires]) }}">{{ $entreprisePopulaires->nom }}</a>
                             <div class="flex text-12 font-light text-gray-600 items-center">
                                 <div class="mr-8  flex items-center">
                                     <i class="text-16 mr-2 text-gray-400 fa fa-map-marker"></i><span>{{ $entreprisePopulaires->adresse }}</span>

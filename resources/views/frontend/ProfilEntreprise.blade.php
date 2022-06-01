@@ -51,7 +51,7 @@
     }
 
     body{
-        background:#f5f5f5;
+        /* background:#f5f5f5; */
     }
 
     #nav-items li a,#profile{
@@ -232,23 +232,30 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-5 col-sm-6 offset-md-1 offset-sm-1 col-12 mt-4 property_rent wow fadeInUp">
+                @if(Session::has('success'))
+                    <div class="alert alert-success" role="alert">{{Session::get('success') }}</div>
+                @endif
                 @foreach ($Profil_entreprises as $Profil_entreprise)
-                    <form id="algin-form">
+                    <form id="algin-form" method="POST" action="{{ route('profil-entreprise-mail',['entreprise_id'=>$Profil_entreprise->id]) }}">
+                        @csrf
                         <div class="form-group">
                             <h4>Laisser un message à {{ $Profil_entreprise->nom }}</h4>
                             <label for="name">Nom</label>
                             <input type="text" name="name" id="fullname" class="form-control">
+                            @error('name')<span class="text-danger">{{$message}}</span>@enderror
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="text" name="email" id="email" class="form-control">
+                            @error('email')<span class="text-danger">{{$message}}</span>@enderror
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
                             <textarea name="msg" id=""msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
+                            @error('msg')<span class="text-danger">{{$message}}</span>@enderror
                         </div>                        
                         <div class="form-group">
-                            <button type="button" id="post" class="btn">Postez</button>
+                            <button type="submit" id="post" class="btn">Postez</button>
                         </div>
                     </form>
                 @endforeach

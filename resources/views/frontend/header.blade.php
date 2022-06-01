@@ -11,13 +11,11 @@
   <link href="{{ asset('assets/css/all.css') }}" rel="stylesheet">
 
   <link href="{{ asset('assets/css/owl.carousel.css') }}" rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Poppins:100,200,300,400,500,600,700,800,900&amp;display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Poppins:100,200,300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
   <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}">
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-  <title>Les Pages Jaunes </title>
+  <title>@yield('title') - LinqueAfrique</title>
   <link href="{{ asset('assets/style.css') }}" rel="stylesheet">
 
   <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.1.99/css/materialdesignicons.min.css">
@@ -27,19 +25,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
 
   <link rel="stylesheet" href="{{ asset('assets2/css/bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets2/vendors/linericon/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets2/css/font-awesome.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets2/vendors/owl-carousel/owl.carousel.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets2/vendors/lightbox/simpleLightbox.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets2/vendors/nice-select/css/nice-select.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets2/vendors/animate-css/animate.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets2/vendors/flaticon/flaticon.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets2/vendors/linericon/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets2/css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets2/vendors/owl-carousel/owl.carousel.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets2/vendors/lightbox/simpleLightbox.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets2/vendors/nice-select/css/nice-select.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets2/vendors/animate-css/animate.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets2/vendors/flaticon/flaticon.css') }}">
         <!-- main css -->
-        <link rel="stylesheet" href="{{ asset('assets2/css/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets2/css/responsive.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets2/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets2/css/responsive.css') }}">
 
-        {{-- <link rel="stylesheet" href="{{ asset('assets3/css/main.css') }}" /> --}}
-        <link rel="stylesheet" href="{{ asset('assets3/css/tailwind.css') }}" />
+  {{-- <link rel="stylesheet" href="{{ asset('assets3/css/main.css') }}" /> --}}
+  <link rel="stylesheet" href="{{ asset('assets3/css/tailwind.css') }}" />
+
   @yield('linkCss')
 
 </head>

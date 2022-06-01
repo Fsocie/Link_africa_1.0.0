@@ -198,11 +198,11 @@
                             </style>
                             <div class="col-lg-10 mx-auto mb-4">
                                 <div class="section-title text-center ">
-                                    <h4> 
+                                    <h5> 
                                         Publiez Et Consultez Les Petites Annonces de service couvrant les 17 pays de l'OHADA. 
                                         Vous Embauchez Et Recherchez Un Candidat ? Vous Êtes À La Recherche D'un Emploi ? 
                                         Trouvez Les Meilleures Opportunités Du Monde Du Travail Au Togo Sur Link_afrique.
-                                    </h4>
+                                    </h5>
                                 </div>
                             </div>
                         </div>

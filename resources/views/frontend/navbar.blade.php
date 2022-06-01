@@ -63,7 +63,7 @@
                   </ul>
                 </li>
 
-                <li class="nav-item"><a class="nav-link" href="#"> Professionnels</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('professionnel') }}"> Professionnels</a></li>
                 
                 <li class="nav-item"><a class="nav-link" href="#."> Opportunités <span class="caret"><i
                         class="fas fa-caret-down"></i></span></a> <i class="fas fa-caret-down"></i>
