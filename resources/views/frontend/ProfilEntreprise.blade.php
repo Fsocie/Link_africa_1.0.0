@@ -149,7 +149,7 @@
         @foreach ($Profil_entreprises as $Profil_entreprise)
             <div class="row">
                 <div class="comment1">
-                    <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="80" height="80">
+                    <img src="{{ Storage::url($Profil_entreprise->photo) }}" alt="" class="rounded-circle" width="80" height="80">
                     <h4> {{ $Profil_entreprise->nom }}</h4>
                     <span>-{{ $Profil_entreprise->libelle }}</span>
                 </div>
@@ -189,7 +189,7 @@
                             
                         </div>
                         <div class="row">
-                            <div class="col-md-11">
+                            <div class="col-md-12">
                                 <p>{{ $Profil_entreprise->description }}</p>
                             </div>
                             
@@ -206,16 +206,25 @@
                 <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
                     <h4> Service </h4>
                     <br>
-                    <div class="row">
-                        <div class="col-md-6"></div>
-                        <div class="col-md-6"></div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4"></div>
-                    </div>                    
+                    @foreach ($services as $service)
+                        @if ($service->libelle)
+                            <div class="row">
+                                <div class="col-md-12"><p>{{ $service->libelle }}</p></div>
+                            </div>
+                        @endif
+                        
+                        @if ($service->description)
+                            <div class="row">
+                                <div class="col-md-12"><p>{{ $service->description }}</p></div>
+                            </div> 
+                        @endif
+                        <br />
+                        @if ($service->video)
+                            <div class="row">
+                                <div class="col-md-12"><img src="{{ Storage::url($service->video) }}" alt=""></div>
+                            </div>
+                        @endif
+                    @endforeach                   
                 </div>
                 
                 <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
