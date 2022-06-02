@@ -19,7 +19,7 @@
                                     <article class="relative px-4 t:px-8 py-8 rounded-lg transition-default shadow-box hover:shadow-boxHover border border-solid border-gray-400 z-1">
                                     <div class="flex">
                                         <div class="mr-8">
-                                            <img class="h-26 w-26 t:w-32 t:h-32 object-cover rounded-full" src=""
+                                            <img class="h-26 w-26 t:w-32 t:h-32 object-cover rounded-full" src="{{ Storage::url($user->photo) }}"
                                                 title="{{ $user->nom }} {{ $user->prenoms }}" alt="{{ $user->nom }} {{ $user->prenoms }}" />
                                         </div>
                                         <div class="flex-1">

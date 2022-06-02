@@ -144,7 +144,7 @@ form{
                 @foreach ($recherches as $recherche)
                     <a href="{{ route('profil-entreprise',['entreprise_id'=>$recherche->id]) }}">
                         <div class="comment mt-4 text-justify float-left">
-                            <img src="https://i.imgur.com/yTFUilP.jpg" alt="" class="rounded-circle" width="80" height="80">
+                            <img src="{{ Storage::url($recherche->photo) }}" alt="" class="rounded-circle" width="80" height="80">
                             <h4> {{ $recherche->nom }}</h4>
                             <span>-{{ $recherche->sousCategorie }}</span>
                             <br>

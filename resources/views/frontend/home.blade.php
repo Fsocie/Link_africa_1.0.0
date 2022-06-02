@@ -1,5 +1,5 @@
 @section('title')
-    {{ "Accueil" }}
+    {{ "Annuaire" }}
 @endsection
 @include('frontend.header')
 @include('frontend.navbar')

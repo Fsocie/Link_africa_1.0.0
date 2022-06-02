@@ -14,8 +14,8 @@ class AjouterTable2Entreprise extends Migration
     public function up()
     {
         Schema::table('entreprises', function (Blueprint $table) {
-            $table->boolean('elus')->nullable();
-            $table->boolean('honneur')->nullable();
+            $table->boolean('elus')->default(0);
+            $table->boolean('honneur')->default(0);
         });
     }
 
