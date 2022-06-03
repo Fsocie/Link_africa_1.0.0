@@ -17,7 +17,7 @@ class CreateEntreprisesTable extends Migration
             $table->id();
             $table->bigInteger('sous_categorie_id')->unsigned();
             $table->string('nom')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->string('adresse')->nullable();
             $table->string('statu')->nullable();
             $table->string('telephone')->nullable();

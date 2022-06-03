@@ -190,12 +190,20 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <p>{{ $Profil_entreprise->description }}</p>
+                                <p>{{ $Profil_entreprise->description_entreprise }}</p>
                             </div>
                             
                         </div>
                         <div class="row">
-                            <div class="col-md-4"><span><i class="fas fa-map-marked-alt"></i></span> <a href="{{ $Profil_entreprise->itineraire }}">Itineraire</a></div>
+                            @if ($Profil_entreprise->itineraire)
+                                <div class="col-md-4"><span><i class="fas fa-map-marked-alt"></i></span> <a href="{{ $Profil_entreprise->itineraire }}">Itineraire</a></div>
+                            @endif
+                            @if ($Profil_entreprise->siteweb)
+                                
+                            @endif
+                            @if ($Profil_entreprise->siteweb)
+                                
+                            @endif
                             <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">Site Web</a></div>
                             <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">Site Web</a></div>
                         </div>
@@ -249,9 +257,9 @@
                         @csrf
                         <div class="form-group">
                             <h4>Laisser un message à {{ $Profil_entreprise->nom }}</h4>
-                            <label for="name">Nom</label>
-                            <input type="text" name="name" id="fullname" class="form-control">
-                            @error('name')<span class="text-danger">{{$message}}</span>@enderror
+                            <label for="nom">Nom</label>
+                            <input type="text" name="nom" id="fullname" class="form-control">
+                            @error('nom')<span class="text-danger">{{$message}}</span>@enderror
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
@@ -259,9 +267,14 @@
                             @error('email')<span class="text-danger">{{$message}}</span>@enderror
                         </div>
                         <div class="form-group">
+                            <label for="objet">Nom de l'entreprise ({{ $Profil_entreprise->nom }})</label>
+                            <input type="text" name="objet" id="objet" class="form-control">
+                            @error('objet')<span class="text-danger">{{$message}}</span>@enderror
+                        </div>
+                        <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea name="msg" id=""msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
-                            @error('msg')<span class="text-danger">{{$message}}</span>@enderror
+                            <textarea name="message" id=""message cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
+                            @error('message')<span class="text-danger">{{$message}}</span>@enderror
                         </div>                        
                         <div class="form-group">
                             <button type="submit" id="post" class="btn">Postez</button>

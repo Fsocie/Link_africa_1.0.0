@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class RelationEntrePaysEntreprise extends Model
 {
     use HasFactory;
+
+    public function ville()
+    {
+        return $this->hasMany(Villes::class);
+    }
+
+    public function entreprise()
+    {
+        return $this->hasMany(entreprises::class);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CategorieEntreprises;
 use App\Models\entreprises;
+use App\Models\Reportages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -280,6 +281,10 @@ class HomeController extends Controller
         $entrepriseElus = DB::table('entreprises')
             ->select('elus')
             ->get();
-        return view('frontend.home', compact('categories', 'sousCategorieNavs', 'pays', 'villes', 'categorie2s', 'rejoins', 'entrepriseHome', 'entrepriseHonneur', 'entrepriseElus'));
+
+        $reportagedelasemaine = Reportages::all();
+        return view('frontend.home', compact('categories', 'sousCategorieNavs', 
+        'pays', 'villes', 'categorie2s', 'rejoins', 'entrepriseHome', 'entrepriseHonneur', 
+        'entrepriseElus', 'reportagedelasemaine'));
     }
 }

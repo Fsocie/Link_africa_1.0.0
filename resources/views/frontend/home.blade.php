@@ -310,13 +310,14 @@
       <br />
       <h3 style="color:#003366">LE REPORTAGE DE LA SEMAINE </h3>
     </div>
-
-    <div class="buy-wrap wow fadeInUp">
-      <iframe width="90%" height="300px" src="https://www.youtube.com/embed/zAKQQpbsK1w" title="YouTube video player"
-        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-  
-    </div>
+    @foreach ($reportagedelasemaine as $reportagedelasemaines)
+      <div class="buy-wrap wow fadeInUp">
+        <iframe width="90%" height="300px" src="{{ $reportagedelasemaines->libelle }}" title="YouTube video player"
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+    
+      </div>
+    @endforeach
   </div>
     
   @if ($entrepriseHonneur->count() > 0)
@@ -397,7 +398,7 @@
 
   <div class="containere" style="position:relative; top:-50px">
     <div class="title">
-      <h3 style="color:white">TOUR DE GARDE</h1>
+      <h3 style="">TOUR DE GARDE</h1>
     </div>
 
     <div class="carousele">

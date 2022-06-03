@@ -16,11 +16,11 @@ class CreateRelationEntrePaysEntreprisesTable extends Migration
         Schema::create('relation_entre_pays_entreprises', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('entreprise_id')->unsigned();
-            $table->bigInteger('pays_id')->unsigned();
+            $table->bigInteger('villes_id')->unsigned();
             $table->string('libelle')->nullable();
             $table->timestamps();
             $table->foreign('entreprise_id')->references('id')->on('entreprises')->onDelete('cascade');
-            $table->foreign('pays_id')->references('id')->on('pays')->onDelete('cascade');
+            $table->foreign('villes_id')->references('id')->on('villes')->onDelete('cascade');
         });
     }
 

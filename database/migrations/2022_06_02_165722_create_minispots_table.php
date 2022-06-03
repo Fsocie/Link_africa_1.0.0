@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReportagesTable extends Migration
+class CreateMinispotsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateReportagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('reportages', function (Blueprint $table) {
+        Schema::create('minispots', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('admin_id')->unsigned();
-            $table->string('libelle')->nullable();
+            $table->string('titre')->nullable();
+            $table->string('video')->nullable();
             $table->timestamps();
             $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
         });
@@ -29,6 +30,6 @@ class CreateReportagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reportages');
+        Schema::dropIfExists('minispots');
     }
 }

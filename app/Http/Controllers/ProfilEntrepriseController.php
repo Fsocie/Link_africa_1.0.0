@@ -10,36 +10,40 @@ use Illuminate\Support\Facades\Mail;
 
 class ProfilEntrepriseController extends Controller
 {
-    public $name;
+    public $nom;
     public $email;
-    public $msg;
+    public $objet;
+    public $message;
 
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'name' => 'required',
+            'nom' => 'required',
             'email' => 'required|email',
-            'msg' => 'required'
+            'objet' => 'required',
+            'message' => 'required'
         ]);
     }
 
     public function mail(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'nom' => 'required',
             'email' => 'required|email',
-            'msg' => 'required'
+            'objet' => 'required',
+            'message' => 'required'
         ]);
         try {
 
             //  Envoi de mail
             Mail::send('frontend.contact-mail', array(
-                'name' => $request->input('name'),
+                'name' => $request->input('nom'),
                 'email' => $request->input('email'),
+                'subject' => $request->input('objet'),
                 'form_message' => $request->input('message'),
             ), function ($message) use ($request) {
                 $message->from($request->input('email'));
-                $message->to('gzk643192@gmail.com');
+                $message->to('gzk643192@gmail.com', 'Salut K Gz')->subject($request->input('objet'));
             });
             return redirect()->back()->with('success', 'Merci de nous avoir contacté.');
         } catch (Exception $e) {

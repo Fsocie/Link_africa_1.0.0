@@ -22,7 +22,7 @@ class ContactUsController extends Controller
             'email' => 'required|email',
             'objet' => 'required',
             'message' => 'required'
-        ]);
+        ]); 
     }
 
     public function storeContactForm(Request $request)
