@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\entreprises;
+use App\Models\Horaires;
+use App\Models\Services;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -64,16 +66,19 @@ class ProfilEntrepriseController extends Controller
             ->select('*','entreprises.id')
             ->get();
 
+        $horaireCount = Horaires::all();    
         $horaires = DB::table('entreprises')->where('entreprises.id', $entreprise_id)
             ->join('horaires', 'entreprises.id', '=', 'entreprise_id')
             ->select('*')
             ->get();
 
+        $serviceCount = Services::all();
         $services =DB::table('entreprises')
             ->where('entreprises.id', $entreprise_id)
             ->join('services', 'entreprises.id', '=', 'entreprise_id')
             ->select('*')
             ->get();
-        return view('frontend.ProfilEntreprise', compact('sousCategorieNavs', 'Profil_entreprises', 'horaires', 'services'));
+        return view('frontend.ProfilEntreprise', compact('sousCategorieNavs', 'Profil_entreprises', 'horaires', 
+                    'services', 'serviceCount', 'horaireCount'));
     }
 }

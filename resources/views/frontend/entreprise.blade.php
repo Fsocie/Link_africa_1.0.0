@@ -149,28 +149,35 @@
                             <span>-{{ $entreprise->libelle }}</span>
                             <br>
                             <div class="row">
-                                <div class="col-md-6"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $entreprise->adresse }}</p></div>
-                                <div class="col-md-6"><span><i class="fas fa-phone"></i></span> <p>{{ $entreprise->telephone }}</p></div>
+                                @if ($entreprise->adresse)
+                                    <div class="col-md-6"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $entreprise->adresse }}</p></div>
+                                @endif
+                                @if ($entreprise->telephone)
+                                    <div class="col-md-6"><span><i class="fas fa-phone"></i></span> <p>{{ $entreprise->telephone }}</p></div>
+                                @endif
                             </div>
-                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @if ($entreprise->description_entreprise)
+                                        <p>
+                                            {{ $entreprise->description_entreprise }}
+                                        </p>
+                                    @endif
+                                </div>
+                            </div>  
                             <div class="row">
                                 @if ($entreprise->itineraire)
                                     <div class="col-md-4"><span><i class="fas fa-map-marked-alt"></i></span> <a href="{{ $entreprise->itineraire }}">Itineraire</a></div>
                                 @endif
-                                
-                                <div class="col-md-4"><span><i class="fas fa-file"></i></span> <a href="{{ route('profil-entreprise',['entreprise_id'=>$entreprise->id]) }}">Profile</a></div>
-
+                                @if ($entreprise->id)
+                                    <div class="col-md-4"><span><i class="fas fa-file"></i></span> <a href="{{ route('profil-entreprise',['entreprise_id'=>$entreprise->id]) }}">Profile</a></div>
+                                @endif
                                 @if ($entreprise->siteweb)
                                     <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $entreprise->siteweb }}">Site Web</a></div>
                                 @endif
                                 
-                            </div>
-                            <br>
-                            <div class="row">
-                                <p>
-                                    {{ $entreprise->description }}
-                                </p>
-                            </div>                    
+                            </div>  
+                            <br />                
                         </div>
                     </a>
                 @endforeach

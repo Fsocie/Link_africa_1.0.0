@@ -177,8 +177,10 @@
                                 <div class="col-md-6"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone }}</p></div>
                             @endif 
                             
-                            <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">{{ $Profil_entreprise->siteweb }}</a></div>
-
+                            @if ($Profil_entreprise->siteweb)
+                                <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">{{ $Profil_entreprise->siteweb }}</a></div>
+                            @endif
+                            
                             @if ($Profil_entreprise->telephone3)
                                 <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone3 }}</p></div>
                             @endif
@@ -189,64 +191,67 @@
                             
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
-                                <p>{{ $Profil_entreprise->description_entreprise }}</p>
-                            </div>
-                            
+                            @if ($Profil_entreprise->description_entreprise)
+                                <div class="col-md-12">
+                                    <p>{{ $Profil_entreprise->description_entreprise }}</p>
+                                </div>
+                            @endif
                         </div>
                         <div class="row">
                             @if ($Profil_entreprise->itineraire)
                                 <div class="col-md-4"><span><i class="fas fa-map-marked-alt"></i></span> <a href="{{ $Profil_entreprise->itineraire }}">Itineraire</a></div>
                             @endif
                             @if ($Profil_entreprise->siteweb)
-                                
+                            <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">Site Web</a></div>
                             @endif
                             @if ($Profil_entreprise->siteweb)
-                                
+                                <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">Site Web</a></div>
                             @endif
-                            <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">Site Web</a></div>
-                            <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">Site Web</a></div>
                         </div>
                         <br>                    
                     </div>
                 @endforeach
                 
-                <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
-                    <h4> Service </h4>
-                    <br>
-                    @foreach ($services as $service)
-                        @if ($service->libelle)
-                            <div class="row">
-                                <div class="col-md-12"><p>{{ $service->libelle }}</p></div>
-                            </div>
-                        @endif
-                        
-                        @if ($service->description)
-                            <div class="row">
-                                <div class="col-md-12"><p>{{ $service->description }}</p></div>
-                            </div> 
-                        @endif
-                        <br />
-                        @if ($service->video)
-                            <div class="row">
-                                <div class="col-md-12"><img src="{{ Storage::url($service->video) }}" alt=""></div>
-                            </div>
-                        @endif
-                    @endforeach                   
-                </div>
+                @if ($serviceCount->count() > 0)
+                    <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
+                        <h4> Service </h4>
+                        <br>
+                        @foreach ($services as $service)
+                            @if ($service->libelle)
+                                <div class="row">
+                                    <div class="col-md-12"><p>{{ $service->libelle }}</p></div>
+                                </div>
+                            @endif
+                            
+                            @if ($service->description)
+                                <div class="row">
+                                    <div class="col-md-12"><p>{{ $service->description }}</p></div>
+                                </div> 
+                            @endif
+                            <br />
+                            @if ($service->video)
+                                <div class="row">
+                                    <div class="col-md-12"><img src="{{ Storage::url($service->video) }}" alt=""></div>
+                                </div>
+                            @endif
+                        @endforeach                   
+                    </div>
+                @endif
                 
-                <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
-                    <h4> Horaire </h4>
-                    <br>
-                    @foreach ($horaires as $horaire)
-                        <div class="row">
-                            <div class="col-md-4"><p> {{ $horaire->jour }} </p></div>
-                            <div class="col-md-4"><p> {{ $horaire->h_ouverture }} </p></div>
-                            <div class="col-md-4"><p> {{ $horaire->h_fermerture }} </p></div>
-                        </div>   
-                    @endforeach
-                    <br>                 
-                </div>
+                @if ($horaireCount->count() > 0)
+                    <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
+                        <h4> Horaire </h4>
+                        <br>
+                        @foreach ($horaires as $horaire)
+                            <div class="row">
+                                <div class="col-md-4"><p> {{ $horaire->jour }} </p></div>
+                                <div class="col-md-4"><p> {{ $horaire->h_ouverture }} </p></div>
+                                <div class="col-md-4"><p> {{ $horaire->h_fermerture }} </p></div>
+                            </div>   
+                        @endforeach
+                        <br>                 
+                    </div>
+                @endif
             </div>
             <div class="col-lg-4 col-md-5 col-sm-6 offset-md-1 offset-sm-1 col-12 mt-4 property_rent wow fadeInUp">
                 @if(Session::has('success'))
