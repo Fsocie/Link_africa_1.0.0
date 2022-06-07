@@ -77,8 +77,8 @@
     }
 
     .comment{
-        border: 1px solid rgba(16, 46, 46, 1);
-        background-color: rgba(16, 46, 46, 0.973);
+        border: 1px solid blue;
+        background-color: ;
         float: left;
         border-radius: 5px;
         padding-left: 40px;
@@ -91,12 +91,13 @@
         display: inline;
     }
 
+    
     .comment p,.comment span,.darker p,.darker span{
-        color: rgb(184, 183, 183);
+        color: #808080;
     }
 
     h1,h4{
-        color: white;
+        color: black;
         font-weight: bold;
     }
     label{
@@ -144,7 +145,11 @@
                 @foreach ($entreprises as $entreprise)
                     <a href="{{ route('profil-entreprise',['entreprise_id'=>$entreprise->id]) }}">
                         <div class="comment mt-4 text-justify float-left">
-                            <img src="{{ Storage::url($entreprise->photo) }}" alt="" class="rounded-circle" width="80" height="80">
+                            @if ($entreprise->photo)
+                                <img src="{{ Storage::url($entreprise->photo) }}" alt="" class="rounded-circle" width="80" height="80">
+                            @else
+                                <img src="{{ asset('default.png') }}" alt="" class="rounded-circle" width="80" height="80">
+                            @endif
                             <h4> {{ $entreprise->nom }}</h4>
                             <span>-{{ $entreprise->libelle }}</span>
                             <br>

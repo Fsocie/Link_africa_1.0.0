@@ -8,13 +8,19 @@
       <div class="container">
           <div class="main_title">
               <h2>Annuaire des sociétés du Togo</h2>
-              <div class="col-md-12">
-                  <div class="buy-wrap wow fadeInUp" style="height: 200px">
-                      <div class="container" >
-                          <div class="title">
+              <div class="container">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="{{  asset('assets/images/1.jpg') }}" class="d-block w-100" alt="">
+                    </div>
+                    @foreach ($pubs as $pub)
+                          <div class="carousel-item">
+                            <img src="{{ Storage::url($pub->image) }}" class="d-block w-100" alt="">
                           </div>
-                      </div>
+                    @endforeach
                   </div>
+                </div>
               </div>
           </div>                      
           <div class="container"> 
@@ -34,4 +40,5 @@
           </div>
       </div>
   </section>
+  <script src="{{ asset('js/app.js') }}"></script>
 @include('frontend.footer')

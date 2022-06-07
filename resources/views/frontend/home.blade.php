@@ -190,8 +190,7 @@
         <div class="col-md-6" >
           <div class="row">
             <h5 style="color:#003366">SECTEURS D'ACTIVITES</h5>
-          </div>
-                    
+          </div>      
           <div class="container"> 
             <div class="row">
               @foreach ($categories as $categorie)
@@ -206,7 +205,7 @@
                 </div>
               @endforeach
             </div>
-        </div>
+          </div>
           <br />
           <p><a href="{{ route('allCat') }}">Tous les secteurs d'activités  </a></p>
         </div>
@@ -214,7 +213,6 @@
           <div class="row">
             <h5 style="color:#003366">Pub</h5>
           </div>
-          <br />
           <div class="row">
             <div class="col-md-9 mt_md">
               <div class="popular_img position-relative"> <img alt="" src="{{ asset('assets/images/commerce.jpg') }}">
@@ -225,18 +223,23 @@
               </div>
             </div>
           </div>
-          
         </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="container" style="height: 200px">
-    <div class="buy-wrap wow fadeInUp" style="height: 200px">
-      <div class="container" >
-        <div class="title">
+  <div class="container">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{{  asset('assets/images/1.jpg') }}" class="d-block w-100" alt="">
         </div>
+        @foreach ($pubs as $pub)
+              <div class="carousel-item">
+                <img src="{{ Storage::url($pub->image) }}" class="d-block w-100" alt="">
+              </div>
+        @endforeach
       </div>
     </div>
   </div>
@@ -254,14 +257,25 @@
               <div class="swiper-wrapper">
                 @foreach ($rejoins as $rejoin)
                 <div class="swiper-slide">
-                  <a href="#" data-fancybox="gallery">
-                    <div class="image"
-                      style="background-image: url({{ asset('assets/images/sanlam.jpg') }}); border: solid 2px; border-color:blue; border-radius:3px">
-                      <div class="overlay">
-                        <em class="mdi mdi-magnify-plus"></em>
+                  @if ($rejoin->photo)
+                    <a href="{{ route('profil-entreprise',['entreprise_id'=>$rejoin->id]) }}" data-fancybox="gallery">
+                      <div class="image"
+                        style="background-image: url({{ Storage::url($rejoin->photo) }}); border: solid 2px; border-color:blue; border-radius:3px">
+                        <div class="overlay">
+                          <em class="mdi mdi-magnify-plus"></em>
+                        </div>
                       </div>
-                    </div>
-                  </a>
+                    </a>
+                  @else
+                    <a href="{{ route('profil-entreprise',['entreprise_id'=>$rejoin->id]) }}" data-fancybox="gallery">
+                      <div class="image"
+                        style="background-image: url({{ asset('default.png') }}); border: solid 2px; border-color:blue; border-radius:3px">
+                        <div class="overlay">
+                          <em class="mdi mdi-magnify-plus"></em>
+                        </div>
+                      </div>
+                    </a>
+                  @endif
                 </div>
                 @endforeach
               </div>
@@ -280,27 +294,17 @@
 
   <section class="popular_wrap wow fadeInUp">
     <div class="container">
-
       <div class="row">
-        <div class="col-md-6">
-          <div class="popular_img position-relative">
-            <video autoplay muted="" class="popular_img position-relative" poster="#" id="bgvid" loop>
-              <source src="{{ asset('assets/videos/spotmoov.mp4') }}" type="video/mp4">
-            </video>
-            <div class="popular_img_text"><a href="#">Tout découvrir</a></div>
+        @foreach ($minispots as $minispot)
+          <div class="col-md-6">
+            <div class="popular_img position-relative">
+              <video autoplay muted="" class="popular_img position-relative" poster="#" id="bgvid" loop>
+                <source src="{{ asset('assets/videos') }}/{{$minispot->video}}" type="video/mp4">
+              </video>
+              <div class="popular_img_text"><a href="#">Tout découvrir</a></div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-6 mt_md">
-          <div class="popular_img position-relative">
-            <video autoplay muted="" "	poster=" #" id="bgvid" loop>
-              <source src="{{ asset('assets/videos/spotmoov.mp4') }}" type="video/mp4">
-            </video>
-
-            <div class="popular_img_text"><a href="#">Voir</a></div>
-          </div>
-
-        </div>
-
+        @endforeach
       </div>
     </div>
   </section>
@@ -332,7 +336,11 @@
             @if ($entrepriseHomes->honneur == 1)
               <li class="col-lg-4">
                 <div class="property_box wow fadeInUp">
-                  <div class="propertyImg"><img alt="" src="{{ asset('assets/images/sanlam.jpg') }}"></div>
+                  @if ($entrepriseHomes->photo)
+                    <div class="propertyImg"><img alt="" src="{{ Storage::url($entrepriseHomes->photo) }}"></div>
+                  @else
+                    <div class="propertyImg"><img alt="" src="{{ asset('default.png') }}"></div>
+                  @endif
                   <h3><a href="#">{{ $entrepriseHomes->nom }}</a></h3>            
                   <div class="propert_info">
                     {{ $entrepriseHomes->description }}
@@ -350,11 +358,17 @@
     </div>
   @endif
 
-  <div class="container" style="height: 200px">
-    <div class="buy-wrap wow fadeInUp" style="height: 200px">
-      <div class="container">
-        <div class="title">
+  <div class="container">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{{  asset('assets/images/1.jpg') }}" class="d-block w-100" alt="">
         </div>
+        @foreach ($pubs as $pub)
+              <div class="carousel-item">
+                <img src="{{ Storage::url($pub->image) }}" class="d-block w-100" alt="">
+              </div>
+        @endforeach
       </div>
     </div>
   </div>
@@ -427,7 +441,11 @@
               @if ($entrepriseHomes->elus == 1)
                 <li class="col-lg-4">
                   <div class="property_box wow fadeInUp">
-                    <div class="propertyImg"><img alt="" src="{{ asset('assets/images/sanlam.jpg') }}"></div>
+                    @if ($entrepriseHomes->photo)
+                      <div class="propertyImg"><img alt="" src="{{ Storage::url($entrepriseHomes->photo) }}"></div>
+                    @else
+                      <div class="propertyImg"><img alt="" src="{{ asset('default.png') }}"></div>
+                    @endif
                     <h3><a href="#">{{ $entrepriseHomes->nom }}</a></h3>            
                     <div class="propert_info">
                       {{ $entrepriseHomes->description }}

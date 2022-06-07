@@ -66,19 +66,22 @@ class ProfilEntrepriseController extends Controller
             ->select('*','entreprises.id')
             ->get();
 
-        $horaireCount = Horaires::all();    
+        $est_souscrits = DB::table('entreprises')->where('entreprises.id', $entreprise_id)
+            ->join('sous_categorie_entreprises', 'sous_categorie_entreprises.id', '=', 'sous_categorie_id')
+            ->select('est_souscrit','entreprises.id')
+            ->get();
+    
         $horaires = DB::table('entreprises')->where('entreprises.id', $entreprise_id)
             ->join('horaires', 'entreprises.id', '=', 'entreprise_id')
             ->select('*')
             ->get();
 
-        $serviceCount = Services::all();
         $services =DB::table('entreprises')
             ->where('entreprises.id', $entreprise_id)
             ->join('services', 'entreprises.id', '=', 'entreprise_id')
             ->select('*')
             ->get();
         return view('frontend.ProfilEntreprise', compact('sousCategorieNavs', 'Profil_entreprises', 'horaires', 
-                    'services', 'serviceCount', 'horaireCount'));
+                    'services', 'est_souscrits'));
     }
 }

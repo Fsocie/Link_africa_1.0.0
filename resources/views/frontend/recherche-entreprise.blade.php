@@ -51,7 +51,7 @@
 }
 
 body{
-    background:#f5f5f5;
+    /* background:#f5f5f5; */
 }
 
 #nav-items li a,#profile{
@@ -77,8 +77,8 @@ body{
 }
 
 .comment{
-    border: 1px solid rgba(16, 46, 46, 1);
-    background-color: rgba(16, 46, 46, 0.973);
+    border: 1px solid blue;
+    background-color: ;
     float: left;
     border-radius: 5px;
     padding-left: 40px;
@@ -91,12 +91,13 @@ body{
     display: inline;
 }
 
+
 .comment p,.comment span,.darker p,.darker span{
-    color: rgb(184, 183, 183);
+    color: #808080;
 }
 
 h1,h4{
-    color: white;
+    color: black;
     font-weight: bold;
 }
 label{
@@ -130,7 +131,7 @@ form{
     background-color: rgba(16, 46, 46, 0.973);
     border-radius: 5px;
     padding: 20px;
- }
+}
 </style>
 <!-- Main Body -->
 <section class="popular_wrap wow fadeInUp">
@@ -144,7 +145,11 @@ form{
                 @foreach ($recherches as $recherche)
                     <a href="{{ route('profil-entreprise',['entreprise_id'=>$recherche->id]) }}">
                         <div class="comment mt-4 text-justify float-left">
-                            <img src="{{ Storage::url($recherche->photo) }}" alt="" class="rounded-circle" width="80" height="80">
+                            @if ($recherche->photo)
+                                <img src="{{ Storage::url($recherche->photo) }}" alt="" class="rounded-circle" width="80" height="80">
+                            @else
+                                <img src="{{ asset('default.png') }}" alt="" class="rounded-circle" width="80" height="80">
+                            @endif
                             <h4> {{ $recherche->nom }}</h4>
                             <span>-{{ $recherche->sousCategorie }}</span>
                             <br>

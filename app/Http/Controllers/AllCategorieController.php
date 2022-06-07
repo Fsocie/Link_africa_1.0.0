@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategorieEntreprises;
+use App\Models\Pubs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,9 @@ class AllCategorieController extends Controller
             ->select('*')
             ->take(4)
             ->get();
-        return view('frontend.allCategorie', compact('categories', 'sousCategorieNavs'));
+
+        $pubs = Pubs::all();
+        return view('frontend.allCategorie', compact('categories', 'sousCategorieNavs','pubs'));
     }
     
 }

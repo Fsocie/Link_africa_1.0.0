@@ -1,6 +1,7 @@
 
 @include('frontend.header')
 @include('frontend.navbar')
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <style>
         .navbar-nav{
         width: 100%;
@@ -77,8 +78,8 @@
     }
 
     .comment{
-        border: 1px solid rgba(16, 46, 46, 1);
-        background-color: rgba(16, 46, 46, 0.973);
+        border: 1px solid blue;
+        background-color: ;
         float: left;
         border-radius: 5px;
         padding-left: 40px;
@@ -89,40 +90,40 @@
     }
 
     .comment1{
-    border: 1px solid rgba(16, 46, 46, 1);
-    background-color: rgba(16, 46, 46, 0.973);
+    border: 1px solid blue;
+    background-color: ;
     border-radius: 5px;
     padding-left: 40px;
     padding-right: 30px;
     padding-top: 10px;
     width: 1200px;
     height: 250px;
-}
+ }
     .comment h4,.comment span,.darker h4,.darker span, .comment p{
         display: inline;
     }
 
     .comment p,.comment span,.darker p,.darker span{
-        color: rgb(184, 183, 183);
+        color: #808080;
     }
 
     h1,h4{
-        color: white;
+        color: black;
         font-weight: bold;
     }
     label{
-        color: rgb(212, 208, 208);
+        color: #808080;
     }
 
     #align-form{
         margin-top: 20px;
     }
     .form-group p a{
-        color: white;
+        color: black;
     }
 
     #checkbx{
-        background-color: black;
+        background-color: ;
     }
 
     #darker img{
@@ -131,25 +132,50 @@
     }
 
     .form-group input,.form-group textarea{
-        background-color: black;
-        border: 1px solid rgba(16, 46, 46, 1);
+        background-color: ;
+        border: 1px solid blue;
         border-radius: 12px;
     }
 
     form{
-        border: 1px solid rgba(16, 46, 46, 1);
-        background-color: rgba(16, 46, 46, 0.973);
+        border: 1px solid blue;
+        background-color: ;
         border-radius: 5px;
         padding: 20px;
     }
 </style>
 <!-- Main Body -->
 <section class="popular_wrap wow fadeInUp">
-    <div class="container property_rent wow fadeInUp">
+    <div class="container ">
         @foreach ($Profil_entreprises as $Profil_entreprise)
-            <div class="row">
+            <div class="row ">
                 <div class="comment1">
-                    <img src="{{ Storage::url($Profil_entreprise->photo) }}" alt="" class="rounded-circle" width="80" height="80">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="#">Navbar</a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarNav">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" href="#coordonnee"><i class="fa fa-phone mr-4 no-underline hover:no-underline text-gray-600"></i>Coordonnés</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#service"><i class="fa fa-shopping-cart mr-4 no-underline hover:no-underline text-gray-600"></i>Services</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#horaire"><i class="fa fa-clock-o mr-4 no-underline hover:no-underline text-gray-600"></i>Horaires</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                        </div>
+                    </nav>
+                    @if ($Profil_entreprise->photo)
+                        <img src="{{ Storage::url($Profil_entreprise->photo) }}" alt="" class="rounded-circle" width="80" height="80">
+                    @else
+                        <img src="{{ asset('default.png') }}" alt="" class="rounded-circle" width="80" height="80">
+                    @endif
                     <h4> {{ $Profil_entreprise->nom }}</h4>
                     <span>-{{ $Profil_entreprise->libelle }}</span>
                 </div>
@@ -159,102 +185,109 @@
 
     <div class="container ">
         <div class="row">
-            <div class="col-sm-6 col-md-7 col-12 pb-4 property_rent wow fadeInUp">
-                @foreach ($Profil_entreprises as $Profil_entreprise)
-                    <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
-                        <h4> Coordonnées </h4>
-                        <br>
-                        <div class="row">
-                            @if ($Profil_entreprise->telephone2)
-                                <div class="col-md-4"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $Profil_entreprise->adresse }}</p></div>
-                                <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone }}</p></div>
-                            @endif
-                            
-                            @if ($Profil_entreprise->telephone2)
-                                <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone2 }}</p></div>
-                            @else
-                                <div class="col-md-6"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $Profil_entreprise->adresse }}</p></div>
-                                <div class="col-md-6"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone }}</p></div>
-                            @endif 
-                            
-                            @if ($Profil_entreprise->siteweb)
-                                <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">{{ $Profil_entreprise->siteweb }}</a></div>
-                            @endif
-                            
-                            @if ($Profil_entreprise->telephone3)
-                                <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone3 }}</p></div>
-                            @endif
-
-                            @if ($Profil_entreprise->telephone4)
-                                <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone4 }}</p></div>
-                            @endif
-                            
-                        </div>
-                        <div class="row">
-                            @if ($Profil_entreprise->description_entreprise)
-                                <div class="col-md-12">
-                                    <p>{{ $Profil_entreprise->description_entreprise }}</p>
-                                </div>
-                            @endif
-                        </div>
-                        <div class="row">
-                            @if ($Profil_entreprise->itineraire)
-                                <div class="col-md-4"><span><i class="fas fa-map-marked-alt"></i></span> <a href="{{ $Profil_entreprise->itineraire }}">Itineraire</a></div>
-                            @endif
-                            @if ($Profil_entreprise->siteweb)
-                            <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">Site Web</a></div>
-                            @endif
-                            @if ($Profil_entreprise->siteweb)
-                                <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">Site Web</a></div>
-                            @endif
-                        </div>
-                        <br>                    
-                    </div>
-                @endforeach
-                
-                @if ($serviceCount->count() > 0)
-                    <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
-                        <h4> Service </h4>
-                        <br>
-                        @foreach ($services as $service)
-                            @if ($service->libelle)
-                                <div class="row">
-                                    <div class="col-md-12"><p>{{ $service->libelle }}</p></div>
-                                </div>
-                            @endif
-                            
-                            @if ($service->description)
-                                <div class="row">
-                                    <div class="col-md-12"><p>{{ $service->description }}</p></div>
-                                </div> 
-                            @endif
-                            <br />
-                            @if ($service->video)
-                                <div class="row">
-                                    <div class="col-md-12"><img src="{{ Storage::url($service->video) }}" alt=""></div>
-                                </div>
-                            @endif
-                        @endforeach                   
-                    </div>
-                @endif
-                
-                @if ($horaireCount->count() > 0)
-                    <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
-                        <h4> Horaire </h4>
-                        <br>
-                        @foreach ($horaires as $horaire)
+            <div class="col-sm-6 col-md-7 col-12 pb-4 ">
+                <div class="row" id="coordonnee">
+                    @foreach ($Profil_entreprises as $Profil_entreprise)
+                        <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
+                            <h4> Coordonnées </h4>
+                            <br>
                             <div class="row">
-                                <div class="col-md-4"><p> {{ $horaire->jour }} </p></div>
-                                <div class="col-md-4"><p> {{ $horaire->h_ouverture }} </p></div>
-                                <div class="col-md-4"><p> {{ $horaire->h_fermerture }} </p></div>
-                            </div>   
-                        @endforeach
-                        <br>                 
-                    </div>
-                @endif
+                                @if ($Profil_entreprise->telephone2)
+                                    <div class="col-md-4"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $Profil_entreprise->adresse }}</p></div>
+                                    <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone }}</p></div>
+                                @endif
+                                
+                                @if ($Profil_entreprise->telephone2)
+                                    <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone2 }}</p></div>
+                                @else
+                                    <div class="col-md-6"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $Profil_entreprise->adresse }}</p></div>
+                                    <div class="col-md-6"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone }}</p></div>
+                                @endif 
+                                
+                                @if ($Profil_entreprise->siteweb)
+                                    <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">{{ $Profil_entreprise->siteweb }}</a></div>
+                                @endif
+                                
+                                @if ($Profil_entreprise->telephone3)
+                                    <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone3 }}</p></div>
+                                @endif
+
+                                @if ($Profil_entreprise->telephone4)
+                                    <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone4 }}</p></div>
+                                @endif
+                                
+                            </div>
+                            <div class="row">
+                                @if ($Profil_entreprise->description_entreprise)
+                                    <div class="col-md-12">
+                                        <p>{{ $Profil_entreprise->description_entreprise }}</p>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="row">
+                                @if ($Profil_entreprise->itineraire)
+                                    <div class="col-md-4"><span><i class="fas fa-map-marked-alt"></i></span> <a href="{{ $Profil_entreprise->itineraire }}">Itineraire</a></div>
+                                @endif
+                                @if ($Profil_entreprise->siteweb)
+                                <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">Site Web</a></div>
+                                @endif
+                                @if ($Profil_entreprise->siteweb)
+                                    <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a href="{{ $Profil_entreprise->siteweb }}">Site Web</a></div>
+                                @endif
+                            </div>
+                            <br>                    
+                        </div>
+                    @endforeach
+                </div>
+                @foreach ($est_souscrits as $est_souscrit)
+                        @if ($est_souscrit->est_souscrit == 1)
+                        <div class="row" id="service">
+                            <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
+                                <h4> Service </h4>
+                                <br>
+                                @foreach ($services as $service)
+                                    @if ($service->libelle)
+                                        <div class="row">
+                                            <div class="col-md-12"><p>{{ $service->libelle }}</p></div>
+                                        </div>
+                                    @endif
+                                    
+                                    @if ($service->description)
+                                        <div class="row">
+                                            <div class="col-md-12"><p>{{ $service->description }}</p></div>
+                                        </div> 
+                                    @endif
+                                    <br />
+                                    @if ($service->video)
+                                        <div class="row">
+                                            <div class="col-md-12"><img src="{{ Storage::url($service->video) }}" alt=""></div>
+                                        </div>
+                                    @endif
+                                @endforeach                   
+                            </div>
+                        </div>
+                    @endif
+                    @if ($est_souscrit->est_souscrit == 1)
+                        <div class="row" id="horaire">
+                            <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
+                                <h4> Horaire </h4>
+                                <br>
+                                @foreach ($horaires as $horaire)
+                                    <div class="row">
+                                        <div class="col-md-4"><p> {{ $horaire->jour }} </p></div>
+                                        <div class="col-md-4"><p> {{ $horaire->h_ouverture }} </p></div>
+                                        <div class="col-md-4"><p> {{ $horaire->h_fermerture }} </p></div>
+                                    </div>   
+                                @endforeach
+                                <br>                 
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
             </div>
-            <div class="col-lg-4 col-md-5 col-sm-6 offset-md-1 offset-sm-1 col-12 mt-4 property_rent wow fadeInUp">
-                @if(Session::has('success'))
+            <div class="col-lg-4 col-md-5 col-sm-6 offset-md-1 offset-sm-1 col-12 mt-4 ">
+                <div class="row">
+                    @if(Session::has('success'))
                     <div class="alert alert-success" role="alert">{{Session::get('success') }}</div>
                 @endif
                 @foreach ($Profil_entreprises as $Profil_entreprise)
@@ -278,7 +311,7 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea name="message" id=""message cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
+                            <textarea name="message" id=""message cols="30" rows="5" class="form-control" style="background-color: ;"></textarea>
                             @error('message')<span class="text-danger">{{$message}}</span>@enderror
                         </div>                        
                         <div class="form-group">
@@ -287,8 +320,11 @@
                     </form>
                 @endforeach
                 <br>
+                </div>
+                
             </div>
         </div>
     </div>
 </section>
+<script src="{{ asset('js/app.js') }}"></script>
 @include('frontend.footer')
