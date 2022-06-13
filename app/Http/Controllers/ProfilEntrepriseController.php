@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\entreprises;
+use App\Models\Entreprises;
 use App\Models\Horaires;
+use App\Models\Parametres;
 use App\Models\Services;
 use Exception;
 use Illuminate\Http\Request;
@@ -81,7 +82,9 @@ class ProfilEntrepriseController extends Controller
             ->join('services', 'entreprises.id', '=', 'entreprise_id')
             ->select('*')
             ->get();
+        
+        $parametres = Parametres::find(1);
         return view('frontend.ProfilEntreprise', compact('sousCategorieNavs', 'Profil_entreprises', 'horaires', 
-                    'services', 'est_souscrits'));
+                    'services', 'est_souscrits','parametres'));
     }
 }

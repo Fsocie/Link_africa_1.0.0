@@ -16,17 +16,17 @@
                     <div class="info_item">
                         <i class="lnr lnr-home"></i>
                         <h6>Lomé, Togo</h6>
-                        <p>Le quartier</p>
+                        <p>Notre quartier</p>
                     </div>
                     <div class="info_item">
                         <i class="lnr lnr-phone-handset"></i>
-                        <h6><a href="tel:7704282433">00 (228) 00 00 00 00</a></h6>
-                        <p>Mon to Fri 9am to 6 pm</p>
+                        <h6><a href="tel:{{ $parametres->telephone1 }}">{{ $parametres->telephone1 }}</a></h6>
+                        <p>Avédji derrière la pharmacie laus Deo Lomé,Togo</p>
                     </div>
                     <div class="info_item">
                         <i class="lnr lnr-envelope"></i>
-                        <h6><a href="mailto:exemple@exemple.com">exemple@exemple.com</a></h6>
-                        <p>Send us your query anytime!</p>
+                        <h6><a href="mailto:{{ $parametres->email }}">{{ $parametres->email }}</a></h6>
+                        <p>Ecrivez à tout moment !</p>
                     </div>
                 </div>
             </div>

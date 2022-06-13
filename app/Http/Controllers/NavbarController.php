@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Parametres;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,6 +15,7 @@ class NavbarController extends Controller
             ->select('*')
             ->take(4)
             ->get();
-        return view('frontend.navbar', compact('sousCategorieNavs'));
+        $parametres = Parametres::find(1);
+        return view('frontend.navbar', compact('sousCategorieNavs', 'parametres'));
     }
 }

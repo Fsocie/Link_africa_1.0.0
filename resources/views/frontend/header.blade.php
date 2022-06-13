@@ -15,14 +15,23 @@
   <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}">
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-  <title>@yield('title') - LinqueAfrique</title>
+  <title>@yield('title') - ShowRoomAfrica</title>
   <link href="{{ asset('assets/style.css') }}" rel="stylesheet">
 
   <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.1.99/css/materialdesignicons.min.css">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.0/css/swiper.min.css">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+
+  <!--assets4 -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ asset('assets4/fonts/icomoon/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets4/css/owl.carousel.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets4/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets4/css/style.css') }}">
+  <!--assets4 FIN-->
 
   <link rel="stylesheet" href="{{ asset('assets2/css/bootstrap.css') }}">
   <link rel="stylesheet" href="{{ asset('assets2/vendors/linericon/style.css') }}">

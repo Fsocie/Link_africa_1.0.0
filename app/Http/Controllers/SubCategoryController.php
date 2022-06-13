@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategorieEntreprises;
+use App\Models\Parametres;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -26,6 +27,7 @@ class SubCategoryController extends Controller
             ->take(4)
             ->get();
         //dump($Categories);
-        return view('frontend.sub-category', compact('sousCategories', 'Categories', 'sousCategorieNavs'));
+        $parametres = Parametres::find(1);
+        return view('frontend.sub-category', compact('sousCategories', 'Categories', 'sousCategorieNavs', 'parametres'));
     }
 }

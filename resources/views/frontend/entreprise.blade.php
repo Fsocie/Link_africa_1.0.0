@@ -51,7 +51,7 @@
     }
 
     body{
-        /* background:#f5f5f5; */
+        background:rgba(192,192,192,0.3);
     }
 
     #nav-items li a,#profile{
@@ -77,14 +77,14 @@
     }
 
     .comment{
-        border: 1px solid blue;
-        background-color: ;
+        border: 1px solid #EEF2F6;
+        background-color: white;
         float: left;
         border-radius: 5px;
         padding-left: 40px;
         padding-right: 30px;
         padding-top: 10px;
-        width: 650px ;
+        width: 650px;
         height: 200px auto;
     }
     .comment h4,.comment span,.darker h4,.darker span, .comment p{
@@ -150,7 +150,7 @@
                             @else
                                 <img src="{{ asset('default.png') }}" alt="" class="rounded-circle" width="80" height="80">
                             @endif
-                            <h4> {{ $entreprise->nom }}</h4>
+                            <h4> <a href="{{ route('profil-entreprise',['entreprise_id'=>$entreprise->id]) }}">{{ $entreprise->nom }}</a></h4>
                             <span>-{{ $entreprise->libelle }}</span>
                             <br>
                             <div class="row">
@@ -158,7 +158,7 @@
                                     <div class="col-md-6"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $entreprise->adresse }}</p></div>
                                 @endif
                                 @if ($entreprise->telephone)
-                                    <div class="col-md-6"><span><i class="fas fa-phone"></i></span> <p>{{ $entreprise->telephone }}</p></div>
+                                    <div class="col-md-6"><a href="tel:{{ $entreprise->telephone }}"><span><i class="fas fa-phone"></i></span> <p>{{ $entreprise->telephone }}</p></a></div>
                                 @endif
                             </div>
                             <div class="row">

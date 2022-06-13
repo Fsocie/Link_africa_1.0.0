@@ -11,7 +11,7 @@
         </div>
         <div class="col-lg-6 col-md-8">
           <div class="top_right">
-            <div class="topbar_phone"><a href="tel:7704282433"><i class="fas fa-phone-alt" aria-hidden="true"></i> (+228) 00 00 00 00
+            <div class="topbar_phone"><a href="tel:{{ $parametres->telephone1 }}"><i class="fas fa-phone-alt" aria-hidden="true"></i> {{ $parametres->telephone1 }}
               </a></div>
             <div class="topbar_login" style="background-color:orange">
 

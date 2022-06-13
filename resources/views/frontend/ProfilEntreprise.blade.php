@@ -1,7 +1,7 @@
 
 @include('frontend.header')
 @include('frontend.navbar')
-<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
 <style>
         .navbar-nav{
         width: 100%;
@@ -52,7 +52,7 @@
     }
 
     body{
-        /* background:#f5f5f5; */
+        background:rgba(192,192,192,0.3);
     }
 
     #nav-items li a,#profile{
@@ -78,8 +78,8 @@
     }
 
     .comment{
-        border: 1px solid blue;
-        background-color: ;
+        border: 1px solid #EEF2F6;
+        background-color: white;
         float: left;
         border-radius: 5px;
         padding-left: 40px;
@@ -90,15 +90,19 @@
     }
 
     .comment1{
-    border: 1px solid blue;
-    background-color: ;
+    border: 1px solid #EEF2F6;
+    background-color: white;
     border-radius: 5px;
     padding-left: 40px;
     padding-right: 30px;
     padding-top: 10px;
-    width: 1200px;
-    height: 250px;
- }
+    width: 1200px ;
+    height: 250px auto;
+    }
+
+    .ok, .nav{
+        background-color: white;
+    }
     .comment h4,.comment span,.darker h4,.darker span, .comment p{
         display: inline;
     }
@@ -133,13 +137,13 @@
 
     .form-group input,.form-group textarea{
         background-color: ;
-        border: 1px solid blue;
+        border: 1px solid #EEF2F6;
         border-radius: 12px;
     }
 
     form{
-        border: 1px solid blue;
-        background-color: ;
+        border: 1px solid #EEF2F6;
+        background-color: #DCDCDC;
         border-radius: 5px;
         padding: 20px;
     }
@@ -150,8 +154,8 @@
         @foreach ($Profil_entreprises as $Profil_entreprise)
             <div class="row ">
                 <div class="comment1">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: white">
+                        <div class="container-fluid ok">
                             <a class="navbar-brand" href="#">Navbar</a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
@@ -171,7 +175,7 @@
                                 </div>
                         </div>
                     </nav>
-                    @if ($Profil_entreprise->photo)
+                    @if ($Profil_entreprise->est_souscrit == 1)
                         <img src="{{ Storage::url($Profil_entreprise->photo) }}" alt="" class="rounded-circle" width="80" height="80">
                     @else
                         <img src="{{ asset('default.png') }}" alt="" class="rounded-circle" width="80" height="80">
@@ -192,16 +196,16 @@
                             <h4> Coordonnées </h4>
                             <br>
                             <div class="row">
-                                @if ($Profil_entreprise->telephone2)
+                                @if ($Profil_entreprise->telephone)
                                     <div class="col-md-4"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $Profil_entreprise->adresse }}</p></div>
-                                    <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone }}</p></div>
+                                    <div class="col-md-4"><a href="tel:{{ $Profil_entreprise->telephone }}"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone }}</p></a></div>
                                 @endif
                                 
                                 @if ($Profil_entreprise->telephone2)
-                                    <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone2 }}</p></div>
+                                    <div class="col-md-4"><a href="tel:{{ $Profil_entreprise->telephone2 }}"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone2 }}</p></a></div>
                                 @else
                                     <div class="col-md-6"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $Profil_entreprise->adresse }}</p></div>
-                                    <div class="col-md-6"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone }}</p></div>
+                                    <div class="col-md-6"><a href="tel:{{ $Profil_entreprise->telephone }}"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone }}</p></a></div>
                                 @endif 
                                 
                                 @if ($Profil_entreprise->siteweb)
@@ -209,11 +213,11 @@
                                 @endif
                                 
                                 @if ($Profil_entreprise->telephone3)
-                                    <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone3 }}</p></div>
+                                    <div class="col-md-4"><a href="tel:{{ $Profil_entreprise->telephone3 }}"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone3 }}</p></a></div>
                                 @endif
 
                                 @if ($Profil_entreprise->telephone4)
-                                    <div class="col-md-4"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone4 }}</p></div>
+                                    <div class="col-md-4"><a href="tel:{{ $Profil_entreprise->telephone4 }}"><span><i class="fas fa-phone"></i></span> <p>{{ $Profil_entreprise->telephone4 }}</p></a></div>
                                 @endif
                                 
                             </div>
@@ -295,24 +299,27 @@
                         @csrf
                         <div class="form-group">
                             <h4>Laisser un message à {{ $Profil_entreprise->nom }}</h4>
-                            <label for="nom">Nom</label>
+                            <label for="nom">Nom</label><samp style="color: red">*</samp>
                             <input type="text" name="nom" id="fullname" class="form-control">
                             @error('nom')<span class="text-danger">{{$message}}</span>@enderror
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="email">Email</label><samp style="color: red">*</samp>
                             <input type="text" name="email" id="email" class="form-control">
                             @error('email')<span class="text-danger">{{$message}}</span>@enderror
                         </div>
                         <div class="form-group">
-                            <label for="objet">Nom de l'entreprise ({{ $Profil_entreprise->nom }})</label>
+                            <label for="objet">Nom de l'entreprise ({{ $Profil_entreprise->nom }})</label><samp style="color: red">*</samp>
                             <input type="text" name="objet" id="objet" class="form-control">
                             @error('objet')<span class="text-danger">{{$message}}</span>@enderror
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
+                            <label for="message">Message</label><samp style="color: red">*</samp>
                             <textarea name="message" id=""message cols="30" rows="5" class="form-control" style="background-color: ;"></textarea>
                             @error('message')<span class="text-danger">{{$message}}</span>@enderror
+                        </div>
+                        <div class="form-group">
+                            <p>(<samp style="color: red">*</samp> Champ obligatoire)</p>
                         </div>                        
                         <div class="form-group">
                             <button type="submit" id="post" class="btn">Postez</button>
@@ -326,5 +333,5 @@
         </div>
     </div>
 </section>
-<script src="{{ asset('js/app.js') }}"></script>
+
 @include('frontend.footer')

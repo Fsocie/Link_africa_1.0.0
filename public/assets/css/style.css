@@ -413,8 +413,8 @@ p{font-size:14px; line-height:24px; color:#333;}
 	   == Slider Css Start ==
 ********************************************/
 .slider-wrap{background:url(../images/banner-bg.jpg) no-repeat top; background-size:cover; padding:70px 0 80px 0;}
-.sliderTxt h1{font-size:60px; color:#fff; text-transform: uppercase; font-weight: 600; margin-top:0; text-align:center;}
-.sliderTxt p{font-size:18px; color:#fff; letter-spacing: 2px; text-align:center;}
+.sliderTxt h1{font-size:7px; color:#fff; text-transform: uppercase; font-weight: 600; margin-top:0; text-align:center;}
+.sliderTxt p{font-size:7px; color:#fff; letter-spacing: 2px; text-align:center;}
 .form-wrap{background: rgba(255, 255, 255, 0.14); padding: 25px;}
 .slider-wrap .input-group .form-control{border:none; font-size: 14px; border-radius:0 !important; height: 48px;}
 .slider-wrap .input-group .dropdown{height: 46px; width:100%; border: none; padding: 6px 12px; font-size: 14px; line-height: 1.42857143; color: #555; background-color: #fff; background-image: none;}
@@ -472,6 +472,10 @@ p{font-size:14px; line-height:24px; color:#333;}
 .video_hoverText{margin-top: 50px;}
 
 
+@media (max-width: 767px)
+{
+    .c-inner .c-item >div{display: none}
+    .c-inner .c-item >div:first-child{display: block}}.c-inner .c-item.active, .c-inner .c-item-next, .c-inner .c-item-prev{display: flex}@media (min-width: 768px){.c-inner .c-item-end.active, .c-inner .c-item-next{transform: translateX(25%)}.c-inner .c-item-start.active, .c-inner .c-item-prev{transform: translateX(-25%)}}.c-inner .c-item-end, .c-inner .c-item-start{transform: translateX(0)}
 
 /*********************************************
     Custom slider options
@@ -1540,6 +1544,12 @@ button:focus{outline: none;}
     position: relative;
     
 }
+.text-center h4{
+    margin-top: 50px;
+    font-family:Myriad pro;
+     font-size:22pt; 
+     color:#ffffff !important;
+}
 .panel-group h3{font-size:30px; margin-bottom:10px; margin-top:15px;}
 .panel-group .panel {
     border-radius: 0;
@@ -2001,7 +2011,7 @@ button:focus{outline: none;}
 }
 
 @media screen and (max-width: 990px){
-    .hero-image{height: 100px; width: 100%;}
+    .hero-image{height: 100%; width: 100%;}
     .hero-wrapper:before{top: 0;}
     .videohover{position: static;}
     .videoWrp{height: auto; padding-bottom: 100px;}
@@ -2035,7 +2045,7 @@ button:focus{outline: none;}
     padding-left: 1rem;
     overflow-y: auto;
     visibility: hidden;
-    background-color: rgba(0,0,0,0.8);
+    background-color: white;
     transition: visibility .3s ease-in-out, -webkit-transform .3s ease-in-out;
     transition: transform .3s ease-in-out, visibility .3s ease-in-out;
     transition: transform .3s ease-in-out, visibility .3s ease-in-out, -webkit-transform .3s ease-in-out;
@@ -2049,7 +2059,7 @@ button:focus{outline: none;}
 }
 .close-toggler {
     background: none;
-    color: #fff;
+    color: orange;
     padding: 5px;
     border: none;
     margin-top: 10px;
@@ -2079,7 +2089,7 @@ section.our_team_wrap .team_member{margin-bottom: 70px; margin-left: auto; margi
 }
 
 @media screen and (max-width: 767px){
-    .hero-image{height: 300px; width: 100%;}
+    .hero-image{height: 100px auto; width: 100%;}
 .popular_wrap .mt_md{margin-top: 20px;}
 .col-sm-4.pr-0{padding-right:15px !important;}
 .popular_wrap .row .col-md-4:nth-child(1) .popular_img{margin-bottom: 15px;}
@@ -2108,7 +2118,7 @@ section.our_team_wrap .team_member{margin-bottom: 70px; margin-left: auto; margi
 .hotelLinks li{width: 50%;}
 .header_logo{width: 200px;}
     .popular_wrap h1, .buy-wrap h1, .title h1, .perfect_home_wrap h1, .sliderTxt h1{
-        font-size: 28px;
+        font-size: 14px;
     }
     .sliderTxt p{font-size: 14px; letter-spacing: 1px;}
     .property_box h3 a{font-size: 18px;}

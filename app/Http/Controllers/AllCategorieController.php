@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategorieEntreprises;
+use App\Models\Parametres;
 use App\Models\Pubs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,8 @@ class AllCategorieController extends Controller
             ->get();
 
         $pubs = Pubs::all();
-        return view('frontend.allCategorie', compact('categories', 'sousCategorieNavs','pubs'));
+        $parametres = Parametres::find(1);
+        return view('frontend.allCategorie', compact('categories', 'sousCategorieNavs','pubs','parametres'));
     }
     
 }

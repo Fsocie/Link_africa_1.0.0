@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Parametres;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -59,6 +60,8 @@ class ContactUsController extends Controller
             ->select('*')
             ->take(4)
             ->get();
-        return view('frontend.contact-us', compact('sousCategorieNavs'));
+
+        $parametres = Parametres::find(1);
+        return view('frontend.contact-us', compact('sousCategorieNavs', 'parametres'));
     }
 }

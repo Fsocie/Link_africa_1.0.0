@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\entreprises;
+use App\Models\Entreprises;
+use App\Models\Parametres;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -20,7 +21,8 @@ class ProfilController extends Controller
             ->get();
 
         $users = User::paginate(1);
-        $entreprisePopulaire = entreprises::inRandomOrder()->limit(2)->get();
-        return view('frontend.profile', compact('sousCategorieNavs', 'users', 'entreprisePopulaire'));
+        $entreprisePopulaire = Entreprises::inRandomOrder()->limit(2)->get();
+        $parametres = Parametres::find(1);
+        return view('frontend.profile', compact('sousCategorieNavs', 'users', 'entreprisePopulaire','parametres'));
     }
 }

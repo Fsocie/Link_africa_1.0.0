@@ -150,7 +150,7 @@ form{
                             @else
                                 <img src="{{ asset('default.png') }}" alt="" class="rounded-circle" width="80" height="80">
                             @endif
-                            <h4> {{ $recherche->nom }}</h4>
+                            <h4> <a href="{{ route('profil-entreprise',['entreprise_id'=>$recherche->id]) }}">{{ $recherche->nom }}</a></h4>
                             <span>-{{ $recherche->sousCategorie }}</span>
                             <br>
                             <div class="row">
@@ -158,7 +158,7 @@ form{
                                     <div class="col-md-6"><span><i class="fas fa-map-marker-alt"></i></span> <p>{{ $recherche->adresse }}</p></div>
                                 @endif
                                 @if ($recherche->telephone)
-                                    <div class="col-md-6"><span><i class="fas fa-phone"></i></span> <p>{{ $recherche->telephone }}</p></div>
+                                    <div class="col-md-6"><a href="tel:{{ $recherche->telephone }}"><span><i class="fas fa-phone"></i></span> <p>{{ $recherche->telephone }}</p></a></div>
                                 @endif
                             </div>
                             <div class="row">

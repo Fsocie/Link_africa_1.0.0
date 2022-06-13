@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategorieEntreprises;
-use App\Models\entreprises;
+use App\Models\Entreprises;
 use App\Models\Minispot;
+use App\Models\Parametres;
 use App\Models\Pubs;
 use App\Models\Reportages;
 use Illuminate\Http\Request;
@@ -275,6 +276,7 @@ class HomeController extends Controller
         $entrepriseHome = DB::table('entreprises')
             ->select('*')
             ->orderBy('id', 'desc')
+            ->limit(3)
             ->get();
 
         $entrepriseHonneur = DB::table('entreprises')
@@ -290,9 +292,10 @@ class HomeController extends Controller
         $reportagedelasemaine = Reportages::all();
 
         $pubs = Pubs::all();
+        $parametres = Parametres::find(1);
 
         return view('frontend.home', compact('categories', 'sousCategorieNavs', 
                     'pays', 'villes', 'categorie2s', 'rejoins', 'entrepriseHome', 'entrepriseHonneur', 
-                    'entrepriseElus', 'reportagedelasemaine', 'minispots','pubs'));
+                    'entrepriseElus', 'reportagedelasemaine', 'minispots','pubs','parametres'));
     }
 }

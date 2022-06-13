@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\entreprises;
+use App\Models\Entreprises;
+use App\Models\Parametres;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -28,7 +29,9 @@ class EntrepriseController extends Controller
             ->limit(1)
             ->get();
 
-        $entreprisePopulaire = entreprises::inRandomOrder()->limit(4)->get();
-        return view('frontend.entreprise', compact('sousCategorieNavs', 'entreprises', 'sousCategories', 'entreprisePopulaire'));
+        $entreprisePopulaire = Entreprises::inRandomOrder()->limit(4)->get();
+
+        $parametres = Parametres::find(1);
+        return view('frontend.entreprise', compact('sousCategorieNavs', 'entreprises', 'sousCategories', 'entreprisePopulaire','parametres'));
     }
 }

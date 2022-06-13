@@ -1,4 +1,5 @@
-<footer class="footer bg-style wow fadeInUp">
+<div >
+  <footer class="footer bg-style wow fadeInUp">
     <div class="container">
       <div class="footer-upper">
         <div class="row">
@@ -13,9 +14,9 @@
               <h3 class="title">Liens rapides</h3>
               <ul>
                 <li><a href="{{ route('home') }}"> Accueil</a> </li>
-                <li><a href="#."> Professionnels</a> </li>
-                <li><a href="#."> Entreprises</a> </li>
-                <li><a href="#."> Services</a> </li>
+                <li><a href="{{ route('professionnel') }}"> Professionnels</a> </li>
+                {{-- <li><a href="#."> Entreprises</a> </li>
+                <li><a href="#."> Services</a> </li> --}}
                 <li><a href="{{ route('contact') }}"> Contact </a> </li>
               </ul>
             </div>
@@ -28,7 +29,7 @@
                   <div class="rec_proprty">
                     <div class="propertyImg"><img alt="" src="{{ asset('assets/images/property_small01.jpg') }}"></div>
                     <div class="property_info">
-                      <h4><a href="#">Agence Accra</a></h4>
+                      <h4><a href="#">Agence Togo</a></h4>
                       <p> </p>
                       <div class="priceWrp"> </div>
                     </div>
@@ -38,7 +39,7 @@
                   <div class="rec_proprty">
                     <div class="propertyImg"><img alt="" src="{{ asset('assets/images/property_small02.jpg') }}"></div>
                     <div class="property_info">
-                      <h4><a href="#">Agence Lomé</a></h4>
+                      <h4><a href="#">Agence Bénin</a></h4>
                       <p> </p>
                       <div class="priceWrp"></div>
                     </div>
@@ -47,30 +48,38 @@
               </ul>
             </div>
           </div>
-          <div class="col-lg-3 col-md-4">
-            <div class="footer-widget contact">
-              <h3 class="title">Contacts</h3>
-              <ul class="footer-adress">
-                <li class="footer_address"> <i class="fas fa-map-signs"></i> <span>Afrique , Ghana , Accra</span> </li>
-                <li class="footer_email"> <i class="fas fa-envelope" aria-hidden="true"></i> <span><a
-                      href="mailto:exemple@exemple.com"> info@pagesjaunesafrique.com </a></span> </li>
-                <li class="footer_phone"> <i class="fas fa-phone-alt"></i> <span><a href="tel:7704282433"> +233
-                      0000000000</a></span> </li>
-              </ul>
-              <div class="social-icons footer_icon">
-                <ul>
-                  <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+          
+            <div class="col-lg-3 col-md-4">
+              <div class="footer-widget contact">
+                <h3 class="title">Contacts</h3>
+                <ul class="footer-adress">
+                  <li class="footer_address"> <i class="fas fa-map-signs"></i> <span>Afrique , Toggo , Bénin</span> </li>
+                  <li class="footer_email"> <i class="fas fa-envelope" aria-hidden="true"></i> <span><a href="mailto:{{ $parametres->email }}"> {{ $parametres->email }} </a></span> </li>
+                  <li class="footer_phone"> <i class="fas fa-phone-alt"></i> <span><a href="tel:{{$parametres->telephone2}}"> {{$parametres->telephone2}}</a></span> </li>
                 </ul>
+                <div class="social-icons footer_icon">
+                  <ul>
+                    <li><a href="{{ $parametres->lienface }}"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ $parametres->lientwitter }}"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ $parametres->lieninsta }}"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ $parametres->lienyoutube }}"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
+          
         </div>
       </div>
     </div>
   </footer>
+</div>
+
+
+  <script src="{{ asset('assets4/js/jquery-3.3.1.min.js') }}"></script>
+  <script src="{{ asset('assets4/js/popper.min.js') }}"></script>
+  <script src="{{ asset('assets4/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('assets4/js/owl.carousel.min.js') }}"></script>
+  <script src="{{ asset('assets4/js/main.js') }}"></script>
 
   <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/js/popper.min.js') }}"></script>
@@ -82,6 +91,7 @@
   <!-- wow js -->
   <script src="{{ asset('assets/js/animate.js') }}"></script>
   <script src="{{ asset('assets/js/jquery.nice-select.js') }}"></script>
+  
   <script>
     new WOW().init();
   </script>

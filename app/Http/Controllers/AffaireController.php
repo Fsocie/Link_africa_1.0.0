@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Parametres;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,6 +24,8 @@ class AffaireController extends Controller
             ->orderBy('emplois.id', 'DESC')
             //->get()
             ->paginate(2);
-        return view('frontend.affaire', compact('sousCategorieNavs', 'affaires'));
+
+        $parametres = Parametres::find(1);
+        return view('frontend.affaire', compact('sousCategorieNavs', 'affaires', 'parametres'));
     }
 }
