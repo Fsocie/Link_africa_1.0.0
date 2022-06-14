@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Parametres extends Model
 {
     use HasFactory;
+
+    public function Admin()
+    {
+        return $this->hasMany(Admins::class);
+    }
 }

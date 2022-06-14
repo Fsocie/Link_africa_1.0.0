@@ -20,7 +20,7 @@
                                     <div class="flex">
                                         <div class="mr-8">
                                             @if ($user->photo)
-                                                <img class="h-26 w-26 t:w-32 t:h-32 object-cover rounded-full" src="{{ Storage::url($user->photo) }}"
+                                                <img class="h-26 w-26 t:w-32 t:h-32 object-cover rounded-full" src="{{  asset('assets/images') }}/{{ $user->photo }}"
                                                 title="{{ $user->nom }} {{ $user->prenoms }}" alt="{{ $user->nom }} {{ $user->prenoms }}" />
                                             @else
                                                 <img class="h-26 w-26 t:w-32 t:h-32 object-cover rounded-full" src="{{ asset('personne.jpg') }}"

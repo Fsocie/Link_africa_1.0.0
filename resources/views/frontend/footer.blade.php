@@ -76,8 +76,8 @@
 
 
   <script src="{{ asset('assets4/js/jquery-3.3.1.min.js') }}"></script>
-  <script src="{{ asset('assets4/js/popper.min.js') }}"></script>
-  <script src="{{ asset('assets4/js/bootstrap.min.js') }}"></script>
+  {{-- <script src="{{ asset('assets4/js/popper.min.js') }}"></script> --}}
+  {{-- <script src="{{ asset('assets4/js/bootstrap.min.js') }}"></script> --}}
   <script src="{{ asset('assets4/js/owl.carousel.min.js') }}"></script>
   <script src="{{ asset('assets4/js/main.js') }}"></script>
 
@@ -102,6 +102,7 @@
   <script src="{{ asset('assets/script.js') }}"></script>
 
   {{-- <script src="{{ asset('assets2/js/jquery-3.2.1.min.js') }}"></script> --}}
+  
   <script src="{{ asset('assets2/js/popper.js') }}"></script>
   <script src="{{ asset('assets2/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets2/js/stellar.js') }}"></script>
@@ -119,7 +120,7 @@
   <script src="{{ asset('assets2/js/gmaps.min.js') }}"></script>
   <script src="{{ asset('assets2/js/theme.js') }}"></script>
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  {{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script> --}}
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.0/js/swiper.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js'></script><script src="./script.js"></script>
 

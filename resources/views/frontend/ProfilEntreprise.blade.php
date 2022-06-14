@@ -3,94 +3,96 @@
 @include('frontend.navbar')
 
 <style>
-        .navbar-nav{
-        width: 100%;
-    }
+    /* .navbar-nav{
+    width: 100%;
+} */
 
-    @media(min-width:568px){
-        .end{
-            margin-left: auto;
-        }
+@media(min-width:568px){
+    .end{
+        margin-left: auto;
     }
+}
 
-    @media(max-width:768px){
-        #post{
-            width: 100%;
-        }
-    }
-    #clicked{
-        padding-top: 1px;
-        padding-bottom: 1px;
-        text-align: center;
-        width: 100%;
-        background-color: #ecb21f;
-        border-color: #a88734 #9c7e31 #846a29;
-        color: black;
-        border-width: 1px;
-        border-style: solid;
-        border-radius: 13px; 
-    }
-
-    #profile{
-        background-color: unset;
-        
-    } 
-
+@media(max-width:768px){
     #post{
-        margin: 10px;
-        padding: 6px;
-        padding-top: 2px;
-        padding-bottom: 2px;
-        text-align: center;
-        background-color: orange;
-        border-color: #a88734 #9c7e31 #846a29;
-        color: black;
-        border-width: 1px;
-        border-style: solid;
-        border-radius: 13px;
-        width: 50%;
+        width: 100%;
     }
+}
+#clicked{
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align: center;
+    width: 100%;
+    background-color: #ecb21f;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 13px; 
+}
 
-    body{
-        background:rgba(192,192,192,0.3);
-    }
+#profile{
+    background-color: unset;
+    
+} 
 
-    #nav-items li a,#profile{
-        text-decoration: none;
-        color: rgb(224, 219, 219);
-        background-color: black;
-    }
+#post{
+    margin: 10px;
+    padding: 6px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-align: center;
+    background-color: orange;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 13px;
+    width: 50%;
+}
+
+body{
+    background:white;
+} 
+
+/* #nav-items li a,#profile{
+    text-decoration: none;
+    color: rgb(224, 219, 219);
+    background-color: black;
+} */
 
 
-    .comments{
-        margin-top: 5%;
-        margin-left: 20px;
-    }
+.comments{
+    margin-top: 5%;
+    margin-left: 20px;
+}
 
-    .darker{
-        border: 1px solid #ecb21f;
-        background-color: black;
-        float: right;
-        border-radius: 5px;
-        padding-left: 40px;
-        padding-right: 30px;
-        padding-top: 10px;
-    }
+.darker{
+    border: 1px solid #ecb21f;
+    background-color: black;
+    float: right;
+    border-radius: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-top: 10px;
+}
 
-    .comment{
-        border: 1px solid #EEF2F6;
-        background-color: white;
-        float: left;
-        border-radius: 5px;
-        padding-left: 40px;
-        padding-right: 30px;
-        padding-top: 10px;
-        width: 700px ;
-        height: 200px auto;
-    }
-
-    .comment1{
+.comment{
     border: 1px solid #EEF2F6;
+    background-color: white;
+    float: left;
+    border-radius: 5px;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-top: 10px;
+    width: 650px;
+    height: 200px auto;
+    border-width: 1px 1px 1px 12px;
+    border-color: #0b3c5d
+}
+
+.comment1{
+    border: 1px solid #0b3c5d;
     background-color: white;
     border-radius: 5px;
     padding-left: 40px;
@@ -98,55 +100,58 @@
     padding-top: 10px;
     width: 1200px ;
     height: 250px auto;
+    border-width: 1px 1px 1px 12px;
+    border-color: #0b3c5d
     }
+.comment h4,.comment span,.darker h4,.darker span, .comment p{
+    display: inline;
+}
 
-    .ok, .nav{
-        background-color: white;
-    }
-    .comment h4,.comment span,.darker h4,.darker span, .comment p{
-        display: inline;
-    }
 
-    .comment p,.comment span,.darker p,.darker span{
-        color: #808080;
-    }
+.comment p,.darker p,.darker span{
+    color: rgb(0, 0, 10);;
+}
 
-    h1,h4{
-        color: black;
-        font-weight: bold;
-    }
-    label{
-        color: #808080;
-    }
+.comment i, .comment span, a{
+    color: #0b3c5d
+}
 
-    #align-form{
-        margin-top: 20px;
-    }
-    .form-group p a{
-        color: black;
-    }
+h1,h4{
+    color: black;
+    font-weight: bold;
+}
+label, p{
+    color: rgb(212, 208, 208);
+}
 
-    #checkbx{
-        background-color: ;
-    }
+#align-form{
+    margin-top: 20px;
+}
+.form-group p a{
+    color: white;
+}
 
-    #darker img{
-        margin-right: 15px;
-        position: static;
-    }
+#checkbx{
+    background-color: black;
+}
 
-    .form-group input,.form-group textarea{
-        background-color: ;
-        border: 1px solid #EEF2F6;
-        border-radius: 12px;
-    }
+#darker img{
+    margin-right: 15px;
+    position: static;
+}
 
-    form{
-        border: 1px solid #EEF2F6;
-        background-color: #DCDCDC;
-        border-radius: 5px;
-        padding: 20px;
-    }
+.form-group input,.form-group textarea{
+    background-color: black;
+    border: 1px solid #0b3c5d;
+    border-radius: 12px;
+}
+
+form{
+    border: 1px solid #0b3c5d;
+    background-color: #0b3c5d;
+    border-radius: 5px;
+    padding: 20px;
+}
 </style>
 <!-- Main Body -->
 <section class="popular_wrap wow fadeInUp">
@@ -154,8 +159,8 @@
         @foreach ($Profil_entreprises as $Profil_entreprise)
             <div class="row ">
                 <div class="comment1">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: white">
-                        <div class="container-fluid ok">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:white !important;">
+                        <div class="container-fluid" style="background: white;">
                             <a class="navbar-brand" href="#">Navbar</a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
@@ -176,12 +181,12 @@
                         </div>
                     </nav>
                     @if ($Profil_entreprise->est_souscrit == 1)
-                        <img src="{{ Storage::url($Profil_entreprise->photo) }}" alt="" class="rounded-circle" width="80" height="80">
+                        <img src="{{  asset('assets/images') }}/{{ $Profil_entreprise->photo }} }}" alt="" class="rounded-circle" width="80" height="80">
                     @else
                         <img src="{{ asset('default.png') }}" alt="" class="rounded-circle" width="80" height="80">
                     @endif
                     <h4> {{ $Profil_entreprise->nom }}</h4>
-                    <span>-{{ $Profil_entreprise->libelle }}</span>
+                    <span style="color: #0b3c5d">{{ $Profil_entreprise->libelle }}</span>
                 </div>
             </div>
         @endforeach
@@ -264,7 +269,7 @@
                                     <br />
                                     @if ($service->video)
                                         <div class="row">
-                                            <div class="col-md-12"><img src="{{ Storage::url($service->video) }}" alt=""></div>
+                                            <div class="col-md-12"><img src="{{  asset('assets/images') }}/{{ $service->video }}" alt=""></div>
                                         </div>
                                     @endif
                                 @endforeach                   

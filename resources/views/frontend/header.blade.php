@@ -15,7 +15,7 @@
   <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}">
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-  <title>@yield('title') - ShowRoomAfrica</title>
+  <title>@yield('title') - Showroomafrica</title>
   <link href="{{ asset('assets/style.css') }}" rel="stylesheet">
 
   <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.1.99/css/materialdesignicons.min.css">
@@ -29,7 +29,7 @@
 
   <link rel="stylesheet" href="{{ asset('assets4/fonts/icomoon/style.css') }}">
   <link rel="stylesheet" href="{{ asset('assets4/css/owl.carousel.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets4/css/bootstrap.min.css') }}">
+  {{-- <link rel="stylesheet" href="{{ asset('assets4/css/bootstrap.min.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('assets4/css/style.css') }}">
   <!--assets4 FIN-->
 

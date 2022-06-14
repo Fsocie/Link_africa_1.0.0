@@ -50,15 +50,15 @@
         width: 50%;
     }
 
-    body{
+    /* body{
         background:rgba(192,192,192,0.3);
-    }
+    } */
 
-    #nav-items li a,#profile{
+    /* #nav-items li a,#profile{
         text-decoration: none;
         color: rgb(224, 219, 219);
         background-color: black;
-    }
+    } */
 
 
     .comments{
@@ -77,7 +77,7 @@
     }
 
     .comment{
-        border: 1px solid #EEF2F6;
+        border: 1px solid #0b3c5d;
         background-color: white;
         float: left;
         border-radius: 5px;
@@ -86,14 +86,20 @@
         padding-top: 10px;
         width: 650px;
         height: 200px auto;
+        border-width: 1px 1px 1px 12px;
+        border-color: #0b3c5d
     }
     .comment h4,.comment span,.darker h4,.darker span, .comment p{
         display: inline;
     }
 
     
-    .comment p,.comment span,.darker p,.darker span{
-        color: #808080;
+    .comment p,.darker p,.darker span{
+        color: rgb(0, 0, 10);;
+    }
+
+    .comment i, .comment span, a{
+        color: #0b3c5d
     }
 
     h1,h4{
@@ -139,19 +145,19 @@
         <div class="row">
             <div class="col-sm-5 col-md-7 col-12 pb-4">
                 @foreach ($sousCategories as $sousCategorie)
-                    <h2>{{ $sousCategorie->libelle }}</h2>
+                    <h2 style="color: #0b3c5d">{{ $sousCategorie->libelle }}</h2>
                 @endforeach
                 
                 @foreach ($entreprises as $entreprise)
                     <a href="{{ route('profil-entreprise',['entreprise_id'=>$entreprise->id]) }}">
                         <div class="comment mt-4 text-justify float-left">
                             @if ($entreprise->photo)
-                                <img src="{{ Storage::url($entreprise->photo) }}" alt="" class="rounded-circle" width="80" height="80">
+                                <img src="{{ asset('assets/images') }}/{{ $entreprise->photo }}" alt="" class="rounded-circle" width="80" height="80">
                             @else
                                 <img src="{{ asset('default.png') }}" alt="" class="rounded-circle" width="80" height="80">
                             @endif
-                            <h4> <a href="{{ route('profil-entreprise',['entreprise_id'=>$entreprise->id]) }}">{{ $entreprise->nom }}</a></h4>
-                            <span>-{{ $entreprise->libelle }}</span>
+                            <h4> <a href="{{ route('profil-entreprise',['entreprise_id'=>$entreprise->id]) }}">{{ $entreprise->nom }}</a></h4><br />
+                            <span>{{ $entreprise->libelle }}</span>
                             <br>
                             <div class="row">
                                 @if ($entreprise->adresse)
@@ -189,17 +195,21 @@
             </div>
 
             <div class="col-lg-4 col-md-6 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
-                <h3>Sociétés les plus consultées <small></small></h3>
+                <h3 style="color: #0b3c5d">Sociétés les plus consultées <small></small></h3>
                 @foreach ($entreprisePopulaire as $entreprisePopulaires)
                     <div class="relative flex items-center py-8 px-8 border-0 border-b border-gray-400 border-solid first:border-t hover:bg-gray-100" style="width: auto">
                         <div class="flex-1 mr-8 flex flex-col">
                             <a class="stretched-link text-black text-16 hover:text-link mb-3 font-bold" href="{{ route('profil-entreprise',['entreprise_id'=>$entreprisePopulaires->id]) }}">{{ $entreprisePopulaires->nom }}</a>
                             <div class="flex text-12 font-light text-gray-600 items-center">
                                 <div class="mr-8  flex items-center">
-                                    <i class="text-16 mr-2 text-gray-400 fa fa-map-marker"></i><span>{{ $entreprisePopulaires->adresse }}</span>
+                                    @if ($entreprisePopulaires->adresse)
+                                        <i class="text-16 mr-2 text-gray-400 fa fa-map-marker"></i><span>{{ $entreprisePopulaires->adresse }}</span>
+                                    @endif
                                 </div>
                                 <div class=" flex items-center">
-                                    <i class="text-16 mr-2 text-gray-400 fa fa-globe"></i><a href="{{ $entreprisePopulaires->siteweb }}"><span>Site Web</span></a>
+                                    @if ($entreprisePopulaires->siteweb)
+                                        <i class="text-16 mr-2 text-gray-400 fa fa-globe"></i><a href="{{ $entreprisePopulaires->siteweb }}"><span>Site Web</span></a>
+                                    @endif
                                 </div>
                             </div>
                         </div>

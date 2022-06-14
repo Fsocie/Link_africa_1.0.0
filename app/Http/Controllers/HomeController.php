@@ -8,6 +8,7 @@ use App\Models\Minispot;
 use App\Models\Parametres;
 use App\Models\Pubs;
 use App\Models\Reportages;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -243,9 +244,11 @@ class HomeController extends Controller
             ->get();
 
         $entreprisePopulaire = entreprises::inRandomOrder()->limit(4)->get();
+
+        $parametres = Parametres::find(1);
         //dump($_REQUEST, $_GET);
 
-        return view('frontend.recherche-entreprise', compact('recherches', 'sousCategorieNavs', 'entreprisePopulaire'));
+        return view('frontend.recherche-entreprise', compact('recherches', 'sousCategorieNavs', 'entreprisePopulaire','parametres'));
     }
 
     public function index()
@@ -260,8 +263,10 @@ class HomeController extends Controller
         $pays = DB::table('pays')
             ->select('*')
             ->get();
+        //$id= $pays->id;
 
         $villes = DB::table('villes')
+            //->where('pays_id', '=', $id)
             ->select('*')
             ->get();
 
@@ -294,8 +299,10 @@ class HomeController extends Controller
         $pubs = Pubs::all();
         $parametres = Parametres::find(1);
 
+        $slider = Slider::all();
+
         return view('frontend.home', compact('categories', 'sousCategorieNavs', 
                     'pays', 'villes', 'categorie2s', 'rejoins', 'entrepriseHome', 'entrepriseHonneur', 
-                    'entrepriseElus', 'reportagedelasemaine', 'minispots','pubs','parametres'));
+                    'entrepriseElus', 'reportagedelasemaine', 'minispots','pubs','parametres','slider'));
     }
 }
