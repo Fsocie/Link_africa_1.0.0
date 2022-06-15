@@ -26,7 +26,7 @@
                     <div class="info_item">
                         <i class="lnr lnr-envelope"></i>
                         <h6><a href="mailto:{{ $parametres->email }}">{{ $parametres->email }}</a></h6>
-                        <p>Ecrivez à tout moment !</p>
+                        <p>Ecrivez nous à tout moment !</p>
                     </div>
                 </div>
             </div>

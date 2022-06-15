@@ -11,6 +11,6 @@ class Horaires extends Model
 
     public function CategoryEntreprise()
     {
-        return $this->hasMany(entreprises::class);
+        return $this->hasMany(Entreprises::class);
     }
 }

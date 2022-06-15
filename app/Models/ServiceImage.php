@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Services extends Model
+class ServiceImage extends Model
 {
     use HasFactory;
 
-    public function CategoryEntreprise()
+    public function Service()
     {
-        return $this->hasMany(Entreprises::class);
+        return $this->hasMany(Services::class);
     }
 }

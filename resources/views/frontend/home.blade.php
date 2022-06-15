@@ -10,138 +10,51 @@
     background: white !important
   }
 </style>
-<div class="video">
-    <div class="slider-wrap videoWrp" id="home">
-        <div class="hero-image" style="background-image: url({{ asset('assets/images/banner2.jpg') }})">
-            <div class="videohover hero-wrapper">
-                <div class="container">
-                    <div class="sliderTxt video_hoverText">
-                        <h1 style="font-family:Myriad pro; font-size:20pt">Le premier Annuaire couvrant les 17 pays de l'OHADA </h1>
-                        <p style="font-size:10pt">Trouvez les meilleurs services & produits aux meilleurs prix en
-                            contactant directement les entreprises!
-                        </p>
-                        <div id="exTab1" class="container">
-                            <ul class="nav nav-pills">
-                                <li> <a href="#1a" class="active" data-toggle="tab">Annuaire</a> </li>
-                                <li><a href="#2a" data-toggle="tab" style="background-color:#142c57">Annuaire inversé</a> </li>
-                            </ul>
-                            <div class="tab-content clearfix">
-                                <div class="tab-pane active" id="1a">
-                                    <div class="form-wrap">
-                                        <form action="{{ route('recherche') }}" method="GET">
-                                            <div class="row">
-                                                <div class="col-lg-6 economy">
-                                                    <div class="input-group origin">
-                                                        <input type="text" name=" Origin"
-                                                            placeholder="Recherchez une entreprise, un professionnel ..."
-                                                            class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 economy">
-                                                    <div class="input-group">
-                                                        <select class="form-control" name="pays" id="pays">
-                                                            <option selected>pays ...</option>
-                                                            @foreach ($pays as $pay)
-                                                            <option value="{{ $pay->libelle }}">{{ $pay->libelle }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-5 economy">
-                                                    <div class="input-group">
-                                                        <select class="form-control" name="ville">
-                                                            <option selected>ville ...</option>
-                                                            @foreach ($villes as $ville)
-                                                            <option value="{{ $ville->libelle }}">{{ $ville->libelle }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-5 economy">
-                                                    <div class="input-group">
-                                                        <select class="form-control" name="secteur">
-                                                            <option selected>secteur d'activité ...</option>
-                                                            @foreach ($categorie2s as $categorie2)
-                                                            <option value="{{ $categorie2->libelle }}">{{ $categorie2->libelle
-                                                                }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-2 economy">
-                                                    <div class="input-btn">
-                                                        <button class="sbutn" type="submit" id="id_btn"> <i class="fa fa-search"
-                                                                aria-hidden="true"></i> Trouver </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="2a">
-                                    <div class="form-wrap">
-                                        <form action="{{ route('recherche') }}" method="GET">
-                                            <div class="row">
-                                                <div class="col-lg-6 economy">
-                                                    <div class="input-group origin">
-                                                        <input type="text" name=" Origin"
-                                                            placeholder="Entrez le numéro cherché ..." class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6 economy">
-                                                    <div class="input-group">
-                                                        <select class="form-control" name="pays">
-                                                            <option selected>pays ...</option>
-                                                            @foreach ($pays as $pay)
-                                                            <option value="{{ $pay->libelle }}">{{ $pay->libelle }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-5 economy">
-                                                    <div class="input-group">
-                                                        <select class="form-control" name="ville">
-                                                            <option selected>ville ...</option>
-                                                            @foreach ($villes as $ville)
-                                                            <option value="{{  $ville->libelle }}">{{ $ville->libelle }}
-                                                            </option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-5 economy">
-                                                    <div class="input-group origin">
-                                                        <select class="form-control" name="secteur">
-                                                            <option selected>secteur d'activité ...</option>
-                                                            @foreach ($categorie2s as $categorie2)
-                                                            <option value="{{ $categorie2->libelle }}">{{ $categorie2->libelle
-                                                                }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-2 economy">
-                                                    <div class="input-btn">
-                                                        <button class="sbutn" type="submit" id="id_btn"> <i class="fa fa-search"
-                                                                aria-hidden="true"></i> Trouver </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="container-lg my-3">
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <!-- Carousel indicators -->
+        <ol class="carousel-indicators">
+            <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+        </ol>
+        
+        <!-- Wrapper for carousel items -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ asset('assets/images/banner.jpg') }}" class="d-block w-100" alt="Slide 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Some demonstrative placeholder content for the first slide.</p>
                 </div>
             </div>
-            
+            <div class="carousel-item">
+                <img src="{{ asset('assets/images/banner.jpg') }}" class="d-block w-100" alt="Slide 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Some demonstrative placeholder content for the second slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('assets/images/banner.jpg') }}" class="d-block w-100" alt="Slide 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Some demonstrative placeholder content for the third slide.</p>
+                </div>
+            </div>
         </div>
+
+        <!-- Carousel controls -->
+        <a class="carousel-control-prev" href="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
     </div>
-    <br />
-    <br />
-    <br />
 </div>
+<br />
+<br />
 <div class="container">
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">

@@ -16,6 +16,6 @@ class RelationEntrePaysEntreprise extends Model
 
     public function entreprise()
     {
-        return $this->hasMany(entreprises::class);
+        return $this->hasMany(Entreprises::class);
     }
 }
