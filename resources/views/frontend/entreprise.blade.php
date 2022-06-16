@@ -2,9 +2,9 @@
 @include('frontend.header')
 @include('frontend.navbar')
 <style>
-        .navbar-nav{
+        /* .navbar-nav{
         width: 100%;
-    }
+    } */
 
     @media(min-width:568px){
         .end{
@@ -16,6 +16,7 @@
         #post{
             width: 100%;
         }
+        
     }
     #clicked{
         padding-top: 1px;

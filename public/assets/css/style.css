@@ -476,7 +476,7 @@ p{font-size:14px; line-height:24px; color:#333;}
 {
     .c-inner .c-item >div{display: none}
     .c-inner .c-item >div:first-child{display: block}}.c-inner .c-item.active, .c-inner .c-item-next, .c-inner .c-item-prev{display: flex}@media (min-width: 768px){.c-inner .c-item-end.active, .c-inner .c-item-next{transform: translateX(25%)}.c-inner .c-item-start.active, .c-inner .c-item-prev{transform: translateX(-25%)}}.c-inner .c-item-end, .c-inner .c-item-start{transform: translateX(0)}
-
+    
 /*********************************************
     Custom slider options
 **********************************************/
@@ -2007,7 +2007,8 @@ button:focus{outline: none;}
 @media screen and (max-width: 1200px){
     .single-widgets h4{line-height: 15px;}
 .property_details .property_price{font-size: 20px;}
-
+.comment{width: auto !important; height: auto !important;}
+.comment1{width: auto !important; height: auto !important;}
 }
 
 @media screen and (max-width: 990px){
@@ -2022,6 +2023,8 @@ button:focus{outline: none;}
 .perfect_home_wrap .readmore, .perfect_home_wrap{text-align: center;}
 .popular_img .popular_img_text a{font-size: 16px;}
 .hotelLinks li{width: 25%;}
+.comment{width: auto !important; height: auto !important;}
+.comment1{width: auto !important; height: auto !important;}
 .economy, .form-wrap .col-lg-4{padding: 0 15px !important;}
 .end_date, .form-wrap .col-lg-5{padding-right: 15px;}
 .form-wrap .col-lg-2, .form-wrap .col-lg-3{padding-left: 15px;}
@@ -2101,12 +2104,16 @@ section.our_team_wrap .team_member{margin-bottom: 70px; margin-left: auto; margi
      .four-zero-page h2{font-size: 150px;}
      .four-zero-page h3{font-size: 24px; letter-spacing: 5px;}
      .four-zero-page{padding-bottom: 0;}
+     .comment{width: auto !important; height: auto !important;}
+    .comment1{width: auto !important; height: auto !important;}
 }
 @media screen and (max-width: 480px){
     .four-zero-page p{letter-spacing: 0;}
     .four-zero-page h3{font-size: 18px; letter-spacing: 2px;}
     .four-zero-page h2{font-size: 70px;}
     .slidertext3{line-height: 12px !important;}
+    .comment{width: auto !important; height: auto !important;}
+.comment1{width: auto !important; height: auto !important;}
 .topbar-wrap{text-align: center;}
 .icon-checkbox{columns: 1;}
 .topbar_phone{display: block; margin-bottom:6px;}

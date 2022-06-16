@@ -181,7 +181,11 @@ form{
                         </div>
                     </nav>
                     @if ($Profil_entreprise->est_souscrit == 1)
-                        <img src="{{  asset('assets/images') }}/{{ $Profil_entreprise->photo }} }}" alt="" class="rounded-circle" width="80" height="80">
+                        @if ($Profil_entreprise->photo)
+                            <img src="{{  asset('assets/images') }}/{{ $Profil_entreprise->photo }} }}" alt="" class="rounded-circle" width="80" height="80">
+                        @else
+                            <img src="{{  asset('default.png') }}" alt="" class="rounded-circle" width="80" height="80">
+                        @endif
                     @else
                         <img src="{{ asset('default.png') }}" alt="" class="rounded-circle" width="80" height="80">
                     @endif
@@ -249,33 +253,55 @@ form{
                     @endforeach
                 </div>
                 @foreach ($est_souscrits as $est_souscrit)
-                        @if ($est_souscrit->est_souscrit == 1)
+                    @if ($est_souscrit->est_souscrit == 1)
                         <div class="row" id="service">
                             <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
                                 <h4> Service </h4>
-                                <br>
-                                @foreach ($services as $service)
-                                    @if ($service->libelle)
-                                        <div class="row">
-                                            <div class="col-md-12"><p>{{ $service->libelle }}</p></div>
+                                <br />
+                                
+                                    <div class="row owl-2-style">
+                                        <div class="owl-carousel owl-2">
+                                            @foreach ($service_images as $service_image)
+                                                <div class="media-29101">
+                                                    @if ($service_image->service_image)
+                                                        <img src="{{  asset('assets/images/EntrepriseImages') }}/{{ $service_image->service_image }}" alt="Image" class="img-fluid" style="width: 150px; height: 150px;">
+                                                    @else
+                                                        <img src="{{  asset('assets/images/EntrepriseImages/default.png') }}" alt="Image" class="img-fluid" style="width: 150px; height: 150px; ">
+                                                    @endif
+                                                </div>
+                                            @endforeach
                                         </div>
-                                    @endif
-                                    
-                                    @if ($service->description)
-                                        <div class="row">
-                                            <div class="col-md-12"><p>{{ $service->description }}</p></div>
-                                        </div> 
-                                    @endif
-                                    <br />
-                                    @if ($service->video)
-                                        <div class="row">
-                                            <div class="col-md-12"><img src="{{  asset('assets/images') }}/{{ $service->video }}" alt=""></div>
-                                        </div>
-                                    @endif
-                                @endforeach                   
+                                    </div>
+                                    <br />            
                             </div>
                         </div>
                     @endif
+                        @if ($est_souscrit->est_souscrit == 1)
+                            <div class="row">
+                                <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
+                                    <br>
+                                    @foreach ($services as $service)
+                                        @if ($service->libelle)
+                                            <div class="row">
+                                                <div class="col-md-12"><p>{{ $service->libelle }}</p></div>
+                                            </div>
+                                        @endif
+                                        
+                                        @if ($service->description)
+                                            <div class="row">
+                                                <div class="col-md-12"><p>{{ $service->description }}</p></div>
+                                            </div> 
+                                        @endif
+                                        <br />
+                                        @if ($service->video)
+                                            <div class="row">
+                                                <div class="col-md-12"><img src="{{  asset('assets/images') }}/{{ $service->video }}" alt=""></div>
+                                            </div>
+                                        @endif
+                                    @endforeach                   
+                                </div>
+                            </div>
+                        @endif
                     @if ($est_souscrit->est_souscrit == 1)
                         <div class="row" id="horaire">
                             <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">

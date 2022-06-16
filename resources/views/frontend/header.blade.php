@@ -6,6 +6,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {{-- <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/favicon.ico')}}"> --}}
 
   <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
   <link href="{{ asset('assets/css/all.css') }}" rel="stylesheet">

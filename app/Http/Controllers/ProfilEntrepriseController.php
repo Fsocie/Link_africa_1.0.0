@@ -82,9 +82,15 @@ class ProfilEntrepriseController extends Controller
             ->join('services', 'entreprises.id', '=', 'entreprise_id')
             ->select('*')
             ->get();
-        
+
+        $service_images = DB::table('entreprises')
+            ->where('entreprises.id', $entreprise_id)
+            ->join('services', 'entreprises.id', '=', 'entreprise_id')
+            ->join('service_images','services.id', '=', 'service_id')
+            ->select('*')
+            ->get();
         $parametres = Parametres::find(1);
         return view('frontend.ProfilEntreprise', compact('sousCategorieNavs', 'Profil_entreprises', 'horaires', 
-                    'services', 'est_souscrits','parametres'));
+                    'services', 'est_souscrits','parametres', 'service_images'));
     }
 }

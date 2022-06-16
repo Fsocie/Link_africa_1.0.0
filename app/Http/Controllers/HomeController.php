@@ -235,6 +235,24 @@ class HomeController extends Controller
                 ->select('*', 'sous_categorie_entreprises.libelle as sousCategorie', 'entreprises.id')
                 ->orderBy('entreprises.id', 'desc')
                 ->get();
+        }else{
+            $recherches = DB::table('categorie_entreprises')
+                ->join('sous_categorie_entreprises', 'categorie_entreprises.id', '=', 'sous_categorie_entreprises.categorie_entreprises_id')
+                ->join('entreprises', 'sous_categorie_entreprises.id', '=', 'entreprises.sous_categorie_id')
+                ->join('relation_entre_pays_entreprises', 'entreprises.id', '=', 'entreprise_id')
+                ->join('villes', 'relation_entre_pays_entreprises.villes_id', '=', 'villes.id')
+                ->join('pays', 'pays.id', '=', 'villes.pays_id')
+                ->where('entreprises.nom', 'LIKE', "%$Origine%")
+                ->orWhere('entreprises.telephone', 'LIKE', "%$Origine%")
+                ->orWhere('entreprises.telephone2', 'LIKE', "%$Origine%")
+                ->orWhere('entreprises.telephone3', 'LIKE', "%$Origine%")
+                ->orWhere('entreprises.telephone4', 'LIKE', "%$Origine%")
+                ->orWhere('pays.libelle', 'LIKE', "%$pays2%")
+                ->orWhere('villes.libelle', 'LIKE', "%$ville2%")
+                ->orWhere('categorie_entreprises.libelle', 'LIKE', "%$secteur%")
+                ->select('*', 'sous_categorie_entreprises.libelle as sousCategorie', 'entreprises.id')
+                ->orderBy('entreprises.id', 'desc')
+                ->get();
         }
 
         $sousCategorieNavs = DB::table('categorie_entreprises')
