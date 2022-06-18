@@ -1,4 +1,6 @@
-
+@section('title')
+    {{ "Sous-secteurs d'activités" }}
+@endsection
 @include('frontend.header')
 @include('frontend.navbar')
     <div class="property-wrap property_rent wow fadeInUp">

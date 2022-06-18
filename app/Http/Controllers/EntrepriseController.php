@@ -15,7 +15,7 @@ class EntrepriseController extends Controller
             ->join('entreprises', 'sous_categorie_entreprises.id', '=', 'sous_categorie_id')
             ->select('*')
             ->orderBy('entreprises.id', 'desc')
-            ->get();
+            ->paginate(100);
 
         $sousCategorieNavs = DB::table('categorie_entreprises')
             ->join('sous_categorie_entreprises', 'categorie_entreprises.id', '=', 'sous_categorie_entreprises.categorie_entreprises_id')

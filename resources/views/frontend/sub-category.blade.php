@@ -1,5 +1,5 @@
 @section('title')
-    {{ "Les Sociétés " }}
+    {{ "Sociétés " }}
 @endsection
   @include('frontend.header')
   @include('frontend.navbar')

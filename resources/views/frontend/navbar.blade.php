@@ -82,7 +82,7 @@
                     <li><a href="#">Call center</a></li>
                   </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}"> Contacts</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Nous Contacter</a></li>
               </ul>
             </div>
           </nav>

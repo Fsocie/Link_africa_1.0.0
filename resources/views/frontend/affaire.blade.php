@@ -1,3 +1,6 @@
+@section('title')
+    {{ "Affaires" }}
+@endsection
 @include('frontend.header')
 @include('frontend.navbar')
 

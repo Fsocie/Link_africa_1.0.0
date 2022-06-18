@@ -1,4 +1,6 @@
-
+@section('title')
+    {{ "Profile d'entreprise" }}
+@endsection
 @include('frontend.header')
 @include('frontend.navbar')
 

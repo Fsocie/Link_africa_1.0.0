@@ -296,18 +296,18 @@ class HomeController extends Controller
             ->limit(6)
             ->get();
 
-        $entrepriseHome = DB::table('entreprises')
+        $entrepriseHonneur = DB::table('entreprises')
             ->select('*')
+            ->where('honneur', '=', 1)
             ->orderBy('id', 'desc')
             ->limit(3)
             ->get();
 
-        $entrepriseHonneur = DB::table('entreprises')
-            ->select('honneur')
-            ->get();
-
-        $entrepriseElus = DB::table('entreprises')
-            ->select('elus')
+        $entrepriseElu = DB::table('entreprises')
+            ->select('*')
+            ->where('elus', '=', 1)
+            ->orderBy('id', 'desc')
+            ->limit(3)
             ->get();
 
         $minispots = Minispot::all();
@@ -320,7 +320,7 @@ class HomeController extends Controller
         $slider = Slider::all();
 
         return view('frontend.home', compact('categories', 'sousCategorieNavs', 
-                    'pays', 'villes', 'categorie2s', 'rejoins', 'entrepriseHome', 'entrepriseHonneur', 
-                    'entrepriseElus', 'reportagedelasemaine', 'minispots','pubs','parametres','slider'));
+                    'pays', 'villes', 'categorie2s', 'rejoins', 'entrepriseHonneur', 
+                    'entrepriseElu', 'reportagedelasemaine', 'minispots','pubs','parametres','slider'));
     }
 }

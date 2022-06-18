@@ -1,3 +1,6 @@
+@section('title')
+    {{ "Nous contacter" }}
+@endsection
 @include('frontend.header')
 @include('frontend.navbar')
 <section class="contact_area p_120 our_blog_area p_120 popular_wrap wow fadeInUp">

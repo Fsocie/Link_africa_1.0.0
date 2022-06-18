@@ -20,7 +20,7 @@ class ProfilController extends Controller
             ->take(4)
             ->get();
 
-        $users = User::paginate(1);
+        $users = User::paginate(100);
         $entreprisePopulaire = Entreprises::inRandomOrder()->limit(2)->get();
         $parametres = Parametres::find(1);
         return view('frontend.profile', compact('sousCategorieNavs', 'users', 'entreprisePopulaire','parametres'));

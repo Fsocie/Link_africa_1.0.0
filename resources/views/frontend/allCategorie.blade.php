@@ -1,5 +1,5 @@
 @section('title')
-    {{ "Les secteur d'activités" }}
+    {{ "Secteur d'activités" }}
 @endsection
 @include('frontend.header')
 @include('frontend.navbar')

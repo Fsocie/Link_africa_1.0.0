@@ -319,7 +319,7 @@
     @endforeach
 </div>
 
-@if ($entrepriseHonneur->count() > 0)
+
 <div class="property-wrap wow fadeInUp">
     <div class="container">
         <div class="title">
@@ -327,35 +327,32 @@
             <h3 style="color:#003366">LES ENTREPRISES A L'HONNEUR CE MOIS </h3>
         </div>
         <ul class="row">
-            @foreach ($entrepriseHome as $entrepriseHomes)
-            @if ($entrepriseHomes->honneur == 1)
+            @foreach ($entrepriseHonneur as $entrepriseHonneurs)
             <li class="col-lg-4">
                 <div class="property_box wow fadeInUp">
-                    @if ($entrepriseHomes->photo)
-                    <div class="propertyImg"><img alt="" src="{{  asset('assets/images') }}/{{ $entrepriseHomes->photo }}"></div>
+                    @if ($entrepriseHonneurs->photo)
+                    <div class="propertyImg"><img alt="" src="{{  asset('assets/images') }}/{{ $entrepriseHonneurs->photo }}"></div>
                     @else
                     <div class="propertyImg"><img alt="" src="{{ asset('default.png') }}"></div>
                     @endif
-                    <h3><a href="{{ route('profil-entreprise',['entreprise_id'=>$entrepriseHomes->id]) }}">{{
-                            $entrepriseHomes->nom }}</a></h3>
+                    <h3><a href="{{ route('profil-entreprise',['entreprise_id'=>$entrepriseHonneurs->id]) }}">{{
+                            $entrepriseHonneurs->nom }}</a></h3>
                     <div class="propert_info">
-                        {{ $entrepriseHomes->description_entreprise }}
+                        {{ $entrepriseHonneurs->description_entreprise }}
                     </div>
                     <div class="rent_info">
                         <div class="apart"><a
-                                href="{{ route('profil-entreprise',['entreprise_id'=>$entrepriseHomes->id]) }}">Découvrir</a>
+                                href="{{ route('profil-entreprise',['entreprise_id'=>$entrepriseHonneurs->id]) }}">Découvrir</a>
                         </div>
                         <div class="sale" style="background-color:#003366"><a
-                                href="tel:{{ $entrepriseHomes->telephone }}">Contacter</a> </div>
+                                href="tel:{{ $entrepriseHonneurs->telephone }}">Contacter</a> </div>
                     </div>
                 </div>
             </li>
-            @endif
             @endforeach
         </ul>
     </div>
 </div>
-@endif
 
 <div class="container">
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -434,7 +431,7 @@
 </div>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-@if ($entrepriseElus->count() > 0)
+
 <div class="container">
     <div class="property-wrap property_rent wow fadeInUp">
         <div class="container">
@@ -442,36 +439,33 @@
                 <h1>ELUES <span>Meilleurs services clients</span></h1>
             </div>
             <ul class="row">
-                @foreach ($entrepriseHome as $entrepriseHomes)
-                @if ($entrepriseHomes->elus == 1)
+                @foreach ($entrepriseElu as $entrepriseElus)
                 <li class="col-lg-4">
                     <div class="property_box wow fadeInUp">
-                        @if ($entrepriseHomes->photo)
-                        <div class="propertyImg"><img alt="" src="{{  asset('assets/images') }}/{{ $entrepriseHomes->photo }}"></div>
+                        @if ($entrepriseElus->photo)
+                        <div class="propertyImg"><img alt="" src="{{  asset('assets/images') }}/{{ $entrepriseElus->photo }}"></div>
                         @else
                         <div class="propertyImg"><img alt="" src="{{ asset('default.png') }}"></div>
                         @endif
-                        <h3><a href="{{ route('profil-entreprise',['entreprise_id'=>$entrepriseHomes->id]) }}">{{
-                                $entrepriseHomes->nom }}</a></h3>
+                        <h3><a href="{{ route('profil-entreprise',['entreprise_id'=>$entrepriseElus->id]) }}">{{
+                                $entrepriseElus->nom }}</a></h3>
                         <div class="propert_info">
-                            {{ $entrepriseHomes->description_entreprise }}
+                            {{ $entrepriseElus->description_entreprise }}
                         </div>
                         <div class="rent_info">
                             <div class="apart"><a
-                                    href="{{ route('profil-entreprise',['entreprise_id'=>$entrepriseHomes->id]) }}">Découvrir</a>
+                                    href="{{ route('profil-entreprise',['entreprise_id'=>$entrepriseElus->id]) }}">Découvrir</a>
                             </div>
                             <div class="sale" style="background-color:#003366"><a
-                                    href="tel:{{ $entrepriseHomes->telephone }}">Contacter</a> </div>
+                                    href="tel:{{ $entrepriseElus->telephone }}">Contacter</a> </div>
                         </div>
                     </div>
                 </li>
-                @endif
                 @endforeach
             </ul>
         </div>
     </div>
 </div>
-@endif
 
 <br />
 

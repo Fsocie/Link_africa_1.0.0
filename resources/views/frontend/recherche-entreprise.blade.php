@@ -1,4 +1,6 @@
-
+@section('title')
+    {{ "Recherche entreprise" }}
+@endsection
 @include('frontend.header')
 @include('frontend.navbar')
 <style>

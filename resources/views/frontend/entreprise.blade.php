@@ -1,4 +1,6 @@
-
+@section('title')
+    {{ "Sociétés" }}
+@endsection
 @include('frontend.header')
 @include('frontend.navbar')
 <style>
@@ -148,7 +150,6 @@
                 @foreach ($sousCategories as $sousCategorie)
                     <h2 style="color: #0b3c5d">{{ $sousCategorie->libelle }}</h2>
                 @endforeach
-                
                 @foreach ($entreprises as $entreprise)
                     <a href="{{ route('profil-entreprise',['entreprise_id'=>$entreprise->id]) }}">
                         <div class="comment mt-4 text-justify float-left">
@@ -194,6 +195,7 @@
                     </a>
                 @endforeach
             </div>
+            
 
             <div class="col-lg-4 col-md-6 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
                 <h3 style="color: #0b3c5d">Sociétés les plus consultées <small></small></h3>
@@ -218,6 +220,15 @@
                     </div>
                 @endforeach
                 <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="my-20 ls:my-16 pagerfanta">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pagination-reset justify-content-center">
+                        {{ $entreprises->onEachSide(1)->links() }}
+                    </ul>
+                </nav>   
             </div>
         </div>
     </div>
