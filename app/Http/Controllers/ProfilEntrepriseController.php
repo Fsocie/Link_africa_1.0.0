@@ -122,6 +122,11 @@ class ProfilEntrepriseController extends Controller
             ->get();
 
         $avis = DB::table('entreprises')->where('entreprises.id', $entreprise_id)
+            ->join('avis', 'entreprises.id', '=', 'avis.entreprise_id')
+            ->select('*')
+            ->get();
+
+        $avis2 = DB::table('entreprises')->where('entreprises.id', $entreprise_id)
             //->join('avis', 'entreprises.id', '=', 'avis.entreprise_id')
             ->select('*')
             ->get();
@@ -136,7 +141,8 @@ class ProfilEntrepriseController extends Controller
             'est_souscrits',
             'parametres',
             'service_images',
-            'avis'
+            'avis',
+            'avis2'
         ));
     }
 }

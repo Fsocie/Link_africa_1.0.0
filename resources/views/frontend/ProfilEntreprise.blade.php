@@ -229,16 +229,30 @@
                 <span style="color: #0b3c5d">{{ $Profil_entreprise->libelle }}</span>
                 @endforeach
                 <div class="detail-info" style="margin-left: 83%; margin-top: 1px !important">
+                    <style>
+                        .color-gray{
+                            color: #e6e6e6 !important;
+                        }
+                    </style>
                     @php
                     $moyene = 0;
                     @endphp
+                    @foreach ($avis as $avi )
+                        @php
+                            $moyene = $moyene + $avi->note;
+                        @endphp
+                    @endforeach
                     <div class="product-rating">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <a href="#" class="count-review">(05 review)</a>
+                        @for ($i = 1; $i<= 5; $i++)
+                            @if ($i <= $moyene)
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            @else
+                                <i class="fa fa-star color-gray" aria-hidden="true"></i>
+                            @endif
+                        @endfor
+                        @foreach ($avis as $avi)
+                            <a href="#" class="count-review">(0{{ $avi->note }} review)</a>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -408,8 +422,8 @@
                 <div class="row" id="avis">
                     <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
                         <h4> Avis </h4>
-                        @foreach ($avis as $avi)
-                        <form method="POST" action="{{ route('profil-entreprise-avis',['id'=>$avi->id]) }}"
+                        @foreach ($avis2 as $avi2)
+                        <form method="POST" action="{{ route('profil-entreprise-avis',['id'=>$avi2->id]) }}"
                             id="commentform">
                             @csrf
                             <div class="comment-form-rating">
