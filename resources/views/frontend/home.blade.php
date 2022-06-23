@@ -11,34 +11,6 @@
   }
 </style>
 <div class="slider-wrap videoWrp" id="home">
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <!-- Carousel indicators -->
-        <ol class="carousel-indicators">
-            <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
-            <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
-        </ol>
-        
-        <!-- Wrapper for carousel items -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{ asset('assets/images/banner.jpg') }}" class="d-block w-100" alt="Slide 1">
-            </div>
-            @foreach ($slider as $sliders)
-                <div class="carousel-item">
-                    <img src="{{ asset('assets/images') }}/{{ $sliders->image }}" class="d-block w-100" alt="Slide 2">
-                </div>
-            @endforeach
-        </div>
-        
-        <!-- Carousel controls -->
-        <a class="carousel-control-prev" href="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </a>
-    </div>
     <div class="videohover hero-wrapper">
         <div class="container">
             <div class="sliderTxt video_hoverText">
@@ -263,17 +235,19 @@
                     <div class="container owl-2-style">
                         <div class="owl-carousel owl-2">
                             @foreach ($rejoins as $rejoin)
-                                <div class="media-29101">
-                                    @if ($rejoin->photo)
-                                        <a href="{{ route('profil-entreprise',['entreprise_id'=>$rejoin->id]) }}"><img
-                                            src="{{  asset('assets/images') }}/{{ $rejoin->photo }}" alt="Image" class="img-fluid" style="width: 300px; height: 300px;"></a>
-                                        {{-- <h3><a href="{{ route('profil-entreprise',['entreprise_id'=>$rejoin->id]) }}">{{$rejoin->nom}}</a></h3> --}}
-                                    @else
-                                        <a href="{{ route('profil-entreprise',['entreprise_id'=>$rejoin->id]) }}"><img
-                                            src="{{  asset('assets/images/EntrepriseImages/default.png') }}" alt="Image" class="img-fluid" style="width: 300px; height: 300px; "></a>
-                                        {{-- <h3><a href="{{ route('profil-entreprise',['entreprise_id'=>$rejoin->id]) }}">{{$rejoin->nom}}</a></h3> --}}
-                                    @endif
-                                </div>
+                                @if ($rejoin->est_souscrit == 1)
+                                    <div class="media-29101">
+                                        @if ($rejoin->photo)
+                                            <a href="{{ route('profil-entreprise',['entreprise_id'=>$rejoin->id]) }}"><img
+                                                src="{{  asset('assets/images') }}/{{ $rejoin->photo }}" alt="Image" class="img-fluid" style="width: 300px; height: 300px;"></a>
+                                            {{-- <h3><a href="{{ route('profil-entreprise',['entreprise_id'=>$rejoin->id]) }}">{{$rejoin->nom}}</a></h3> --}}
+                                        @else
+                                            <a href="{{ route('profil-entreprise',['entreprise_id'=>$rejoin->id]) }}"><img
+                                                src="{{  asset('assets/images/EntrepriseImages/default.png') }}" alt="Image" class="img-fluid" style="width: 300px; height: 300px; "></a>
+                                            {{-- <h3><a href="{{ route('profil-entreprise',['entreprise_id'=>$rejoin->id]) }}">{{$rejoin->nom}}</a></h3> --}}
+                                        @endif
+                                    </div>
+                                @endif
                             @endforeach
                         </div>
                     </div>

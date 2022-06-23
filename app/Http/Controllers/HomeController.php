@@ -293,7 +293,6 @@ class HomeController extends Controller
         $rejoins = DB::table('entreprises')
             ->select('*')
             ->orderBy('id', 'desc')
-            ->limit(6)
             ->get();
 
         $entrepriseHonneur = DB::table('entreprises')

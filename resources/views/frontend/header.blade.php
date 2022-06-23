@@ -51,7 +51,14 @@
 
   @yield('linkCss')
 
+  <script type="text/javascript">
+    (function () {
+        Translator.locale = "fr";
+        moment.locale("fr");
+    })();
+</script>
+
 </head>
 
-<body>
+<body class="locale_fr ">
 
