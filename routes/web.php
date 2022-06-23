@@ -41,3 +41,5 @@ Route::get('/affaire',[App\Http\Controllers\AffaireController::class, 'affaire']
 Route::get('/proil-entreprise/{entreprise_id}',[App\Http\Controllers\ProfilEntrepriseController::class, 'profilEntreprise'])->name('profil-entreprise');
 
 Route::post('/proil-entreprise/{entreprise_id}',[App\Http\Controllers\ProfilEntrepriseController::class, 'mail'])->name('profil-entreprise-mail');
+
+Route::post('/proil-entreprise/{id}',[App\Http\Controllers\AvisController::class, 'avis'])->name('profil-entreprise-avis');
