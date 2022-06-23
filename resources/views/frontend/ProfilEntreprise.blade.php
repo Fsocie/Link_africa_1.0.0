@@ -228,7 +228,7 @@
                 <h4> {{ $Profil_entreprise->nom }}</h4>
                 <span style="color: #0b3c5d">{{ $Profil_entreprise->libelle }}</span>
                 @endforeach
-                <div class="detail-info" style="margin-left: 83%; margin-top: 1%">
+                <div class="detail-info" style="margin-left: 83%; margin-top: 1px !important">
                     @php
                     $moyene = 0;
                     @endphp
