@@ -41,3 +41,8 @@ Route::get('/affaire',[App\Http\Controllers\AffaireController::class, 'affaire']
 Route::get('/proil-entreprise/{entreprise_id}',[App\Http\Controllers\ProfilEntrepriseController::class, 'profilEntreprise'])->name('profil-entreprise');
 
 Route::post('/proil-entreprise/{entreprise_id}',[App\Http\Controllers\ProfilEntrepriseController::class, 'mail'])->name('profil-entreprise-mail');
+
+
+Route::get('login',[App\Http\Controllers\AuthController::class,'login'])->name('UsersLogin');
+Route::get('register',[App\Http\Controllers\AuthController::class,'register'])->name('UsersRegister');
+Route::post('authenticate',[App\Http\Controllers\AuthController::class,'authenticate'])->name('authenticate');

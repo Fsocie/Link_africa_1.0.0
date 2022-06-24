@@ -21,8 +21,8 @@
               <div class="dropdown">
                 <button class="dropbtn">Compte</button>
                 <div class="dropdown-content">
-                  <a href="#">Connexion</a>
-                  <a href="#">Inscription </a>
+                  <a href="{{route('UsersLogin')}}">Connexion</a>
+                  <a href="{{route('UsersRegister')}}">Inscription </a>
                 </div>
               </div>
 
