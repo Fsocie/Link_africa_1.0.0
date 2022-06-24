@@ -31,8 +31,8 @@
                         <div class="col-lg-12">
                             <div class="login-sec">
                                 <ul class="sign-control">
-                                    <li data-tab="tab-1" class="current"><a href="#" title="">Connexion</a></li>
-                                    <li data-tab="tab-2"><a href="#" title="">Inscription</a></li>
+                                    <li data-tab="tab-1" class="current"><a href="{{route('UsersLogin')}}" title="">Connexion</a></li>
+                                    <a style="margin-left:1rem;background-color:grey;padding:0.2rem 0.5rem;color:#fff;border-top-right-radius:5px;border-bottom-right-radius:5px" href="{{route('UsersRegister')}}" title="">Inscription</a>
                                 </ul>
                                 <div class="sign_in_sec current" id="tab-1">
                                     @if ($message = Session::get('success'))
@@ -42,15 +42,7 @@
                                             {{ $message }}
                                         </div>
                                     @endif
-                                    {{--@if ($errors->any())
-                                        <div class="alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    @endif--}}
+                                   
                                     <h3>Connectez-vous</h3>
                                     <form action="{{ route('authenticate') }}" method="post">
                                         @csrf
@@ -78,7 +70,7 @@
                                     </form>
                                 </div>
                                 
-                                <div class="sign_in_sec" id="tab-2">
+                                {{--<div class="sign_in_sec" id="tab-2">
                                     <div class="signup-tab">
                                         <ul>
                                             <li data-tab="tab-3" class="current"><a href="#" title="">Utilisateur</a></li>
@@ -287,7 +279,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                </div>
+                                </div>--}}
 
                             </div><!--login-sec-->
                         </div><!--col-lg-6-->

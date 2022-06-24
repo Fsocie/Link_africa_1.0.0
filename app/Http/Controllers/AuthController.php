@@ -43,8 +43,9 @@ class AuthController extends Controller
             'telephone'=>'required|string',
             'adresse'=>'required|string',
             'titre'=>'required|string',
-            'mdp'=>'required|password',
-            'c_mdp'=>'required'
+            'mdp'=>'required|string|min:8',
+        
+       
         ]);
         dd($request->all());
     }
