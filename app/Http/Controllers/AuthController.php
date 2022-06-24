@@ -34,6 +34,20 @@ class AuthController extends Controller
         }
 
     }
+
+    public function registerUser(Request $request){
+        $request->validate([
+            'nom'=>'required|string',
+            'prenoms'=>'required|string',
+            'email'=>'required|email',
+            'telephone'=>'required|string',
+            'adresse'=>'required|string',
+            'titre'=>'required|string',
+            'mdp'=>'required|password',
+            'c_mdp'=>'required'
+        ]);
+        dd($request->all());
+    }
     /**
      * Display a listing of the resource.
      *

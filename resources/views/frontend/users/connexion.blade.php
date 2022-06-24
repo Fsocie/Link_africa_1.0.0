@@ -87,23 +87,24 @@
                                     </div>
 
                                     <div class="dff-tab current" id="tab-3">
-                                        <form>
+                                        <form action="{{route('registerUser')}}" method="post">
+                                            @csrf
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group sn-field">
-                                                        <input type="text" name="nom" value="" class="form-control " id="" placeholder="nom de l'Utilisateur">
+                                                        <input type="text" name="nom" value="{{ old('nom') }}" class="form-control @error('nom') is-invalid @enderror" id="" placeholder="nom de l'Utilisateur">
                                                         <i class="la la-user"></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group sn-field">
-                                                        <input type="text" name="prenoms" value="" class="form-control " id="" placeholder="prenom de l'Utilisateur">
+                                                        <input type="text" name="prenoms" value="{{ old('prenoms') }}" class="form-control @error('prenoms') is-invalid @enderror" id="" placeholder="prenom de l'Utilisateur">
                                                         <i class="la la-user"></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group sn-field">
-                                                        <input type="text" name="email" value="" class="form-control " id="" placeholder="email de l'Utilisateur">
+                                                        <input type="text" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" id="" placeholder="email de l'Utilisateur">
                                                         <i class="la la-user"></i>
                                                     </div>
                                                 </div>
@@ -112,19 +113,19 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group sn-field">
-                                                        <input type="text" name="telephone" value="" class="form-control " id="" placeholder="telephone de l'Utilisateur">
+                                                        <input type="text" name="telephone" value="{{ old('telephone') }}" class="form-control @error('telephone') is-invalid @enderror" id="" placeholder="telephone de l'Utilisateur">
                                                         <i class="la la-phone"></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group sn-field">
-                                                        <input type="text" name="adresse" value="" class="form-control " id="" placeholder="adresse de l'Utilisateur">
+                                                        <input type="text" name="adresse" value="{{ old('adresse') }}" class="form-control @error('adresse') is-invalid @enderror" id="" placeholder="adresse de l'Utilisateur">
                                                         <i class="la la-globe"></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group sn-field">
-                                                        <input type="text" name="titre" value="" class="form-control " id="" placeholder="Fonction de l'Utilisateur">
+                                                        <input type="text" name="titre" value="{{ old('titre') }}" class="form-control @error('titre') is-invalid @enderror" id="" placeholder="Fonction de l'Utilisateur">
                                                         <i class="la la-user"></i>
                                                     </div>
                                                 </div>
@@ -133,19 +134,19 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group sn-field">
-                                                        <input type="password" name="mdp" value="" class="form-control " id="" placeholder="mot de pass de l'Utilisateur">
+                                                        <input type="password" name="mdp" value="" class="form-control @error('mdp') is-invalid @enderror" id="" placeholder="mot de pass de l'Utilisateur">
                                                         <i class="la la-lock"></i>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group sn-field">
-                                                        <input type="password" name="adresse" value="" class="form-control " id="" placeholder="confirmer mot de pass de l'Utilisateur">
+                                                        <input type="password" name="c_mdp" value="" class="form-control @error('c_mdp') is-invalid @enderror" id="" placeholder="confirmer mot de pass de l'Utilisateur">
                                                         <i class="la la-lock"></i>
                                                     </div>
                                                 </div>
                                                 
                                                 <div class="col-lg-12 no-pdd">
-                                                    <button type="submit" value="submit">Nouveau compte</button>
+                                                    <button>Nouveau compte</button>
                                                 </div>
                                             </div>
                                         </form>

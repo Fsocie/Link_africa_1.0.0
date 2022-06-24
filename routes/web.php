@@ -46,3 +46,5 @@ Route::post('/proil-entreprise/{entreprise_id}',[App\Http\Controllers\ProfilEntr
 Route::get('login',[App\Http\Controllers\AuthController::class,'login'])->name('UsersLogin');
 Route::get('register',[App\Http\Controllers\AuthController::class,'register'])->name('UsersRegister');
 Route::post('authenticate',[App\Http\Controllers\AuthController::class,'authenticate'])->name('authenticate');
+
+Route::post('users',[App\Http\Controllers\AuthController::class,'registerUser'])->name('registerUser');
