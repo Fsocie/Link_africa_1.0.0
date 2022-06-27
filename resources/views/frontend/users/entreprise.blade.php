@@ -32,7 +32,8 @@
                             <div class="login-sec">
                                 <ul class="sign-control">
                                     <a style="margin-right:1rem;background-color:grey;padding:0.2rem 0.5rem;color:#fff;border-top-left-radius:5px;border-bottom-left-radius:5px;" href="{{route('UsersLogin')}}" title="">Connexion</a>
-                                    <li data-tab="tab-1" class="current" ><a href="{{route('UsersRegister')}}" title="">Inscription</a></li>
+                                    <a style="margin-left:1rem;background-color:grey;padding:0.2rem 0.5rem;color:#fff;border-top-right-radius:5px;border-bottom-right-radius:5px;" href="{{route('UsersRegister')}}" title="">Inscription</a>
+                                    <!--<li data-tab="tab-1" class="current" ><a href="{{route('UsersRegister')}}" title="">Inscription</a></li>-->
                                 </ul>
                                 
                                 {{-- class="sign_in_sec" id="tab-1">--}}
