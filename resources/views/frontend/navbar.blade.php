@@ -23,6 +23,7 @@
                 <div class="dropdown-content">
                   <a href="{{route('UsersLogin')}}">Connexion</a>
                   <a href="{{route('UsersRegister')}}">Inscription </a>
+                  <a href="{{route('entreprises')}}">Entreprise </a>
                 </div>
               </div>
 
