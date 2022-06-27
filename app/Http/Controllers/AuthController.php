@@ -26,8 +26,8 @@ class AuthController extends Controller
       
         if(\App\Models\User::where('email',$login)->count() > 0 ) {
             if(Auth::attempt(['email'=>$login,'password'=>$request->mdp])){
-                //return redirect()->route('dashboard');
-                return 'Connexion reussi avec success';
+                return redirect()->route('home');
+                //return 'Connexion reussi avec success';
             }else{
                 return redirect()->back()->with('success',"Vos identifiants ne correspondent pas !!!");
             }
