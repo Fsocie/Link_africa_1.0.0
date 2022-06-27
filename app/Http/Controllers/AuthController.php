@@ -25,18 +25,20 @@ class AuthController extends Controller
         ]);
       
         if(\App\Models\User::where('email',$login)->count() > 0 ) {
-            if(Auth::attempt($credentials)){
-                return redirect()->route('dashboard');
+            if(Auth::attempt(['email'=>$login,'password'=>$request->mdp])){
+                //return redirect()->route('dashboard');
+                return 'Connexion reussi avec success';
+            }else{
+                return redirect()->back()->with('success',"Vos identifiants ne correspondent pas !!!");
             }
-            return redirect()->back()->with('success',"Les identifiants ne correspondent pas!!!");
         }else{
-            return redirect()->back()->with('success',"Les identifiants ne correspondent pas!!!!!");
+            return redirect()->back()->with('success',"Vos identifiants ne correspondent pas !!!");
         }
 
     }
 
     public function registerUser(Request $request){
-        $request->validate([
+        $data = $request->validate([
             'nom'=>'required|string',
             'prenoms'=>'required|string',
             'email'=>'required|email',
@@ -44,10 +46,13 @@ class AuthController extends Controller
             'adresse'=>'required|string',
             'titre'=>'required|string',
             'mdp'=>'required|string|min:8',
-        
+            'c_mdp' => 'required_with:mdp|same:mdp|min:8'
        
         ]);
-        dd($request->all());
+        //dd($request->all());
+        $data['mdp'] = bcrypt($data['mdp']);
+        User::create($data);
+        return redirect()->back()->with('success',"Nouveau compte creer avec success !!!");
     }
     /**
      * Display a listing of the resource.

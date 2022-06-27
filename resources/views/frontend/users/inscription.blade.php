@@ -37,6 +37,13 @@
                                 
                                 {{-- class="sign_in_sec" id="tab-1">--}}
                                 <div class="sign_in_sec current" id="tab-1">
+                                    @if ($message = Session::get('success'))
+                                            <div class="alert alert-success alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
+                                                </button>
+                                                {{ $message }}
+                                            </div>
+                                        @endif
                                     <div class="signup-tab">
                                         <ul>
                                             <li data-tab="tab-3" class="current"><a href="#" title="">Utilisateur</a></li>
@@ -45,6 +52,7 @@
                                     </div>
 
                                     <div class="dff-tab current" id="tab-3">
+                                        
                                         <form action="{{route('registerUser')}}" method="post">
                                             @csrf
                                             <div class="row">
