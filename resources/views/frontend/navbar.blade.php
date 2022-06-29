@@ -1,6 +1,6 @@
 <div class="topbar-wrap" style="background-color:#142c57">
     <div class="container">
-      {{-- <div class="row" style="background-color:#142c57">
+      <div class="row" style="background-color:#142c57">
         <div class="col-lg-6 col-md-4">
           <ul class="social_media style_none">
             <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
@@ -43,7 +43,7 @@
            
           </div>
         </div>
-      </div> --}}
+      </div>
     </div>
   </div>
 
