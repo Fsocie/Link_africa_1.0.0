@@ -1,6 +1,6 @@
 <div class="topbar-wrap" style="background-color:#142c57">
     <div class="container">
-      <div class="row" style="background-color:#142c57">
+      {{-- <div class="row" style="background-color:#142c57">
         <div class="col-lg-6 col-md-4">
           <ul class="social_media style_none">
             <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
@@ -43,24 +43,34 @@
            
           </div>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
 
   <!--Topbar End-->
 
   <!--Header Start-->
-  <div class="header-wrap wow fadeInUp">
-    <div class="container">
+  <div class="header-wrap wow fadeInUp" style="background-color:#142c57">
+    <div class="">
       <div class="row">
         <div class="col-lg-3 navbar navbar-expand-lg navbar-light">
-          <div class="header_logo"><a href="{{ route('home') }}"><img alt="" src="{{ asset('assets/images/logo.png') }}"></a></div>
+          <div class="header_logo"><a href="{{ route('home') }}"><img alt="" src="{{ asset('assets/images/logo.png') }}" style="width: 45%; height:50; margin-left: 36%"></a></div>
+          
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span
               class="navbar-toggler-icon"></span> </button>
         </div>
         <div class="col-lg-9">
           <nav class="navbar navbar-expand-lg navbar-light"> 
+            <a href="#modal-countries" data-toggle="modal"
+              class="text-white hover:text-white focus:text-white dropdown-open:bg-white dropdown-open:text-link text-12 px-6 py-8 flex items-center h-full hover:bg-brand-darkBlue no-underline hover:no-underline focus:no-underline cursor-pointer">
+              <div>
+                  <img class="w-30px h-auto mr-3"
+                      src="{{ asset('assets/images/64/tg.png') }}" alt="" togo="">
+                  <span>Togo</span>
+                  <b class="caret"></b>
+              </div>
+          </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <button class="close-toggler" type="button" data-toggle="offcanvas"> <span><i class="fas fa-times-circle"
                     aria-hidden="true"></i></span> </button>
@@ -95,7 +105,14 @@
                   </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Nous Contacter</a></li>
+                
               </ul>
+              <div class="">
+                <a class="btn btn-blue rounded-full z-10" href="#" style="background: white;color: #142c57; font-size: 12px">S'inscrire</a>
+            </div>
+            <div class="">
+              <a class="btn btn-blue rounded-full z-10" href="#" style="background: white; color: #142c57; font-size: 12px">Se Connecter</a>
+          </div>
             </div>
           </nav>
         </div>
