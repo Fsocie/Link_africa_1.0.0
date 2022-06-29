@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -13,6 +15,42 @@ class AuthController extends Controller
     }
     public function register(){
         return view("frontend.users.inscription");
+    }
+    public function userProfile(){
+        $id = Auth::user()->id;
+        $user = DB::SELECT("SELECT * FROM users WHERE id = $id");
+        //dd($user[0]->nom);
+        return view("frontend.users.userProfile",compact('user'));
+    }
+    public function userEdit(){
+        $id = Auth::user()->id;
+        $user = DB::SELECT("SELECT * FROM users WHERE id = $id");
+        return view("frontend.users.userEdit",compact('user'));
+    }
+    public function userUpdate(Request $request,$id){
+        $id = Auth::user()->id;
+        $user = DB::SELECT("SELECT * FROM users WHERE id = $id");
+        //dd($user);
+       // dd($request->c_mdp);
+        $data = $request->validate([
+            'nom'=>'required|string',
+            'prenoms'=>'required|string',
+            'email'=>'required|email',
+            'description'=>'required|string',
+            'telephone'=>'required|string',
+            'adresse'=>'required|string',
+            'titre'=>'required|string',
+            'mdp'=>'required|string|min:8',
+        ]);
+        if(Hash::check(request('mdp'), $user[0]->mdp)){
+            
+            $data['mdp'] = bcrypt($request->c_mdp);
+            User::find($id)->update($data);
+            return redirect()->route('user.edit')->with('success',"Information de l'utilisateur mise à jour avec succès");
+        }else{
+            return redirect()->back()->with('error','Les mots de pass ne correspondent pas!!!');
+           // dd('false');
+        } 
     }
 
     public function authenticate(Request $request,User $user){
@@ -26,7 +64,7 @@ class AuthController extends Controller
       
         if(\App\Models\User::where('email',$login)->count() > 0 ) {
             if(Auth::attempt(['email'=>$login,'password'=>$request->mdp])){
-                return redirect()->route('home');
+                return redirect()->route('user.profile');
                 //return 'Connexion reussi avec success';
             }else{
                 return redirect()->back()->with('success',"Vos identifiants ne correspondent pas !!!");
@@ -53,6 +91,11 @@ class AuthController extends Controller
         $data['mdp'] = bcrypt($data['mdp']);
         User::create($data);
         return redirect()->back()->with('success',"Nouveau compte creer avec success !!!");
+    }
+
+    public function logout(){
+        auth()->logout();
+        return redirect()->route('UsersLogin');
     }
     /**
      * Display a listing of the resource.

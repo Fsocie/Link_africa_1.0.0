@@ -49,4 +49,9 @@ Route::get('entreprise',[App\Http\Controllers\EntrepriseController::class,'index
 Route::POST('entreprise',[App\Http\Controllers\EntrepriseController::class,'store'])->name('entreprise.store');
 Route::post('authenticate',[App\Http\Controllers\AuthController::class,'authenticate'])->name('authenticate');
 
+Route::get('profile',[App\Http\Controllers\AuthController::class,'userProfile'])->name('user.profile');
+
+Route::get('UserEdit',[App\Http\Controllers\AuthController::class,'userEdit'])->name('user.edit');
+Route::put('UserUpdate/{id}/update',[App\Http\Controllers\AuthController::class,'userUpdate'])->name('user.update');
+Route::post('logout',[App\Http\Controllers\AuthController::class,'logout'])->name('logout');
 Route::post('users',[App\Http\Controllers\AuthController::class,'registerUser'])->name('registerUser');
