@@ -42,4 +42,20 @@ Route::get('/proil-entreprise/{entreprise_id}',[App\Http\Controllers\ProfilEntre
 
 Route::post('/proil-entreprise/{entreprise_id}',[App\Http\Controllers\ProfilEntrepriseController::class, 'mail'])->name('profil-entreprise-mail');
 
+//<<<<<<< Alsace-7004
+
+Route::get('login',[App\Http\Controllers\AuthController::class,'login'])->name('UsersLogin');
+Route::get('register',[App\Http\Controllers\AuthController::class,'register'])->name('UsersRegister');
+Route::get('entreprise',[App\Http\Controllers\EntrepriseController::class,'index'])->name('entreprises');
+Route::POST('entreprise',[App\Http\Controllers\EntrepriseController::class,'store'])->name('entreprise.store');
+Route::post('authenticate',[App\Http\Controllers\AuthController::class,'authenticate'])->name('authenticate');
+
+Route::get('profile',[App\Http\Controllers\AuthController::class,'userProfile'])->name('user.profile');
+
+Route::get('UserEdit',[App\Http\Controllers\AuthController::class,'userEdit'])->name('user.edit');
+Route::put('UserUpdate/{id}/update',[App\Http\Controllers\AuthController::class,'userUpdate'])->name('user.update');
+Route::post('logout',[App\Http\Controllers\AuthController::class,'logout'])->name('logout');
+Route::post('users',[App\Http\Controllers\AuthController::class,'registerUser'])->name('registerUser');
+//=======
 Route::post('/entreprise/{id}',[App\Http\Controllers\AvisController::class, 'avis'])->name('entreprise-avis');
+//>>>>>>> main

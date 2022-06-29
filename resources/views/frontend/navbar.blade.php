@@ -14,21 +14,33 @@
             <div class="topbar_phone"><a href="tel:{{ $parametres->telephone1 }}"><i class="fas fa-phone-alt" aria-hidden="true"></i> {{ $parametres->telephone1 }}
               </a></div>
             <div class="topbar_login" style="background-color:orange">
-
-
-
-
               <div class="dropdown">
                 <button class="dropbtn">Compte</button>
                 <div class="dropdown-content">
-                  <a href="#">Connexion</a>
-                  <a href="#">Inscription </a>
+                  @auth
+                  <a href="{{ route('user.profile') }}" >                        
+                    Profile
+                  </a>
+                  <a href="{{route('entreprises')}}">Entreprise </a>
+                    <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                      <p class="text">Deconnexion</p>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                    </form>
+                  @else
+                    <a href="{{route('UsersLogin')}}">Connexion</a>
+                    <a href="{{route('UsersRegister')}}">Inscription </a>
+                    <a href="{{route('entreprises')}}">Entreprise </a>
+                  @endauth
+                  
+
                 </div>
               </div>
-
-
-
             </div>
+        
+           
           </div>
         </div>
       </div> --}}
