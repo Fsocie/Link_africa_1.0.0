@@ -227,6 +227,7 @@
                 @endif
                 <h4> {{ $Profil_entreprise->nom }}</h4>
                 <span style="color: #0b3c5d">{{ $Profil_entreprise->libelle }}</span>
+                <samp style="margin-left: 87%; font-size: 22px; font-weight: bold">{{ $Profil_entreprise->vue }} Vue (s)</samp>
                 @endforeach
                 <div class="detail-info" style="margin-left: 83%; margin-top: 1px !important">
                     <style>
@@ -234,14 +235,16 @@
                             color: #e6e6e6 !important;
                         }
                     </style>
+
                     @php
-                    $moyene = 0;
+                        $moyene = 0;
+                        if ($avis3->count()) {
+                            $nombre = $avis3->count();
+                        }else {
+                            $nombre = $avis3->count()+1;
+                        }
+                        $moyene = ($moyene + $avis) / $nombre;
                     @endphp
-                    @foreach ($avis as $avi )
-                        @php
-                            $moyene = $moyene + $avi->note;
-                        @endphp
-                    @endforeach
                     <div class="product-rating">
                         @for ($i = 1; $i<= 5; $i++)
                             @if ($i <= $moyene)
@@ -250,9 +253,9 @@
                                 <i class="fa fa-star color-gray" aria-hidden="true"></i>
                             @endif
                         @endfor
-                        @foreach ($avis as $avi)
-                            <a href="#" class="count-review">(0{{ $avi->note }} review)</a>
-                        @endforeach
+                        <a href="#" class="count-review">(0 @php
+                            echo $nombre;
+                        @endphp note (s))</a>
                     </div>
                 </div>
             </div>
@@ -421,10 +424,14 @@
 
                 <div class="row" id="avis">
                     <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
+                        @if(Session::has('ok'))
+                    <div class="alert alert-success" role="alert">{{Session::get('ok') }}</div>
+                    @endif
                         <h4> Avis </h4>
                         @foreach ($avis2 as $avi2)
-                        <form method="POST" action="{{ route('profil-entreprise-avis',['id'=>$avi2->id]) }}"
+                        <form method="POST" action="{{ route('entreprise-avis',['id'=>$avi2->id]) }}"
                             id="commentform">
+                           
                             @csrf
                             <div class="comment-form-rating">
                                 <div class="form-group">
@@ -441,7 +448,7 @@
                                         <input type="radio" id="rated-4" name="note" value="4">
                                         <label for="rated-5"></label>
                                         <input type="radio" id="rated-5" name="note" value="5" checked="checked">
-                                        @error('note')<span class="text-danger">{{$note}}</span>@enderror
+                                        @error('note')<span class="text-danger">{{$message}}</span>@enderror
                                     </p>
                                 </div>
 
@@ -451,7 +458,7 @@
                                 <label for="commentaire">Votre commentaires </label><samp style="color: red"> *</samp>
                                 <textarea name="commentaire" id="commentaire" cols="30" rows="5" class="form-control"
                                     style="background-color: ;"></textarea>
-                                @error('commentaire')<span class="text-danger">{{$commentaire}}</span>@enderror
+                                @error('commentaire')<span class="text-danger">{{$message}}</span>@enderror
                             </div>
                             <p class="form-submit">
                                 <input name="submit" type="submit" id="submit" class="submit" value="Noter">

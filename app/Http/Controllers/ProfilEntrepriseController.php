@@ -20,6 +20,7 @@ class ProfilEntrepriseController extends Controller
     public $message;
     public $note;
     public $commentaire;
+    public $vue;
 
     public function updated($fields)
     {
@@ -57,32 +58,32 @@ class ProfilEntrepriseController extends Controller
         }
     }
 
-    public function updated1($fields)
-    {
-        $this->validateOnly($fields, [
-            'note' => 'required',
-            'commentaire' => 'required'
-        ]);
-    }
+    // public function updated1($fields)
+    // {
+    //     $this->validateOnly($fields, [
+    //         'note' => 'required',
+    //         'commentaire' => 'required'
+    //     ]);
+    // }
 
-    public function avis(Request $request, $entreprise_id)
-    {
-        $request->validate([
-            'note' => 'required',
-            'commentaire' => 'required'
-        ]);
+    // public function avis(Request $request, $entreprise_id)
+    // {
+    //     $request->validate([
+    //         'note' => 'required',
+    //         'commentaire' => 'required'
+    //     ]);
 
-        try {
-            $commentaire = new Avis();
-            $commentaire->entreprise_id = $entreprise_id;
-            $commentaire->note = $this->note;
-            $commentaire->commentaire = $this->commentaire;
-            $commentaire->save();
-            return redirect()->back()->with('success', 'Merci de nous avoir contacté.');
-        } catch (Exception $e) {
-            return redirect()->back()->with('success', $e->getMessage());
-        }
-    }
+    //     try {
+    //         $commentaire = new Avis();
+    //         $commentaire->entreprise_id = $entreprise_id;
+    //         $commentaire->note = $this->note;
+    //         $commentaire->commentaire = $this->commentaire;
+    //         $commentaire->save();
+    //         return redirect()->back()->with('success', 'Merci de nous avoir contacté.');
+    //     } catch (Exception $e) {
+    //         return redirect()->back()->with('success', $e->getMessage());
+    //     }
+    // }
 
     public function profilEntreprise($entreprise_id)
     {
@@ -123,15 +124,25 @@ class ProfilEntrepriseController extends Controller
 
         $avis = DB::table('entreprises')->where('entreprises.id', $entreprise_id)
             ->join('avis', 'entreprises.id', '=', 'avis.entreprise_id')
-            ->select('*')
-            ->get();
+            ->select('note')
+            ->sum('note');
+            //->get();
 
         $avis2 = DB::table('entreprises')->where('entreprises.id', $entreprise_id)
             //->join('avis', 'entreprises.id', '=', 'avis.entreprise_id')
             ->select('*')
             ->get();
 
+        $avis3 = DB::table('entreprises')->where('entreprises.id', $entreprise_id)
+            ->join('avis', 'entreprises.id', '=', 'avis.entreprise_id')
+            ->select('note')
+            ->get();
+
         $parametres = Parametres::find(1);
+
+        $entreprise = Entreprises::find($entreprise_id);
+        $entreprise->increment('vue');
+        $entreprise->save();
 
         return view('frontend.ProfilEntreprise', compact(
             'sousCategorieNavs',
@@ -142,7 +153,8 @@ class ProfilEntrepriseController extends Controller
             'parametres',
             'service_images',
             'avis',
-            'avis2'
+            'avis2',
+            'avis3'
         ));
     }
 }

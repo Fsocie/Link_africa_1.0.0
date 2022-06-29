@@ -39,14 +39,14 @@
 
   <!--Header Start-->
   <div class="header-wrap wow fadeInUp" style="background-color:#142c57">
-    <div class="container">
+    <div class="">
       <div class="row">
         <div class="col-lg-3 navbar navbar-expand-lg navbar-light">
-          <div class="header_logo"><a href="{{ route('home') }}"><img alt="" src="{{ asset('assets/images/logo.png') }}" style="width: ; height: "></a></div>
+          <div class="header_logo"><a href="{{ route('home') }}"><img alt="" src="{{ asset('assets/images/logo.png') }}" style="width: 45%; height:50; margin-left: 36%"></a></div>
           
-          {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span
-              class="navbar-toggler-icon"></span> </button> --}}
+              class="navbar-toggler-icon"></span> </button>
         </div>
         <div class="col-lg-9">
           <nav class="navbar navbar-expand-lg navbar-light"> 
@@ -94,41 +94,13 @@
                 </li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Nous Contacter</a></li>
                 
-              <li class="nav-item">
-                <button data-toggle="dropdown" class=" border-0 appearance-none py-0 px-5 bg-transparent text-white group dropdown-open:bg-white dropdown-open:text-link flex items-center justify-center text-36" aria-expanded="false">
-                    <i class="fas fa-users"></i>
-                </button>
-                  <div
-                    class="dropdown-menu p-0 m-0 border border-solid border-t-0 border-gray-500 rounded-t-none rounded-b-lg overflow-hidden bg-white shadow-dropdown min-w-300px left-auto -right-1px ">
-                    <div class="p-12 w-411px">
-                      <h4>Se connecter</h4>
-                      <form>
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Email</label>
-                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="mb-3 form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Se souvenir de moi</label>
-                          <a href="#">Mot de passe oublié</a>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Se connecter</button>
-                      </form>
-                    </div>
-                    <div class="p-12 bg-gray-200">
-                        <div class="flex flex-col text-center">
-                            <strong class="mb-2">Nouveau sur Showroomafrica ?</strong>
-                            <a class="text-link underline hover:no-underline focus:underline" href="#">S'inscrire
-                                gratuitement</a>
-                        </div>
-                    </div>
-                </div>
-              </li>
               </ul>
+              <div class="">
+                <a class="btn btn-blue rounded-full z-10" href="#" style="background: white;color: #142c57; font-size: 12px">S'inscrire</a>
+            </div>
+            <div class="">
+              <a class="btn btn-blue rounded-full z-10" href="#" style="background: white; color: #142c57; font-size: 12px">Se Connecter</a>
+          </div>
             </div>
           </nav>
         </div>
