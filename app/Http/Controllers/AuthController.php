@@ -11,46 +11,68 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     public function login(){
-        return view("frontend.users.connexion");
+        if (Auth::check()) {
+            // The user is logged in...
+            return redirect()->route('home');
+        }else{
+            return view("frontend.users.connexion");
+        }
     }
     public function register(){
         return view("frontend.users.inscription");
     }
     public function userProfile(){
-        $id = Auth::user()->id;
-        $user = DB::SELECT("SELECT * FROM users WHERE id = $id");
-        //dd($user[0]->nom);
-        return view("frontend.users.userProfile",compact('user'));
+       
+        if (!Auth::check()) {
+            // The user is logged in...
+            return redirect()->route('home');
+        }else{
+            $id = Auth::user()->id;
+            $user = DB::SELECT("SELECT * FROM users WHERE id = $id");
+            //dd($user[0]->nom);
+            return view("frontend.users.userProfile",compact('user'));
+        }
+       
     }
     public function userEdit(){
-        $id = Auth::user()->id;
-        $user = DB::SELECT("SELECT * FROM users WHERE id = $id");
-        return view("frontend.users.userEdit",compact('user'));
+        if (!Auth::check()) {
+            // The user is logged in...
+            return redirect()->route('home');
+        }else{
+            $id = Auth::user()->id;
+            $user = DB::SELECT("SELECT * FROM users WHERE id = $id");
+            return view("frontend.users.userEdit",compact('user'));
+        }
     }
     public function userUpdate(Request $request,$id){
-        $id = Auth::user()->id;
-        $user = DB::SELECT("SELECT * FROM users WHERE id = $id");
-        //dd($user);
-       // dd($request->c_mdp);
-        $data = $request->validate([
-            'nom'=>'required|string',
-            'prenoms'=>'required|string',
-            'email'=>'required|email',
-            'description'=>'required|string',
-            'telephone'=>'required|string',
-            'adresse'=>'required|string',
-            'titre'=>'required|string',
-            'mdp'=>'required|string|min:8',
-        ]);
-        if(Hash::check(request('mdp'), $user[0]->mdp)){
-            
-            $data['mdp'] = bcrypt($request->c_mdp);
-            User::find($id)->update($data);
-            return redirect()->route('user.edit')->with('success',"Information de l'utilisateur mise à jour avec succès");
+        if (!Auth::check()) {
+            // The user is logged in...
+            return redirect()->route('home');
         }else{
-            return redirect()->back()->with('error','Les mots de pass ne correspondent pas!!!');
-           // dd('false');
-        } 
+                $id = Auth::user()->id;
+                $user = DB::SELECT("SELECT * FROM users WHERE id = $id");
+                //dd($user);
+            // dd($request->c_mdp);
+                $data = $request->validate([
+                    'nom'=>'required|string',
+                    'prenoms'=>'required|string',
+                    'email'=>'required|email',
+                    'description'=>'required|string',
+                    'telephone'=>'required|string',
+                    'adresse'=>'required|string',
+                    'titre'=>'required|string',
+                    'mdp'=>'required|string|min:8',
+                ]);
+                if(Hash::check(request('mdp'), $user[0]->mdp)){
+                    
+                    $data['mdp'] = bcrypt($request->c_mdp);
+                    User::find($id)->update($data);
+                    return redirect()->route('user.edit')->with('success',"Information de l'utilisateur mise à jour avec succès");
+                }else{
+                    return redirect()->back()->with('error','Les mots de pass ne correspondent pas!!!');
+                // dd('false');
+                } 
+        }
     }
 
     public function authenticate(Request $request,User $user){
@@ -95,7 +117,7 @@ class AuthController extends Controller
 
     public function logout(){
         auth()->logout();
-        return redirect()->route('UsersLogin');
+        return redirect()->route('home');
     }
     /**
      * Display a listing of the resource.
