@@ -71,22 +71,22 @@
                             <div class="hidden ls:block">
                                 <div class="panel panel-facebook">
                                     <div class="panel-body">
-                                        <h3 style="color: #0b3c5d">Sociétés les plus consultées <small></small></h3>
+                                        <h4 style="color: #0b3c5d">Sociétés les plus consultées <small></small></h4>
                                         @foreach ($entreprisePopulaire as $entreprisePopulaires)
                                         <div class="relative flex items-center py-8 px-8 border-0 border-b border-gray-400 border-solid first:border-t hover:bg-gray-100"
                                             style="width: auto">
                                             <div class="flex-1 mr-8 flex flex-col">
-                                                <a class="stretched-link text-black text-16 hover:text-link mb-3 font-bold"
+                                                <a class="stretched-link text-black text-12 hover:text-link mb-3 font-bold"
                                                     href="{{ route('profil-entreprise',['entreprise_id'=>$entreprisePopulaires]) }}">{{
                                                     $entreprisePopulaires->nom }}</a>
-                                                <div class="flex text-12 font-light text-gray-600 items-center">
+                                                <div class="flex text-10 font-light text-gray-600 items-center">
                                                     <div class="mr-8  flex items-center">
                                                         <i
-                                                            class="text-16 mr-2 text-gray-400 fa fa-map-marker"></i><span>{{
+                                                            class="text-12 mr-2 text-gray-400 fa fa-map-marker"></i><span>{{
                                                             $entreprisePopulaires->adresse }}</span>
                                                     </div>
                                                     <div class=" flex items-center">
-                                                        <i class="text-16 mr-2 text-gray-400 fa fa-globe"></i><a
+                                                        <i class="text-12 mr-2 text-gray-400 fa fa-globe"></i><a
                                                             href="{{ $entreprisePopulaires->siteweb }}"><span>Site
                                                                 Web</span></a>
                                                     </div>

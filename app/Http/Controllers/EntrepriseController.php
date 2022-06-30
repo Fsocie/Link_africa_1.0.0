@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Entreprises;
 use App\Models\Parametres;
+use App\Models\Pubs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -32,6 +33,9 @@ class EntrepriseController extends Controller
         $entreprisePopulaire = Entreprises::inRandomOrder()->limit(4)->get();
 
         $parametres = Parametres::find(1);
-        return view('frontend.entreprise', compact('sousCategorieNavs', 'entreprises', 'sousCategories', 'entreprisePopulaire','parametres'));
+
+        $pubs = Pubs::all();
+        
+        return view('frontend.entreprise', compact('sousCategorieNavs', 'entreprises', 'sousCategories', 'entreprisePopulaire','parametres','pubs'));
     }
 }

@@ -235,7 +235,7 @@ class HomeController extends Controller
                 ->select('*', 'sous_categorie_entreprises.libelle as sousCategorie', 'entreprises.id')
                 ->orderBy('entreprises.id', 'desc')
                 ->get();
-        }else{
+        } else {
             $recherches = DB::table('categorie_entreprises')
                 ->join('sous_categorie_entreprises', 'categorie_entreprises.id', '=', 'sous_categorie_entreprises.categorie_entreprises_id')
                 ->join('entreprises', 'sous_categorie_entreprises.id', '=', 'entreprises.sous_categorie_id')
@@ -266,7 +266,9 @@ class HomeController extends Controller
         $parametres = Parametres::find(1);
         //dump($_REQUEST, $_GET);
 
-        return view('frontend.recherche-entreprise', compact('recherches', 'sousCategorieNavs', 'entreprisePopulaire','parametres'));
+        $pubs = Pubs::all();
+
+        return view('frontend.recherche-entreprise', compact('recherches', 'sousCategorieNavs', 'entreprisePopulaire', 'parametres', 'pubs'));
     }
 
     public function index()
@@ -318,8 +320,20 @@ class HomeController extends Controller
 
         $slider = Slider::all();
 
-        return view('frontend.home', compact('categories', 'sousCategorieNavs', 
-                    'pays', 'villes', 'categorie2s', 'rejoins', 'entrepriseHonneur', 
-                    'entrepriseElu', 'reportagedelasemaine', 'minispots','pubs','parametres','slider'));
+        return view('frontend.home', compact(
+            'categories',
+            'sousCategorieNavs',
+            'pays',
+            'villes',
+            'categorie2s',
+            'rejoins',
+            'entrepriseHonneur',
+            'entrepriseElu',
+            'reportagedelasemaine',
+            'minispots',
+            'pubs',
+            'parametres',
+            'slider'
+        ));
     }
 }

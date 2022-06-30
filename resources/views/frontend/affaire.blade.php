@@ -233,6 +233,9 @@
                                                         </ul>
                                                     </div>
                                                 </div>
+                                                <div class="job-right my-4 flex-shrink-0">
+                                                    <a href="mailto:contact@showroomafrica.com" class="btn d-block w-100 d-sm-inline-block btn-light" style="background-color: #4e63d7">Postuler</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

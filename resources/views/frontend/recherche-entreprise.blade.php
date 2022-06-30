@@ -3,6 +3,7 @@
 @endsection
 @include('frontend.header')
 @include('frontend.navbar')
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <style>
         .navbar-nav{
         width: 100%;
@@ -52,9 +53,9 @@
         width: 50%;
     }
 
-    /* body{
-        background:rgba(192,192,192,0.3);
-    } */
+    body{
+      background: white !important;
+    }
 
     /* #nav-items li a,#profile{
         text-decoration: none;
@@ -145,6 +146,21 @@
 <section class="popular_wrap wow fadeInUp">
     <div class="container">
         <div class="row">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{{  asset('assets/images/1.jpg') }}" class="d-block w-100" alt="">
+                            </div>
+                        @foreach ($pubs as $pub)
+                            <div class="carousel-item">
+                                <img src="{{  asset('assets/images') }}/{{ $pub->image }}" class="d-block w-100" alt="">
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+        </div>
+        <br />
+        <div class="row">
             <div class="col-sm-5 col-md-7 col-12 pb-4">
                 {{-- @foreach ($sousCategories as $sousCategorie)
                     <h2>{{ $sousCategorie->libelle }}</h2>
@@ -200,19 +216,22 @@
             <div class="col-lg-4 col-md-6 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
                 <h3 style="color: #0b3c5d">Sociétés les plus consultées <small></small></h3>
                 @foreach ($entreprisePopulaire as $entreprisePopulaires)
-                    <div class="relative flex items-center py-8 px-8 border-0 border-b border-gray-400 border-solid first:border-t hover:bg-gray-100" style="width: auto">
+                    <div class="relative flex items-center py-8 px-8 border-0 border-b border-gray-400 border-solid first:border-t hover:bg-gray-100"
+                        style="width: auto">
                         <div class="flex-1 mr-8 flex flex-col">
-                            <a class="stretched-link text-black text-16 hover:text-link mb-3 font-bold" href="{{ route('profil-entreprise',['entreprise_id'=>$entreprisePopulaires]) }}">{{ $entreprisePopulaires->nom }}</a>
-                            <div class="flex text-12 font-light text-gray-600 items-center">
+                            <a class="stretched-link text-black text-12 hover:text-link mb-3 font-bold"
+                                href="{{ route('profil-entreprise',['entreprise_id'=>$entreprisePopulaires]) }}">{{
+                                $entreprisePopulaires->nom }}</a>
+                            <div class="flex text-10 font-light text-gray-600 items-center">
                                 <div class="mr-8  flex items-center">
-                                    @if ($entreprisePopulaires->adresse)
-                                        <i class="text-16 mr-2 text-gray-400 fa fa-map-marker"></i><span>{{ $entreprisePopulaires->adresse }}</span>
-                                    @endif
+                                    <i
+                                        class="text-12 mr-2 text-gray-400 fa fa-map-marker"></i><span>{{
+                                        $entreprisePopulaires->adresse }}</span>
                                 </div>
                                 <div class=" flex items-center">
-                                    @if ($entreprisePopulaires->siteweb)
-                                        <i class="text-16 mr-2 text-gray-400 fa fa-globe"></i><a href="{{ $entreprisePopulaires->siteweb }}"><span>Site Web</span></a>
-                                    @endif
+                                    <i class="text-12 mr-2 text-gray-400 fa fa-globe"></i><a
+                                        href="{{ $entreprisePopulaires->siteweb }}"><span>Site
+                                            Web</span></a>
                                 </div>
                             </div>
                         </div>
@@ -224,4 +243,5 @@
         </div>
     </div>
 </section>
+<script src="{{ asset('js/app.js') }}"></script>
 @include('frontend.footer')
