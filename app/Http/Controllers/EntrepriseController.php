@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Parametres;
-<<<<<<< HEAD
+
 use App\Models\Pubs;
-=======
+
 use App\Models\Entreprises;
->>>>>>> e78b002fb42106254e10cb4e776ff069baedaf69
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\RelationEntrePaysEntreprise;
