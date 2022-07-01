@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/PROFILE_ENTREPRISE/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/PROFILE_ENTREPRISE/css/responsive.css')}}">
 </head>
-<body class="sign-in">
+<body class="sign-in" style="background-color: #142c57">
     <div class="wrapper">
         <div class="sign-in-page">
             <div class="signin-popup">
