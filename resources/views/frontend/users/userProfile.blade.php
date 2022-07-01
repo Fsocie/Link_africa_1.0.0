@@ -30,7 +30,7 @@
                         
                         <div class="col-lg-12">
                             <div class="login-sec">
-
+                                <i style="font-size: 2rem" class="la la-user"></i>
                                 <ul class="sign-control">
                                     <a style="margin-left:1rem;background-color:grey;padding:0.2rem 0.5rem;color:#fff;border-top-left-radius:5px;border-bottom-left-radius:5px" href="{{route('home')}}" title="">Acceuil</a>
                                     <a style="margin-left:1rem;background-color:grey;padding:0.2rem 0.5rem;color:#fff;border-top-right-radius:5px;border-bottom-right-radius:5px" href="{{route('user.edit')}}" title="">Mettre a jour mes informations</a>
