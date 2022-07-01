@@ -54,7 +54,7 @@
     <div class="">
       <div class="row">
         <div class="col-lg-3 navbar navbar-expand-lg navbar-light">
-          <div class="header_logo"><a href="{{ route('home') }}"><img alt="" src="{{ asset('assets/images/logo.png') }}" style="width: 45%; height:50; margin-left: 36%"></a></div>
+          <div class="header_logo"><a href="{{ route('home') }}"><img alt="" src="{{ asset('assets/images/logo.png') }}" style="width: 45%; height:50; margin-left: 36%; margin-top: "></a></div>
           
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span
