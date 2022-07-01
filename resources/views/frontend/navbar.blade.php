@@ -1,5 +1,5 @@
 <div class="topbar-wrap" style="background-color:#142c57">
-    <div class="container">
+    {{--<div class="container">
       <div class="row" style="background-color:#142c57">
         <div class="col-lg-6 col-md-4">
           <ul class="social_media style_none">
@@ -44,7 +44,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>--}}
   </div>
 
   <!--Topbar End-->
@@ -107,12 +107,37 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Nous Contacter</a></li>
                 
               </ul>
-              <div class="">
+              {{--<div class="">
                 <a class="btn btn-blue rounded-full z-10" href="#" style="background: white;color: #142c57; font-size: 12px">S'inscrire</a>
-            </div>
+              </div>
             <div class="">
               <a class="btn btn-blue rounded-full z-10" href="#" style="background: white; color: #142c57; font-size: 12px">Se Connecter</a>
-          </div>
+            </div>--}}
+                <div class="dropdown">
+                  <button class="dropbtn">Compte</button>
+                  <div class="dropdown-content">
+                    @auth
+                    <a href="{{ route('user.profile') }}" >                        
+                      Profile
+                    </a>
+                    <a href="{{route('entreprises')}}">Entreprise </a>
+                      <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        <p class="text">Deconnexion</p>
+                      </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                      </form>
+                    @else
+                      <a href="{{route('UsersLogin')}}">Connexion</a>
+                      <a href="{{route('UsersRegister')}}">Inscription </a>
+                      <a href="{{route('entreprises')}}">Entreprise </a>
+                    @endauth
+                    
+
+                  </div>
+                </div>
+
             </div>
           </nav>
         </div>
