@@ -254,7 +254,11 @@
                             @endif
                         @endfor
                         <a href="#" class="count-review">(0 @php
-                            echo $nombre;
+                            if ($avis3->count()) {
+                                echo $nombre;
+                            } else {
+                                echo $nombre - 1;
+                            }
                         @endphp note (s))</a>
                     </div>
                 </div>

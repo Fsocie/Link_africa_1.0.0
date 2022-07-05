@@ -10,112 +10,118 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function login(){
+    public function login()
+    {
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->route('home');
-        }else{
+        } else {
             return view("frontend.users.connexion");
         }
     }
-    public function register(){
+    public function register()
+    {
         return view("frontend.users.inscription");
     }
-    public function userProfile(){
-       
+    public function userProfile()
+    {
+
         if (!Auth::check()) {
             // The user is logged in...
             return redirect()->route('home');
-        }else{
+        } else {
             $id = Auth::user()->id;
             $user = DB::SELECT("SELECT * FROM users WHERE id = $id");
             //dd($user[0]->nom);
-            return view("frontend.users.userProfile",compact('user'));
+            return view("frontend.users.userProfile", compact('user'));
         }
-       
     }
-    public function userEdit(){
+    public function userEdit()
+    {
         if (!Auth::check()) {
             // The user is logged in...
             return redirect()->route('home');
-        }else{
+        } else {
             $id = Auth::user()->id;
             $user = DB::SELECT("SELECT * FROM users WHERE id = $id");
-            return view("frontend.users.userEdit",compact('user'));
+            return view("frontend.users.userEdit", compact('user'));
         }
     }
-    public function userUpdate(Request $request,$id){
+    public function userUpdate(Request $request, $id)
+    {
         if (!Auth::check()) {
             // The user is logged in...
             return redirect()->route('home');
-        }else{
-                $id = Auth::user()->id;
-                $user = DB::SELECT("SELECT * FROM users WHERE id = $id");
-                //dd($user);
+        } else {
+            $id = Auth::user()->id;
+            $user = DB::SELECT("SELECT * FROM users WHERE id = $id");
+            //dd($user);
             // dd($request->c_mdp);
-                $data = $request->validate([
-                    'nom'=>'required|string',
-                    'prenoms'=>'required|string',
-                    'email'=>'required|email',
-                    'description'=>'required|string',
-                    'telephone'=>'required|string',
-                    'adresse'=>'required|string',
-                    'titre'=>'required|string',
-                    'mdp'=>'required|string|min:8',
-                ]);
-                if(Hash::check(request('mdp'), $user[0]->mdp)){
-                    
-                    $data['mdp'] = bcrypt($request->c_mdp);
-                    User::find($id)->update($data);
-                    return redirect()->route('user.edit')->with('success',"Information de l'utilisateur mise à jour avec succès");
-                }else{
-                    return redirect()->back()->with('error','Les mots de pass ne correspondent pas!!!');
+            $data = $request->validate([
+                'nom' => 'required|string',
+                'prenoms' => 'required|string',
+                'email' => 'required|email',
+                'description' => 'required|string',
+                'telephone' => 'required|string',
+                'adresse' => 'required|string',
+                'titre' => 'required|string',
+                'mdp' => 'required|string|min:8',
+            ]);
+            if (Hash::check(request('mdp'), $user[0]->mdp)) {
+
+                $data['mdp'] = bcrypt($request->c_mdp);
+                User::find($id)->update($data);
+                return redirect()->route('user.edit')->with('success', "Information de l'utilisateur mise à jour avec succès");
+            } else {
+                return redirect()->back()->with('error', 'Les mots de pass ne correspondent pas!!!');
                 // dd('false');
-                } 
+            }
         }
     }
 
-    public function authenticate(Request $request,User $user){
-       
-        $credentials = $request->only('email','mdp'); 
+    public function authenticate(Request $request, User $user)
+    {
+
+        $credentials = $request->only('email', 'mdp');
         $login = $request->email;
         $request->validate([
-            'email'=>'required|email',
-            'mdp'=>'required'
+            'email' => 'required|email',
+            'mdp' => 'required'
         ]);
-      
-        if(\App\Models\User::where('email',$login)->count() > 0 ) {
-            if(Auth::attempt(['email'=>$login,'password'=>$request->mdp])){
+
+        if (\App\Models\User::where('email', $login)->count() > 0) {
+            if (Auth::attempt(['email' => $login, 'password' => $request->mdp])) {
                 return redirect()->route('user.profile');
                 //return 'Connexion reussi avec success';
-            }else{
-                return redirect()->back()->with('success',"Vos identifiants ne correspondent pas !!!");
+            } else {
+                return redirect()->back()->with('success', "Vos identifiants ne correspondent pas !!!");
             }
-        }else{
-            return redirect()->back()->with('success',"Vos identifiants ne correspondent pas !!!");
+        } else {
+            return redirect()->back()->with('success', "Vos identifiants ne correspondent pas !!!");
         }
-
     }
 
-    public function registerUser(Request $request){
+    public function registerUser(Request $request)
+    {
         $data = $request->validate([
-            'nom'=>'required|string',
-            'prenoms'=>'required|string',
-            'email'=>'required|email',
-            'telephone'=>'required|string',
-            'adresse'=>'required|string',
-            'titre'=>'required|string',
-            'mdp'=>'required|string|min:8',
+            'nom' => 'required|string',
+            'prenoms' => 'required|string',
+            'email' => 'required|email',
+            'telephone' => 'required|string',
+            'adresse' => 'required|string',
+            'titre' => 'required|string',
+            'mdp' => 'required|string|min:8',
             'c_mdp' => 'required_with:mdp|same:mdp|min:8'
-       
+
         ]);
         //dd($request->all());
         $data['mdp'] = bcrypt($data['mdp']);
         User::create($data);
-        return redirect()->back()->with('success',"Nouveau compte creer avec success !!!");
+        return redirect()->back()->with('success', "Nouveau compte creer avec success !!!");
     }
 
-    public function logout(){
+    public function logout()
+    {
         auth()->logout();
         return redirect()->route('home');
     }
