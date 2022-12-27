@@ -3,11 +3,13 @@
 @endsection
 @include('frontend.header')
 @include('frontend.navbar')
+
 <link rel="stylesheet" href="{{ asset('assets5/style.css') }}">
 <style>
     /* .navbar-nav{
     width: 100%;
 } */
+
 
     @media(min-width:568px) {
         .end {
@@ -18,6 +20,77 @@
     @media(max-width:768px) {
         #post {
             width: 100%;
+        }
+    }
+    @media (max-width: 767px){
+        .comment {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        .comment0 {
+            margin-top: -20px !important;
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        .comment1 {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        .comment2 {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        .comment3 {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+    }
+
+    @media screen and (max-width: 990px){
+        .comment {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        .comment0 {
+            margin-top: -20px !important;
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        .comment1 {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        .comment2 {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        .comment3 {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+    }
+
+    @media screen and (max-width: 480px){
+        .comment {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        .comment0 {
+            margin-top: -20px !important;
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        .comment1 {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        .comment2 {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        .comment3 {
+            margin-left: 0 !important;
+            width: 100% !important;
         }
     }
 
@@ -65,9 +138,20 @@
 } */
 
 
-    .comments {
-        margin-top: 5%;
-        margin-left: 20px;
+    .comment {
+        margin-left: 25px;
+    }
+    .comment0 {
+        margin-left: 25px;
+    }
+    .comment1 {
+        margin-left: 25px;
+    }
+    .comment2 {
+        margin-left: 25px;
+    }
+    .comment3 {
+        margin-left: 25px;
     }
 
     .darker {
@@ -78,6 +162,14 @@
         padding-left: 40px;
         padding-right: 30px;
         padding-top: 10px;
+    }
+
+    .comment0 {
+        border: 1px solid #0b3c5d;
+        border-radius: 5px;
+        width: 1200px;
+        height: 250px;
+        border-color: #0b3c5d
     }
 
     .comment {
@@ -173,8 +265,34 @@
 </style>
 <!-- Main Body -->
 <section class="popular_wrap wow fadeInUp">
-    <div class="container ">
+    <div class="container " style="margin-top: -30px;">
         <div class="row ">
+            <div class="comment0">
+                <div id="carouselDarkVariant" class="carousel slide carousel-fade carousel-dark relative" data-bs-ride="carousel">
+                    <!-- Inner -->
+                    <div class="carousel-inner relative w-full overflow-hidden">
+                        <!-- Single item -->
+                        <div class="carousel-item active relative float-left w-full">
+                            <img src="{{ asset('assets/images/22.jpg') }}" class="block w-full"
+                                alt="Motorbike Smoke" style="height: 250px; width: 100%;"/>
+                            <div class="carousel-caption hidden md:block absolute text-center">
+                                <h5 class="text-xl">First slide label</h5>
+                                <p>Some representative placeholder content for the first slide.</p>
+                            </div>
+                        </div>
+                
+                        <!-- Single item -->
+                        <div class="carousel-item relative float-left w-full">
+                            <img src="{{ asset('assets/images/23.jpg') }}" class="block w-full"
+                                alt="Mountaintop" style="height: 250px; width: 100%;"/>
+                            <div class="carousel-caption hidden md:block absolute text-center">
+                                <h5 class="text-xl">Second slide label</h5>
+                                <p>Some representative placeholder content for the second slide.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="comment1">
                 @foreach ($Profil_entreprises as $Profil_entreprise)
                 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:white !important;">
@@ -227,39 +345,38 @@
                 @endif
                 <h4> {{ $Profil_entreprise->nom }}</h4>
                 <span style="color: #0b3c5d">{{ $Profil_entreprise->libelle }}</span>
-                <samp style="margin-left: 87%; font-size: 22px; font-weight: bold">{{ $Profil_entreprise->vue }} Vue (s)</samp>
+                <samp style="margin-left: 87%; font-size: 22px; font-weight: bold">{{ $Profil_entreprise->vue }} Vue
+                    (s)</samp>
                 @endforeach
                 <div class="detail-info" style="margin-left: 83%; margin-top: 1px !important">
                     <style>
-                        .color-gray{
+                        .color-gray {
                             color: #e6e6e6 !important;
                         }
                     </style>
 
                     @php
-                        $moyene = 0;
-                        if ($avis3->count()) {
-                            $nombre = $avis3->count();
-                        }else {
-                            $nombre = $avis3->count()+1;
-                        }
-                        $moyene = ($moyene + $avis) / $nombre;
+                    $moyene = 0;
+                    if ($avis3->count()) {
+                    $nombre = $avis3->count();
+                    }else {
+                    $nombre = $avis3->count()+1;
+                    }
+                    $moyene = ($moyene + $avis) / $nombre;
                     @endphp
                     <div class="product-rating">
-                        @for ($i = 1; $i<= 5; $i++)
-                            @if ($i <= $moyene)
-                                <i class="fa fa-star" aria-hidden="true"></i>
+                        @for ($i = 1; $i<= 5; $i++) @if ($i <=$moyene) <i class="fa fa-star" aria-hidden="true"></i>
                             @else
-                                <i class="fa fa-star color-gray" aria-hidden="true"></i>
+                            <i class="fa fa-star color-gray" aria-hidden="true"></i>
                             @endif
-                        @endfor
-                        <a href="#" class="count-review">(0 @php
-                            if ($avis3->count()) {
+                            @endfor
+                            <a href="#" class="count-review" >(0 @php
+                                if ($avis3->count()) {
                                 echo $nombre;
-                            } else {
+                                } else {
                                 echo $nombre - 1;
-                            }
-                        @endphp note (s))</a>
+                                }
+                                @endphp note (s))</a>
                     </div>
                 </div>
             </div>
@@ -300,10 +417,7 @@
                                 </a></div>
                             @endif
 
-                            @if ($Profil_entreprise->siteweb)
-                            <div class="col-md-4"><span><i class="fas fa-globe"></i></span> <a
-                                    href="{{ $Profil_entreprise->siteweb }}">{{ $Profil_entreprise->siteweb }}</a></div>
-                            @endif
+                            
 
                             @if ($Profil_entreprise->telephone3)
                             <div class="col-md-4"><a href="tel:{{ $Profil_entreprise->telephone3 }}"><span><i
@@ -346,96 +460,100 @@
                     @endforeach
                 </div>
                 @foreach ($est_souscrits as $est_souscrit)
-                @if ($est_souscrit->est_souscrit == 1)
-                <div class="row" id="service">
-                    <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
-                        <h4> Service </h4>
-                        <br />
+                    @if ($est_souscrit->est_souscrit == 1)
+                    <div class="row" id="geo">
+                        <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15865.701238777434!2d1.1834649!3d6.2074975!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x13525f005439bec7!2sShowroom%20Africa!5e0!3m2!1sfr!2stg!4v1671102033967!5m2!1sfr!2stg" width="560" height="300" style="border:0; width: 600px auto; height: 200px auto;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <div class="row" id="service">
+                        <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
+                            <h4> Service </h4>
+                            <br />
 
-                        <div class="row owl-2-style">
-                            <div class="owl-carousel owl-2">
-                                @foreach ($service_images as $service_image)
-                                <div class="media-29101">
-                                    @if ($service_image->service_image)
-                                    <img src="{{  asset('assets/images/EntrepriseImages') }}/{{ $service_image->service_image }}"
-                                        alt="Image" class="img-fluid" style="width: 150px; height: 150px;">
-                                    @else
-                                    <img src="{{  asset('assets/images/EntrepriseImages/default.png') }}" alt="Image"
-                                        class="img-fluid" style="width: 150px; height: 150px; ">
-                                    @endif
+                            <div class="row owl-2-style">
+                                <div class="owl-carousel owl-2">
+                                    @foreach ($service_images as $service_image)
+                                    <div class="media-29101">
+                                        @if ($service_image->service_image)
+                                        <img src="{{  asset('assets/images/EntrepriseImages') }}/{{ $service_image->service_image }}"
+                                            alt="Image" class="img-fluid" style="width: 150px; height: 150px;">
+                                        @else
+                                        <img src="{{  asset('assets/images/EntrepriseImages/default.png') }}" alt="Image"
+                                            class="img-fluid" style="width: 150px; height: 150px; ">
+                                        @endif
+                                    </div>
+                                    @endforeach
                                 </div>
-                                @endforeach
                             </div>
+                            <br />
                         </div>
-                        <br />
                     </div>
-                </div>
-                @endif
-                @if ($est_souscrit->est_souscrit == 1)
-                <div class="row">
-                    <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
-                        <br>
-                        @foreach ($services as $service)
-                        @if ($service->libelle)
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p>{{ $service->libelle }}</p>
+                    @endif
+                    @if ($est_souscrit->est_souscrit == 1)
+                    <div class="row">
+                        <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
+                            <br>
+                            @foreach ($services as $service)
+                            @if ($service->libelle)
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>{{ $service->libelle }}</p>
+                                </div>
                             </div>
-                        </div>
-                        @endif
+                            @endif
 
-                        @if ($service->description)
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p>{{ $service->description }}</p>
+                            @if ($service->description)
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>{{ $service->description }}</p>
+                                </div>
                             </div>
+                            @endif
+                            <br />
+                            @if ($service->video)
+                            <div class="row">
+                                <div class="col-md-12"><img src="{{  asset('assets/images') }}/{{ $service->video }}"
+                                        alt=""></div>
+                            </div>
+                            @endif
+                            @endforeach
                         </div>
-                        @endif
-                        <br />
-                        @if ($service->video)
-                        <div class="row">
-                            <div class="col-md-12"><img src="{{  asset('assets/images') }}/{{ $service->video }}"
-                                    alt=""></div>
-                        </div>
-                        @endif
-                        @endforeach
                     </div>
-                </div>
-                @endif
-                @if ($est_souscrit->est_souscrit == 1)
-                <div class="row" id="horaire">
-                    <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
-                        <h4> Horaire </h4>
-                        <br>
-                        @foreach ($horaires as $horaire)
-                        <div class="row">
-                            <div class="col-md-4">
-                                <p> {{ $horaire->jour }} </p>
+                    @endif
+                    @if ($est_souscrit->est_souscrit == 1)
+                    <div class="row" id="horaire">
+                        <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
+                            <h4> Horaire </h4>
+                            <br>
+                            @foreach ($horaires as $horaire)
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p> {{ $horaire->jour }} </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p> {{ $horaire->h_ouverture }} </p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p> {{ $horaire->h_fermerture }} </p>
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <p> {{ $horaire->h_ouverture }} </p>
-                            </div>
-                            <div class="col-md-4">
-                                <p> {{ $horaire->h_fermerture }} </p>
-                            </div>
+                            @endforeach
+                            <br>
                         </div>
-                        @endforeach
-                        <br>
                     </div>
-                </div>
-                @endif
+                    @endif
                 @endforeach
 
                 <div class="row" id="avis">
                     <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
                         @if(Session::has('ok'))
-                    <div class="alert alert-success" role="alert">{{Session::get('ok') }}</div>
-                    @endif
+                        <div class="alert alert-success" role="alert">{{Session::get('ok') }}</div>
+                        @endif
                         <h4> Avis </h4>
                         @foreach ($avis2 as $avi2)
-                        <form method="POST" action="{{ route('entreprise-avis',['id'=>$avi2->id]) }}"
-                            id="commentform">
-                           
+                        <form method="POST" action="{{ route('entreprise-avis',['id'=>$avi2->id]) }}" id="commentform">
+
                             @csrf
                             <div class="comment-form-rating">
                                 <div class="form-group">

@@ -3,68 +3,48 @@
 @endsection
 @include('frontend.header')
 @include('frontend.navbar')
-<section class="contact_area p_120 our_blog_area p_120 popular_wrap wow fadeInUp">
-    <div class="container">
-        <div id="mapBox" class="mapBox" 
-            data-lat="40.701083" 
-            data-lon="-74.1522848" 
-            data-zoom="13" 
-            data-info="PO Box CT16122 Collins Street West, Victoria 8007, Australia."
-            data-mlat="40.701083"
-            data-mlon="-74.1522848">
-        </div>
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="contact_info">
-                    <div class="info_item">
-                        <i class="lnr lnr-home"></i>
-                        <h6>Lomé, Togo</h6>
-                        <p>Notre quartier</p>
-                    </div>
-                    <div class="info_item">
-                        <i class="lnr lnr-phone-handset"></i>
-                        <h6><a href="tel:{{ $parametres->telephone1 }}">{{ $parametres->telephone1 }}</a></h6>
-                        <p>Avédji derrière la pharmacie laus Deo Lomé,Togo</p>
-                    </div>
-                    <div class="info_item">
-                        <i class="lnr lnr-envelope"></i>
-                        <h6><a href="mailto:{{ $parametres->email }}">{{ $parametres->email }}</a></h6>
-                        <p>Ecrivez nous à tout moment !</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                @if(Session::has('success'))
-                    <div class="alert alert-success" role="alert">{{Session::get('success') }}</div>
-                @endif
-                <form class="row contact_form" action="{{ route('contact.store') }}" method="POST" id="contactForm" novalidate="novalidate">
-                    @csrf
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom">
-                            @error('nom')<span class="text-danger">{{$message}}</span>@enderror
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre email">
-                            @error('email')<span class="text-danger">{{$message}}</span>@enderror
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="objet" name="objet" placeholder="Entrez l'objet">
-                            @error('objet')<span class="text-danger">{{$message}}</span>@enderror
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <textarea class="form-control" name="message" id="message" rows="1" placeholder="Entrez votre message"></textarea>
-                            @error('message')<span class="text-danger">{{$message}}</span>@enderror
-                        </div>
-                    </div>
-                    <div class="col-md-12 text-right">
-                        <button type="submit" value="submit" class="btn submit_btn">Evoyer Message</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+
+<section class="text-gray-600 body-font relative">
+	<div class="absolute inset-0 bg-gray-300">
+		<iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15865.701238777434!2d1.1834649!3d6.2074975!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x13525f005439bec7!2sShowroom%20Africa!5e0!3m2!1sfr!2stg!4v1671102033967!5m2!1sfr!2stg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+			style=""></iframe>
+	</div>
+    @if(Session::has('success'))
+            <div class="alert alert-success" role="alert">{{Session::get('success') }}</div>
+        @endif
+	<form action="{{ route('contact.store') }}" method="POST" class="container px-5 py-24 mx-auto flex">
+		@csrf
+		<div
+			class="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
+			<h2 class="text-gray-900 text-lg mb-1 font-medium title-font">SHOWROOMAFRICA</h2>
+			<div class="relative mb-4">
+				<label for="nom" class="leading-7 text-sm text-gray-600">Entrez votre nom</label>
+				<input type="nom" id="nom" name="nom"
+					class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+					@error('nom')<span class="text-danger">{{$message}}</span>@enderror
+			</div>
+			<div class="relative mb-4">
+				<label for="email" class="leading-7 text-sm text-gray-600">Entrez votre email</label>
+				<input type="email" id="email" name="email"
+					class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+					@error('email')<span class="text-danger">{{$message}}</span>@enderror
+			</div>
+			<div class="relative mb-4">
+				<label for="objet" class="leading-7 text-sm text-gray-600">Entrez l'objet</label>
+				<input type="objet" id="objet" name="objet"
+					class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+					@error('objet')<span class="text-danger">{{$message}}</span>@enderror
+			</div>
+			<div class="relative mb-4">
+				<label for="message" class="leading-7 text-sm text-gray-600">Entrez votre message</label>
+				<textarea id="message" name="message"
+					class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+					@error('message')<span class="text-danger">{{$message}}</span>@enderror
+			</div>
+			<button type="submit" value="submit"
+				class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Evoyer Message</button>
+		</div>
+	</form>
 </section>
 @include('frontend.footer')

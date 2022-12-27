@@ -142,9 +142,81 @@
         padding: 20px;
     }
 </style>
+<!-- Pour autocompletion -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<!-- Fin autocompletion -->
+
 <!-- Main Body -->
 <section class="popular_wrap wow fadeInUp">
     <div class="container">
+        <div class="" style="margin-top: -60px;">
+
+            <form action="{{ route('recherche2') }}" method="GET" class="flex items-center"
+                style="background-color:white; border: 0px ">
+                <label for="simple-search" class="sr-only">Search</label>
+                <div class="relative w-full">
+                    <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                        <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <input type="text" id="search" name="search"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Search" required>
+                </div>
+                <script type="text/javascript">
+                    var path = "{{ route('autocomplete') }}";
+                    $("#search").autocomplete({
+                        source: function (request, response) {
+                            $.ajax({
+                                url: path,
+                                type: 'GET',
+                                dataType: "json",
+                                data: {
+                                    search: request.term
+                                },
+                                success: function (data) {
+                                    response(data);
+                                }
+                            });
+                        },
+                        select: function (event, ui) {
+                            $('#search').val(ui.item.label);
+                            console.log(ui.item);
+                            return false;
+                        }
+                    });
+                </script>
+        
+                <div class="relative w-full">
+                    <select id="countries"
+                        name="ville" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected>Ville</option>
+                        @foreach ($villes as $ville)
+                            <option value="{{ $ville->libelle }}">{{ $ville->libelle }}</option>
+                        @endforeach
+                    </select>
+                </div>
+        
+                <button type="submit"
+                    class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><svg
+                        class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg></button>
+            </form>
+        
+        </div>
+
         <div class="row">
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">

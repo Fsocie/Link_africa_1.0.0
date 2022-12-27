@@ -9,6 +9,7 @@ use App\Models\Parametres;
 use App\Models\Pubs;
 use App\Models\Reportages;
 use App\Models\Slider;
+use App\Models\Villes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -267,8 +268,107 @@ class HomeController extends Controller
         //dump($_REQUEST, $_GET);
 
         $pubs = Pubs::all();
+        $villes = DB::table('villes')
+            //->where('pays_id', '=', $id)
+            ->select('*')
+            ->get();
 
-        return view('frontend.recherche-entreprise', compact('recherches', 'sousCategorieNavs', 'entreprisePopulaire', 'parametres', 'pubs'));
+        return view('frontend.recherche-entreprise', compact('recherches', 'sousCategorieNavs', 'entreprisePopulaire', 'parametres', 'pubs','villes'));
+    }
+
+    public function recherche2()
+    {
+        $ville = request()->input('ville');
+        $search = request()->input('search');
+
+        if ($ville && $search) {
+            $recherches = DB::table('categorie_entreprises')
+                ->join('sous_categorie_entreprises', 'categorie_entreprises.id', '=', 'sous_categorie_entreprises.categorie_entreprises_id')
+                ->join('entreprises', 'sous_categorie_entreprises.id', '=', 'entreprises.sous_categorie_id')
+                ->join('relation_entre_pays_entreprises', 'entreprises.id', '=', 'entreprise_id')
+                ->join('villes', 'relation_entre_pays_entreprises.villes_id', '=', 'villes.id')
+                ->join('pays', 'pays.id', '=', 'villes.pays_id')
+                ->where('entreprises.nom', 'LIKE', "%$search%")
+                ->orWhere('entreprises.telephone', 'LIKE', "%$search%")
+                ->orWhere('entreprises.telephone2', 'LIKE', "%$search%")
+                ->orWhere('entreprises.telephone3', 'LIKE', "%$search%")
+                ->orWhere('entreprises.telephone4', 'LIKE', "%$search%")
+                ->orWhere('villes.libelle', 'LIKE', "%$ville%")
+                ->select('*', 'sous_categorie_entreprises.libelle as sousCategorie', 'entreprises.id')
+                ->orderBy('entreprises.id', 'desc')
+                ->get();
+        }elseif($ville){
+            $recherches = DB::table('categorie_entreprises')
+                ->join('sous_categorie_entreprises', 'categorie_entreprises.id', '=', 'sous_categorie_entreprises.categorie_entreprises_id')
+                ->join('entreprises', 'sous_categorie_entreprises.id', '=', 'entreprises.sous_categorie_id')
+                ->join('relation_entre_pays_entreprises', 'entreprises.id', '=', 'entreprise_id')
+                ->join('villes', 'relation_entre_pays_entreprises.villes_id', '=', 'villes.id')
+                ->join('pays', 'pays.id', '=', 'villes.pays_id')
+                ->where('villes.libelle', 'LIKE', "%$ville%")
+                ->select('*', 'sous_categorie_entreprises.libelle as sousCategorie', 'entreprises.id')
+                ->orderBy('entreprises.id', 'desc')
+                ->get();
+        }elseif($search){
+            $recherches = DB::table('categorie_entreprises')
+                ->join('sous_categorie_entreprises', 'categorie_entreprises.id', '=', 'sous_categorie_entreprises.categorie_entreprises_id')
+                ->join('entreprises', 'sous_categorie_entreprises.id', '=', 'entreprises.sous_categorie_id')
+                ->join('relation_entre_pays_entreprises', 'entreprises.id', '=', 'entreprise_id')
+                ->join('villes', 'relation_entre_pays_entreprises.villes_id', '=', 'villes.id')
+                ->join('pays', 'pays.id', '=', 'villes.pays_id')
+                ->where('entreprises.nom', 'LIKE', "%$search%")
+                ->orWhere('entreprises.telephone', 'LIKE', "%$search%")
+                ->orWhere('entreprises.telephone2', 'LIKE', "%$search%")
+                ->orWhere('entreprises.telephone3', 'LIKE', "%$search%")
+                ->orWhere('entreprises.telephone4', 'LIKE', "%$search%")
+                ->select('*', 'sous_categorie_entreprises.libelle as sousCategorie', 'entreprises.id')
+                ->orderBy('entreprises.id', 'desc')
+                ->get();
+        }else{
+            $recherches = DB::table('categorie_entreprises')
+                ->join('sous_categorie_entreprises', 'categorie_entreprises.id', '=', 'sous_categorie_entreprises.categorie_entreprises_id')
+                ->join('entreprises', 'sous_categorie_entreprises.id', '=', 'entreprises.sous_categorie_id')
+                ->join('relation_entre_pays_entreprises', 'entreprises.id', '=', 'entreprise_id')
+                ->join('villes', 'relation_entre_pays_entreprises.villes_id', '=', 'villes.id')
+                ->join('pays', 'pays.id', '=', 'villes.pays_id')
+                ->where('entreprises.nom', 'LIKE', "%$search%")
+                ->orWhere('villes.libelle', 'LIKE', "%$ville%")
+                ->select('*', 'sous_categorie_entreprises.libelle as sousCategorie', 'entreprises.id')
+                ->orderBy('entreprises.id', 'desc')
+                ->get();
+        }
+
+        $sousCategorieNavs = DB::table('categorie_entreprises')
+            ->join('sous_categorie_entreprises', 'categorie_entreprises.id', '=', 'sous_categorie_entreprises.categorie_entreprises_id')
+            ->select('*')
+            ->take(4)
+            ->get();
+
+        $entreprisePopulaire = entreprises::inRandomOrder()->limit(4)->get();
+
+        $parametres = Parametres::find(1);
+        //dump($_REQUEST, $_GET);
+
+        $pubs = Pubs::all();
+        $villes = DB::table('villes')
+            //->where('pays_id', '=', $id)
+            ->select('*')
+            ->get();
+
+        return view('frontend.recherche-entreprise', compact('recherches', 'sousCategorieNavs', 'entreprisePopulaire', 'parametres', 'pubs','villes'));
+    }
+
+    public function autocompletion(Request $request)
+    {
+        $data = Entreprises::select('nom as value', 'id') 
+                            ->where('nom', 'LIKE', '%'.$request->get('origine').'%')->get()->take(6);
+        return response()->json($data);
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $data = Villes::select('libelle as value', 'id') 
+                            ->where('libelle', 'LIKE', '%'.$request->get('origine2').'%')->get();
+        return response()->json($data);
     }
 
     public function index()

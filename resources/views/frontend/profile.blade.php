@@ -4,7 +4,7 @@
 @include('frontend.header')
 @include('frontend.navbar')
 
-<section class="section about-section gray-bg" id="about">
+<section class="section about-section gray-bg">
     <div class="wrap-main-container">
         <div class="container">
             <div id="flashes-container"></div>
@@ -20,39 +20,38 @@
                             <div class="flex flex-col direct-child:py-6 -my-6">
                                 <div class="">
                                     @foreach ($users as $user)
-                                        <article
-                                            class="relative px-4 t:px-8 py-8 rounded-lg transition-default shadow-box hover:shadow-boxHover border border-solid border-gray-400 z-1">
-                                            <div class="flex">
-                                                <div class="mr-8">
-                                                    @if ($user->photo)
-                                                    <img class="h-26 w-26 t:w-32 t:h-32 object-cover rounded-full"
-                                                        src="{{  asset('assets/images') }}/{{ $user->photo }}"
-                                                        title="{{ $user->nom }} {{ $user->prenoms }}"
-                                                        alt="{{ $user->nom }} {{ $user->prenoms }}" />
-                                                    @else
-                                                    <img class="h-26 w-26 t:w-32 t:h-32 object-cover rounded-full"
-                                                        src="{{ asset('personne.jpg') }}"
-                                                        title="{{ $user->nom }} {{ $user->prenoms }}"
-                                                        alt="{{ $user->nom }} {{ $user->prenoms }}" />
-                                                    @endif
-                                                </div>
-                                                <div class="flex-1">
-                                                    <a href="user/181470b2b0.html?_locale=fr"
-                                                        class="stretched-link font-bold text-14 t:text-16 text-black hover:text-black no-underline hover:no-underline mb-1">
-                                                        {{ $user->nom }} {{ $user->prenoms }}
-                                                    </a>
-                                                    <div class="text-14 text-brand-blue mb-1">
-                                                        {{ $user->adresse }}
+                                    <div class="flex flex-col gap-4 lg:p-4 p-2  rounde-lg m-2">
+                                        <div
+                                            class="flex items-center justify-between w-full p-2 lg:rounded-full md:rounded-full hover:bg-gray-100 cursor-pointer border-2 rounded-lg">
+                                    
+                                            <div class="lg:flex md:flex items-center">
+                                                <div class="h-12 w-12 mb-2 lg:mb-0 border md:mb-0 rounded-full mr-3"></div>
+                                    
+                                                <div class="flex flex-col">
+                                    
+                                                    <div class="text-sm leading-3 text-gray-700 font-bold w-full">{{ $user->nom }} {{ $user->prenoms }}</div>
+                                    
+                                                    <div class="text-xs text-gray-600 w-full"> {{ $user->adresse }}
                                                     </div>
-                                                    <div class="text-14 text-gray-700 mb-1">
-                                                        {{ $user->titre }}
+                                    
+                                                    <div class="text-xs text-gray-600 w-full"> {{ $user->titre }}
                                                     </div>
+                                    
                                                 </div>
-                                                <div class="">
-                                                    <a class="btn btn-blue rounded-full z-10" href="#">CV</a>
-                                                </div>
+                                    
                                             </div>
-                                        </article>
+                                    
+                                            <svg class="h-6 w-6 mr-1 invisible md:visible lg:visible xl:visible" xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                            <a class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200" href="#">CV</a>
+                                        </div>
+                                        
+                                    
+                                    </div>
                                         <br>
                                     @endforeach
                                 </div>
@@ -95,7 +94,7 @@
                                             <i class="hidden t:block text-20 tnp tnp-arrow"></i>
                                         </div>
                                         @endforeach
-                                        <br>
+                                        
                                     </div>
                                 </div>
                             </div>

@@ -293,62 +293,26 @@
   </div>
 </div>
 
-<script src="{{ asset('assets4/js/jquery-3.3.1.min.js') }}"></script>
-{{--
-<script src="{{ asset('assets4/js/popper.min.js') }}"></script> --}}
-{{--
-<script src="{{ asset('assets4/js/bootstrap.min.js') }}"></script> --}}
+<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 <script src="{{ asset('assets4/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets4/js/main.js') }}"></script>
+
 
 <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/js/popper.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 
-<!-- Owl Carousel -->
-{{-- <script src="{{ asset('assets/js/owl.carousel.js') }}"></script> --}}
-
 <!-- wow js -->
 <script src="{{ asset('assets/js/animate.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.nice-select.js') }}"></script>
-
-<script>
-  new WOW().init();
-</script>
 
 <!-- general script file -->
 <script src="{{ asset('assets/js/wow.js') }}"></script>
 <script src="{{ asset('assets/js/script.js') }}"></script>
 <script src="{{ asset('assets/script.js') }}"></script>
 
-{{--
-<script src="{{ asset('assets2/js/jquery-3.2.1.min.js') }}"></script> --}}
-
-{{-- <script src="{{ asset('assets2/js/popper.js') }}"></script> --}}
-{{-- <script src="{{ asset('assets2/js/bootstrap.min.js') }}"></script> --}}
-<script src="{{ asset('assets2/js/stellar.js') }}"></script>
-<script src="{{ asset('assets2/vendors/lightbox/simpleLightbox.min.js') }}"></script>
-<script src="{{ asset('assets2/vendors/nice-select/js/jquery.nice-select.min.js') }}"></script>
-<script src="{{ asset('assets2/vendors/isotope/imagesloaded.pkgd.min.js') }}"></script>
-<script src="{{ asset('assets2/vendors/isotope/isotope-min.js') }}"></script>
-<script src="{{ asset('assets2/vendors/owl-carousel/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('assets2/js/jquery.ajaxchimp.min.js') }}"></script>
-<script src="{{ asset('assets2/vendors/counter-up/jquery.waypoints.min.js') }}"></script>
-<script src="{{ asset('assets2/vendors/counter-up/jquery.counterup.min.js') }}"></script>
-<script src="{{ asset('assets2/js/mail-script.js') }}"></script>
-<!--gmaps Js-->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-<script src="{{ asset('assets2/js/gmaps.min.js') }}"></script>
-<script src="{{ asset('assets2/js/theme.js') }}"></script>
-
-
-{{-- <script src="{{ asset('assets3/js/desktop.js') }}"></script> --}}
-
-{{--
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script> --}}
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.0/js/swiper.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js'></script>
-<script src="./script.js"></script>
 
 @yield('javascripts')
 

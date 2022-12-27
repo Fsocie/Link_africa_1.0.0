@@ -30,35 +30,22 @@
 
   <link rel="stylesheet" href="{{ asset('assets4/fonts/icomoon/style.css') }}">
   <link rel="stylesheet" href="{{ asset('assets4/css/owl.carousel.min.css') }}">
-  {{-- <link rel="stylesheet" href="{{ asset('assets4/css/bootstrap.min.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('assets4/css/style.css') }}">
   <!--assets4 FIN-->
 
-  <link rel="stylesheet" href="{{ asset('assets2/css/bootstrap.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets2/vendors/linericon/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets2/css/font-awesome.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets2/vendors/owl-carousel/owl.carousel.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets2/vendors/lightbox/simpleLightbox.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets2/vendors/nice-select/css/nice-select.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets2/vendors/animate-css/animate.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets2/vendors/flaticon/flaticon.css') }}">
-        <!-- main css -->
-  <link rel="stylesheet" href="{{ asset('assets2/css/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets2/css/responsive.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  {{-- <link rel="stylesheet" href="{{ asset('assets3/css/main.css') }}" /> --}}
-  <link rel="stylesheet" href="{{ asset('assets3/css/tailwind.css') }}" />
+
+  
+  
+  
 
   @yield('linkCss')
 
-  <script type="text/javascript">
-    (function () {
-        Translator.locale = "fr";
-        moment.locale("fr");
-    })();
-</script>
-
 </head>
 
-<body class="locale_fr ">
+<body  style="background: transparent">
 

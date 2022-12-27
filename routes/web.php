@@ -20,6 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/autocomplete',[App\Http\Controllers\HomeController::class, 'autocompletion'])->name('autocomplete');
+
+Route::get('/autocompletion',[App\Http\Controllers\HomeController::class, 'autocomplete'])->name('autocompletion');
+
+Route::get('/recherche2',[App\Http\Controllers\HomeController::class, 'recherche2'])->name('recherche2');
+
 Route::get('/recherche',[App\Http\Controllers\HomeController::class, 'recherche'])->name('recherche');
 
 Route::get('/contact',[App\Http\Controllers\ContactUsController::class, 'contactUs'])->name('contact');
@@ -54,7 +60,7 @@ Route::get('profile',[App\Http\Controllers\AuthController::class,'userProfile'])
 
 Route::get('UserEdit',[App\Http\Controllers\AuthController::class,'userEdit'])->name('user.edit');
 Route::put('UserUpdate/{id}/update',[App\Http\Controllers\AuthController::class,'userUpdate'])->name('user.update');
-Route::post('logout',[App\Http\Controllers\AuthController::class,'logout'])->name('logout');
+Route::get('logout',[App\Http\Controllers\AuthController::class,'logout'])->name('logout');
 Route::post('users',[App\Http\Controllers\AuthController::class,'registerUser'])->name('registerUser');
 //=======
 Route::post('/entreprise/{id}',[App\Http\Controllers\AvisController::class, 'avis'])->name('entreprise-avis');

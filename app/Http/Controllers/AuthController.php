@@ -89,15 +89,15 @@ class AuthController extends Controller
             'mdp' => 'required'
         ]);
 
-        if (\App\Models\User::where('email', $login)->count() > 0) {
-            if (Auth::attempt(['email' => $login, 'password' => $request->mdp])) {
+        if (\App\Models\User::where('email', $login)->count() >0) {
+            if (Auth::attempt(['email' => $login, 'mdp' => $request->mdp])) {
                 return redirect()->route('user.profile');
                 //return 'Connexion reussi avec success';
             } else {
-                return redirect()->back()->with('success', "Vos identifiants ne correspondent pas !!!");
+                return redirect()->back()->with('success', "Vos identifiants ne correspondent pas !!!1");
             }
         } else {
-            return redirect()->back()->with('success', "Vos identifiants ne correspondent pas !!!");
+            return redirect()->back()->with('success', "Vos identifiants ne correspondent pas !!!2");
         }
     }
 
