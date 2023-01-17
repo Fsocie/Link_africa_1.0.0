@@ -3,7 +3,7 @@
 @endsection
 @include('frontend.header')
 @include('frontend.navbar')
-
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <style>
   body{
     background: white !important
@@ -255,100 +255,88 @@
 </div>
 
 
+<div class="title">
+    <h1 style="color:#003366">ILS NOUS ONT REJOINT</h1>
+</div>
 <div class="container">
     <div class=" property_rent wow fadeInUp">
         <div class="container">
             <style>
                 @media (max-width: 767px) {
-                    .carousel-inner .carousel-item>div {
-                        display: none;
+                    .carousel-inner.pro .carousel-item.pro>div {
+                        display: none
                     }
-            
-                    .carousel-inner .carousel-item>div:first-child {
-                        display: block;
+
+                    .carousel-inner.pro .carousel-item.pro>div:first-child {
+                        display: block
                     }
                 }
-            
-                .carousel-inner .carousel-item.active,
-                .carousel-inner .carousel-item-next,
-                .carousel-inner .carousel-item-prev {
-                    display: flex;
+
+                .carousel-inner.pro .carousel-item.active.pro,
+                .carousel-inner.pro .carousel-item-next,
+                .carousel-inner.pro .carousel-item-prev {
+                    display: flex
                 }
-            
-                /* medium and up screens */
+
                 @media (min-width: 768px) {
-            
-                    .carousel-inner .carousel-item-end.active,
-                    .carousel-inner .carousel-item-next {
-                        transform: translateX(25%);
+
+                    .carousel-inner.pro .carousel-item-end.active,
+                    .carousel-inner.pro .carousel-item-next {
+                        transform: translateX(25%)
                     }
-            
-                    .carousel-inner .carousel-item-start.active,
-                    .carousel-inner .carousel-item-prev {
-                        transform: translateX(-25%);
+
+                    .carousel-inner.pro .carousel-item-start.active,
+                    .carousel-inner.pro .carousel-item-prev {
+                        transform: translateX(-25%)
                     }
                 }
-            
-                .carousel-inner .carousel-item-end,
-                .carousel-inner .carousel-item-start {
-                    transform: translateX(0);
+
+                .carousel-inner.pro .carousel-item-end,
+                .carousel-inner.pro .carousel-item-start {
+                    transform: translateX(0)
                 }
             </style>
             <div class="container text-center my-3">
-                <h2 class="font-weight-light" style="color:#003366">ILS NOUS ONT REJOINT</h2>
                 <div class="row mx-auto my-auto justify-content-center">
-                    <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active">
+                    <div id="recipeCarousel" class="carousel slide pro" data-bs-ride="carousel">
+                        <br />
+                        <div class="carousel-inner pro" role="listbox">
+                            <div class="carousel-item active pro">
                                 <div class="col-md-3">
                                     <div class="card">
-                                        <div class="card-img">
-                                            <a href="#">
-                                                <img src="{{  asset('assets/images/EntrepriseImages/default.png') }}"
-                                                    class="img-fluid" style="height: 300px; height: 300px;">
-                                            </a>
-                                        </div>
+                                        <div class="card-img"> <img src="{{  asset('default.png') }}" class="img-fluid"
+                                                style="width: 300px; height: 200px;"> </div>
                                     </div>
                                 </div>
                             </div>
                             @foreach ($rejoins as $rejoin)
-                            @if ($rejoin->est_souscrit == 1)
-                            <div class="carousel-item">
+                            <div class="carousel-item pro">
                                 <div class="col-md-3">
                                     <div class="card">
-                                        <div class="card-img">
-                                            @if ($rejoin->photo)
-                                            <a href="{{ route('profil-entreprise',['entreprise_id'=>$rejoin->id]) }}">
-                                                <img src="https://admin.showroomafrica.com/assets/{{ $rejoin->photo }}" class="img-fluid" style="width: 300px; height: 300px;">
-                                            </a>
-                                            @else
-                                            <a href="{{ route('profil-entreprise',['entreprise_id'=>$rejoin->id]) }}">
-                                                <img src="{{  asset('assets/images/EntrepriseImages/default.png') }}"
-                                                    class="img-fluid">
-                                            </a>
-                                            @endif
-                                        </div>
+                                        @if ($rejoin->photo)
+                                        <div class="card-img"> <img
+                                                src="https://admin.showroomafrica.com/assets/{{ $rejoin->photo }}"
+                                                class="img-fluid" style="width: 300px; height: 200px;"> </div>
+                                        @else
+                                        <div class="card-img"> <img src="{{  asset('default.png') }}" class="img-fluid"
+                                                style="width: 300px; height: 200px;"> </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
-                            @endif
                             @endforeach
-                        </div>
-                        <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        </a>
-                        <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        </a>
+                        </div> <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel"
+                            role="button" data-bs-slide="prev"> <span class="carousel-control-prev-icon"
+                                aria-hidden="true"></span> </a> <a class="carousel-control-next bg-transparent w-aut"
+                            href="#recipeCarousel" role="button" data-bs-slide="next"> <span
+                                class="carousel-control-next-icon" aria-hidden="true"></span> </a>
                     </div>
                 </div>
             </div>
-            
+
             <script>
-                let items = document.querySelectorAll('.carousel .carousel-item')
-            
+                let items = document.querySelectorAll('.carousel.pro .carousel-item.pro')
+
                 items.forEach((el) => {
                     const minPerSlide = 4
                     let next = el.nextElementSibling
@@ -362,11 +350,12 @@
                         next = next.nextElementSibling
                     }
                 })
-            
             </script>
         </div>
+        <br />
     </div>
 </div>
+
 
 <div class="title">
     <h1 style="color:#003366">MINI-SPOT</h1>
@@ -382,6 +371,7 @@
                         <source src="{{ asset('assets/videos') }}/{{$minispot->video}}" type="video/mp4">
                     </video>
                     {{-- <div class="popular_img_text"><a href="#">Tout découvrir</a></div> --}}
+                    <br />
                 </div>
             </div>
             @endforeach
@@ -417,15 +407,12 @@
             <li class="col-lg-4">
                 <div class="property_box wow fadeInUp">
                     @if ($entrepriseHonneurs->photo)
-                    <div class="propertyImg"><img alt="" src="{{  asset('assets/images') }}/{{ $entrepriseHonneurs->photo }}"></div>
+                    <div class="propertyImg"><img alt="" src="{{  asset('assets/images') }}/{{ $entrepriseHonneurs->photo }}"
+                        style="width: 300px; height: 300px;"></div>
                     @else
-                    <div class="propertyImg"><img alt="" src="{{ asset('default.png') }}"></div>
+                    <div class="propertyImg"><img alt="" src="{{ asset('default.png') }}"
+                        style="width: 300px; height: 300px;"></div>
                     @endif
-                    <h3><a href="{{ route('profil-entreprise',['entreprise_id'=>$entrepriseHonneurs->id]) }}">{{
-                            $entrepriseHonneurs->nom }}</a></h3>
-                    <div class="propert_info">
-                        {{ $entrepriseHonneurs->description_entreprise }}
-                    </div>
                     <div class="rent_info">
                         <div class="apart"><a
                                 href="{{ route('profil-entreprise',['entreprise_id'=>$entrepriseHonneurs->id]) }}">Découvrir</a>
@@ -527,17 +514,15 @@
             <ul class="row">
                 @foreach ($entrepriseElu as $entrepriseElus)
                 <li class="col-lg-4">
-                    <div class="property_box wow fadeInUp">
+                    <div class="property_box wow fadeInUp" style="border-radius: 1em">
                         @if ($entrepriseElus->photo)
-                        <div class="propertyImg"><img alt="" src="{{  asset('assets/images') }}/{{ $entrepriseElus->photo }}"></div>
+                        <div class="propertyImg"><img alt="" src="{{  asset('assets/images') }}/{{ $entrepriseElus->photo }}"
+                            style="width: 300px; height: 300px; border-radius: 1em" ></div>
                         @else
-                        <div class="propertyImg"><img alt="" src="{{ asset('default.png') }}"></div>
+                        <div class="propertyImg"><img alt="" src="{{ asset('default.png') }}"
+                            style="width: 300px; height: 300px;"></div>
                         @endif
-                        <h3><a href="{{ route('profil-entreprise',['entreprise_id'=>$entrepriseElus->id]) }}">{{
-                                $entrepriseElus->nom }}</a></h3>
-                        <div class="propert_info">
-                            {{ $entrepriseElus->description_entreprise }}
-                        </div>
+                        
                         <div class="rent_info">
                             <div class="apart"><a
                                     href="{{ route('profil-entreprise',['entreprise_id'=>$entrepriseElus->id]) }}">Découvrir</a>
@@ -646,5 +631,5 @@
         </div>
     </section>
 </div>
-
+<script src="{{ asset('js/app.js') }}"></script>
 @include('frontend.footer')

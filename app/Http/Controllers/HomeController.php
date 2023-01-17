@@ -394,6 +394,7 @@ class HomeController extends Controller
 
         $rejoins = DB::table('entreprises')
             ->select('*')
+            ->where('est_souscrit', '=', 1)
             ->orderBy('id', 'desc')
             ->get();
 

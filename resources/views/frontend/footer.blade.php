@@ -294,6 +294,10 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+
+<script src="{{ asset('assets4/js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('assets4/js/popper.min.js') }}"></script>
+<script src="{{ asset('assets4/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets4/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets4/js/main.js') }}"></script>
 

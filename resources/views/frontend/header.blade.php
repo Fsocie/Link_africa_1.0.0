@@ -19,7 +19,7 @@
   <title>@yield('title') - Showroomafrica</title>
   <link href="{{ asset('assets/style.css') }}" rel="stylesheet">
 
-  <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.1.99/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.1.99/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.0/css/swiper.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
 
@@ -30,6 +30,7 @@
 
   <link rel="stylesheet" href="{{ asset('assets4/fonts/icomoon/style.css') }}">
   <link rel="stylesheet" href="{{ asset('assets4/css/owl.carousel.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets4/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets4/css/style.css') }}">
   <!--assets4 FIN-->
 

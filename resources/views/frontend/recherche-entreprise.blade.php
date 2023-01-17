@@ -227,7 +227,7 @@
                             <div class="carousel-item">
                                 <img src="{{  asset('assets/images') }}/{{ $pub->image }}" class="d-block w-100" alt="">
                             </div>
-                        @endforeach
+                        @endforeach 
                     </div>
                 </div>
         </div>

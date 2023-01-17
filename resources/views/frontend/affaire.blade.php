@@ -16,10 +16,6 @@
                 <br />              
                 <div class="row">
                     <style>
-                        body{
-                            /* background:#f5f5f5; */
-                            margin-top:20px;}
-
                         /* ===== Career ===== */
                         .career-form {
                         background-color: #4e63d7;

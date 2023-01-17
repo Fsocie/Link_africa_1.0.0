@@ -5,6 +5,7 @@
 @include('frontend.navbar')
 
 <link rel="stylesheet" href="{{ asset('assets5/style.css') }}">
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 <style>
     /* .navbar-nav{
     width: 100%;
@@ -24,72 +25,57 @@
     }
     @media (max-width: 767px){
         .comment {
-            margin-left: 0 !important;
             width: 100% !important;
         }
         .comment0 {
             margin-top: -20px !important;
-            margin-left: 0 !important;
             width: 100% !important;
         }
         .comment1 {
-            margin-left: 0 !important;
             width: 100% !important;
         }
         .comment2 {
-            margin-left: 0 !important;
             width: 100% !important;
         }
         .comment3 {
-            margin-left: 0 !important;
             width: 100% !important;
         }
     }
 
     @media screen and (max-width: 990px){
         .comment {
-            margin-left: 0 !important;
             width: 100% !important;
         }
         .comment0 {
             margin-top: -20px !important;
-            margin-left: 0 !important;
             width: 100% !important;
         }
         .comment1 {
-            margin-left: 0 !important;
             width: 100% !important;
         }
         .comment2 {
-            margin-left: 0 !important;
             width: 100% !important;
         }
         .comment3 {
-            margin-left: 0 !important;
             width: 100% !important;
         }
     }
 
     @media screen and (max-width: 480px){
         .comment {
-            margin-left: 0 !important;
             width: 100% !important;
         }
         .comment0 {
             margin-top: -20px !important;
-            margin-left: 0 !important;
             width: 100% !important;
         }
         .comment1 {
-            margin-left: 0 !important;
             width: 100% !important;
         }
         .comment2 {
-            margin-left: 0 !important;
             width: 100% !important;
         }
         .comment3 {
-            margin-left: 0 !important;
             width: 100% !important;
         }
     }
@@ -104,7 +90,7 @@
         color: black;
         border-width: 1px;
         border-style: solid;
-        border-radius: 13px;
+        border-radius: 1em;
     }
 
     #profile {
@@ -158,45 +144,45 @@
         border: 1px solid #ecb21f;
         background-color: black;
         float: right;
-        border-radius: 5px;
+        border-radius: 1em;
         padding-left: 40px;
         padding-right: 30px;
         padding-top: 10px;
     }
 
     .comment0 {
-        border: 1px solid #0b3c5d;
-        border-radius: 5px;
+        border: 1px solid #073465;
+        border-radius: 1em;
         width: 1200px;
         height: 250px;
-        border-color: #0b3c5d
+        border-color: #073465
     }
 
     .comment {
         border: 1px solid #EEF2F6;
         background-color: white;
         float: left;
-        border-radius: 5px;
+        border-radius: 1em;
         padding-left: 40px;
         padding-right: 30px;
         padding-top: 10px;
         width: 650px;
         height: 200px auto;
         border-width: 1px 1px 1px 12px;
-        border-color: #0b3c5d
+        border-color: #073465
     }
 
     .comment1 {
-        border: 1px solid #0b3c5d;
+        border: 1px solid #073465;
         background-color: white;
-        border-radius: 5px;
+        border-radius: 1em;
         padding-left: 40px;
         padding-right: 30px;
         padding-top: 10px;
         width: 1200px;
         height: 250px auto;
         border-width: 1px 1px 1px 12px;
-        border-color: #0b3c5d
+        border-color: #073465
     }
 
     .comment h4,
@@ -218,7 +204,7 @@
     .comment i,
     .comment span,
     a {
-        color: #0b3c5d
+        color: #073465
     }
 
     h1,
@@ -252,14 +238,14 @@
     .form-group input,
     .form-group textarea {
         background-color: black;
-        border: 1px solid #0b3c5d;
+        border: 1px solid #073465;
         border-radius: 12px;
     }
 
     form {
-        border: 1px solid #0b3c5d;
-        background-color: #0b3c5d;
-        border-radius: 5px;
+        border: 1px solid #073465;
+        background-color: #073465;
+        border-radius: 1em;
         padding: 20px;
     }
 </style>
@@ -276,23 +262,23 @@
                             <img src="{{ asset('assets/images/22.jpg') }}" class="block w-full"
                                 alt="Motorbike Smoke" style="height: 250px; width: 100%;"/>
                             <div class="carousel-caption hidden md:block absolute text-center">
-                                <h5 class="text-xl">First slide label</h5>
-                                <p>Some representative placeholder content for the first slide.</p>
+                                <h5 class="text-xl"></h5>
+                                <p></p>
                             </div>
                         </div>
-                
                         <!-- Single item -->
                         <div class="carousel-item relative float-left w-full">
                             <img src="{{ asset('assets/images/23.jpg') }}" class="block w-full"
                                 alt="Mountaintop" style="height: 250px; width: 100%;"/>
                             <div class="carousel-caption hidden md:block absolute text-center">
-                                <h5 class="text-xl">Second slide label</h5>
-                                <p>Some representative placeholder content for the second slide.</p>
+                                <h5 class="text-xl"></h5>
+                                <p></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <br />
             <div class="comment1">
                 @foreach ($Profil_entreprises as $Profil_entreprise)
                 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:white !important;">
@@ -307,27 +293,27 @@
                             <ul class="navbar-nav">
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="#coordonnee"
-                                        style="color: #0b3c5d !important; font-weight: bold;"><i
+                                        style="color: #073465 !important; font-weight: bold;"><i
                                             class="fa fa-phone mr-4 no-underline hover:no-underline text-gray-600"
-                                            style="color: #0b3c5d !important; font-weight: bold;"></i>Coordonnés</a>
+                                            style="color: #073465 !important; font-weight: bold;"></i>Coordonnés</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#service"
-                                        style="color: #0b3c5d !important; font-weight: bold;"><i
+                                        style="color: #073465 !important; font-weight: bold;"><i
                                             class="fa fa-shopping-cart mr-4 no-underline hover:no-underline text-gray-600"
-                                            style="color: #0b3c5d !important; font-weight: bold;"></i>Services</a>
+                                            style="color: #073465 !important; font-weight: bold;"></i>Services</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#horaire"
-                                        style="color: #0b3c5d !important; font-weight: bold;"><i
+                                        style="color: #073465 !important; font-weight: bold;"><i
                                             class="fa fa-clock-o mr-4 no-underline hover:no-underline text-gray-600"
-                                            style="color: #0b3c5d !important; font-weight: bold;"></i>Horaires</a>
+                                            style="color: #073465 !important; font-weight: bold;"></i>Horaires</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#avis"
-                                        style="color: #0b3c5d !important; font-weight: bold;"><i
+                                        style="color: #073465 !important; font-weight: bold;"><i
                                             class="fa fa-star mr-4 no-underline hover:no-underline text-gray-600"
-                                            style="color: #0b3c5d !important; font-weight: bold;"></i>Avis</a>
+                                            style="color: #073465 !important; font-weight: bold;"></i>Avis</a>
                                 </li>
                             </ul>
                         </div>
@@ -344,7 +330,7 @@
                 <img src="{{ asset('default.png') }}" alt="" class="rounded-circle" width="80" height="80">
                 @endif
                 <h4> {{ $Profil_entreprise->nom }}</h4>
-                <span style="color: #0b3c5d">{{ $Profil_entreprise->libelle }}</span>
+                <span style="color: #073465">{{ $Profil_entreprise->libelle }}</span>
                 <samp style="margin-left: 87%; font-size: 22px; font-weight: bold">{{ $Profil_entreprise->vue }} Vue
                     (s)</samp>
                 @endforeach
@@ -407,14 +393,7 @@
                                             class="fas fa-phone"></i></span>
                                     <p>{{ $Profil_entreprise->telephone2 }}</p>
                                 </a></div>
-                            @else
-                            <div class="col-md-6"><span><i class="fas fa-map-marker-alt"></i></span>
-                                <p>{{ $Profil_entreprise->adresse }}</p>
-                            </div>
-                            <div class="col-md-6"><a href="tel:{{ $Profil_entreprise->telephone }}"><span><i
-                                            class="fas fa-phone"></i></span>
-                                    <p>{{ $Profil_entreprise->telephone }}</p>
-                                </a></div>
+                            
                             @endif
 
                             
@@ -466,26 +445,97 @@
                             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15865.701238777434!2d1.1834649!3d6.2074975!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x13525f005439bec7!2sShowroom%20Africa!5e0!3m2!1sfr!2stg!4v1671102033967!5m2!1sfr!2stg" width="560" height="300" style="border:0; width: 600px auto; height: 200px auto;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
-                    <div class="row" id="service">
+                    <div class="row" id="service">    
                         <div class="comment mt-4 text-justify float-left property_wrap wow fadeInUp">
                             <h4> Service </h4>
                             <br />
-
-                            <div class="row owl-2-style">
-                                <div class="owl-carousel owl-2">
-                                    @foreach ($service_images as $service_image)
-                                    <div class="media-29101">
-                                        @if ($service_image->service_image)
-                                        <img src="{{  asset('assets/images/EntrepriseImages') }}/{{ $service_image->service_image }}"
-                                            alt="Image" class="img-fluid" style="width: 150px; height: 150px;">
-                                        @else
-                                        <img src="{{  asset('assets/images/EntrepriseImages/default.png') }}" alt="Image"
-                                            class="img-fluid" style="width: 150px; height: 150px; ">
-                                        @endif
+                            <style>
+                                @media (max-width: 767px) {
+                                    .carousel-inner.pro .carousel-item.pro>div {
+                                        display: none
+                                    }
+                            
+                                    .carousel-inner.pro .carousel-item.pro>div:first-child {
+                                        display: block
+                                    }
+                                }
+                            
+                                .carousel-inner.pro .carousel-item.active.pro,
+                                .carousel-inner.pro .carousel-item-next,
+                                .carousel-inner.pro .carousel-item-prev {
+                                    display: flex
+                                }
+                            
+                                @media (min-width: 768px) {
+                            
+                                    .carousel-inner.pro .carousel-item-end.active,
+                                    .carousel-inner.pro .carousel-item-next {
+                                        transform: translateX(25%)
+                                    }
+                            
+                                    .carousel-inner.pro .carousel-item-start.active,
+                                    .carousel-inner.pro .carousel-item-prev {
+                                        transform: translateX(-25%)
+                                    }
+                                }
+                            
+                                .carousel-inner.pro .carousel-item-end,
+                                .carousel-inner.pro .carousel-item-start {
+                                    transform: translateX(0)
+                                }
+                            </style>
+                            <div class="container text-center my-3">
+                                <div class="row mx-auto my-auto justify-content-center">
+                                    <div id="recipeCarousel" class="carousel slide pro" data-bs-ride="carousel">
+                                        <div class="carousel-inner pro" role="listbox">
+                                            <div class="carousel-item active pro">
+                                                <div class="col-md-3">
+                                                    <div class="card">
+                                                        <div class="card-img"> <img src="{{  asset('assets/images/EntrepriseImages/default.png') }}"
+                                                            class="img-fluid" style="width: 200px; height: 150px;"> </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @foreach ($service_images as $service_image)
+                                                <div class="carousel-item pro">
+                                                    <div class="col-md-3">
+                                                        <div class="card">
+                                                            @if ($service_image->service_image)
+                                                                <div class="card-img"> <img src="https://admin.showroomafrica.com/assets/{{ $service_image->service_image }}"
+                                                                class="img-fluid" style="width: 200px; height: 150px;"> </div>
+                                                            @else
+                                                                <div class="card-img"> <img src="{{  asset('assets/images/EntrepriseImages/default.png') }}"
+                                                                    class="img-fluid" style="width: 200px; height: 150px;"> </div>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div> <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button"
+                                            data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> </a> <a
+                                            class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button"
+                                            data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> </a>
                                     </div>
-                                    @endforeach
                                 </div>
                             </div>
+                            
+                            <script>
+                                let items = document.querySelectorAll('.carousel.pro .carousel-item.pro')
+                            
+                                items.forEach((el) => {
+                                    const minPerSlide = 4
+                                    let next = el.nextElementSibling
+                                    for (var i = 1; i < minPerSlide; i++) {
+                                        if (!next) {
+                                            // wrap carousel by using first child
+                                            next = items[0]
+                                        }
+                                        let cloneChild = next.cloneNode(true)
+                                        el.appendChild(cloneChild.children[0])
+                                        next = next.nextElementSibling
+                                    }
+                                })
+                            </script>
                             <br />
                         </div>
                     </div>
@@ -638,5 +688,5 @@
         </div>
     </div>
 </section>
-
+<script src="{{ asset('js/app.js') }}"></script>
 @include('frontend.footer')

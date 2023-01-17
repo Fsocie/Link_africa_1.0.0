@@ -11,8 +11,8 @@
 			style=""></iframe>
 	</div>
     @if(Session::has('success'))
-            <div class="alert alert-success" role="alert">{{Session::get('success') }}</div>
-        @endif
+        <div class="alert alert-success" role="alert">{{Session::get('success') }}</div>
+    @endif
 	<form action="{{ route('contact.store') }}" method="POST" class="container px-5 py-24 mx-auto flex">
 		@csrf
 		<div
