@@ -405,13 +405,13 @@
         <ul class="row">
             @foreach ($entrepriseHonneur as $entrepriseHonneurs)
             <li class="col-lg-4">
-                <div class="property_box wow fadeInUp">
+                <div class="property_box wow fadeInUp" style="border-radius: 1em">
                     @if ($entrepriseHonneurs->photo)
                     <div class="propertyImg"><img alt="" src="{{  asset('assets/images') }}/{{ $entrepriseHonneurs->photo }}"
-                        style="width: 300px; height: 300px;"></div>
+                        style="width: 300px; height: 300px; border-radius: 1em"></div>
                     @else
                     <div class="propertyImg"><img alt="" src="{{ asset('default.png') }}"
-                        style="width: 300px; height: 300px;"></div>
+                        style="width: 300px; height: 300px; border-radius: 1em"></div>
                     @endif
                     <div class="rent_info">
                         <div class="apart"><a
